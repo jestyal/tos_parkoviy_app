@@ -10,7 +10,7 @@ class SplashScreenPage extends StatelessWidget {
       navigateAfterSeconds: new HomeScreen(),
       backgroundColor: Color.fromARGB(255, 157, 233, 159),
       title: new Text(
-        'Добро пожаловать в приложение ТОС "Парковый"',
+        'Добро пожаловать в приложение ТОС "Парковый"', textAlign: TextAlign.center,
         textScaleFactor: 2,
       ),
       image: new Image.network('https://images.app.goo.gl/gj2DscmNumpFqZEg9'),
