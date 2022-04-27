@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
+import 'main.dart';
+
 class CardDetails extends StatefulWidget {
   const CardDetails({Key? key}) : super(key: key);
 
@@ -13,16 +15,14 @@ class _CardDetailsState extends State<CardDetails> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          //TODO: передать аргументы
           title: Text('Название карточки'),
           centerTitle: true,
           actions: <Widget>[
             IconButton(
-              icon: Icon(
-                Icons.home,
-                size: 30,
-              ),
+              icon: Icon(Icons.home,size: 30,),
               onPressed: () {
-                // возвращение на домашнюю страницу
+                Navigator.pushNamed(context, MyApp.homeRoute);
               },
             ),
           ],
@@ -77,9 +77,11 @@ class _CardDetailsState extends State<CardDetails> {
             ElevatedButton(
               // style: ButtonStyle(),
               onPressed: () {
+                //TODO: передать аргументы
+                Navigator.pushNamed(context, MyApp.cardMapRoute);
                 // при нажатии на кнопку переход на следующий экран
               },
-              child: Text('Развернуть карту'),
+              child: const Text('Развернуть карту'),
             ),
           ]),
         ));

@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:tos_parkoviy_app/main.dart';
 
 class CatalogList extends StatefulWidget {
-  const CatalogList({Key? key, required this.title}) : super(key: key);
-
   final String title;
+  const CatalogList({Key? key, required this.title}) : super(key: key);
 
   @override
   _CatalogListState createState() => _CatalogListState();
 }
 
 class _CatalogListState extends State<CatalogList> {
-
   // TODO: будет загрузка данных
   List listOfPlaces = [
     'Дом 1',
@@ -37,19 +36,13 @@ class _CatalogListState extends State<CatalogList> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.white),
-          onPressed: () => Navigator.of(context).pop(),
-          //  TODO: сделать событие нажатия на кнопу назад
-        ),
         title: Text(widget.title),
-        //  TODO: должно передавться название раздела
         centerTitle: true,
         actions: <Widget>[
           IconButton(
             icon: const Icon(Icons.home, size: 30),
             onPressed: () {
-              // TODO: сделать событие нажатия на кнопку домой
+              Navigator.pushNamed(context, MyApp.homeRoute);
             },
           ),
         ],
@@ -122,13 +115,14 @@ class _CatalogListState extends State<CatalogList> {
                   ),
                 ],
               ),
-              // TODO: сделать переход по нажатию
-              // onTap: () => {
-              //       onSelectedPlaces!(listOfPlaces[index]),
-              //       onSelectedPlacesDescription!(
-              //           listOfPlacesDescription[index]),
-              //       onSelectedPlacesImages!(listOfPlacesImages[index]),
-              //     }
+              onTap: () => {
+                // TODO: передать аргументы
+                Navigator.pushNamed(context, MyApp.cardDetailsRoute)
+                    // onSelectedPlaces!(listOfPlaces[index]),
+                    // onSelectedPlacesDescription!(
+                    //     listOfPlacesDescription[index]),
+                    // onSelectedPlacesImages!(listOfPlacesImages[index]),
+              }
           );
         },
       ),

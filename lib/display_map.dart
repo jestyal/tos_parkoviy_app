@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
+import 'main.dart';
+
 class DisplayMap extends StatelessWidget {
   const DisplayMap({Key? key}) : super(key: key);
 
@@ -8,6 +10,7 @@ class DisplayMap extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          //TODO: передать аргумент
           title: Text('Название карточки'),
           centerTitle: true,
           actions: <Widget>[
@@ -17,7 +20,7 @@ class DisplayMap extends StatelessWidget {
                 size: 30,
               ),
               onPressed: () {
-                // возвращение на домашнюю страницу
+                Navigator.pushNamed(context, MyApp.homeRoute);
               },
             ),
           ],

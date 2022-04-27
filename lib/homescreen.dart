@@ -1,27 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:project1/constants.dart';
-import 'package:project1/category.dart';
+import 'constants.dart';
 
-void main() => runApp(const MyApp());
-
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Список',
-      theme: ThemeData(
-        fontFamily: "Nunito",
-        scaffoldBackgroundColor: kBackgroundColor,
-        textTheme: Theme.of(context).textTheme.apply(displayColor: kTextColor),
-      ),
-      home: const HomeScreen(),
-    );
-  }
-}
+// void main() => runApp(const MyApp());
+//
+// class MyApp extends StatelessWidget {
+//   const MyApp({Key? key}) : super(key: key);
+//
+//   // This widget is the root of your application.
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       debugShowCheckedModeBanner: false,
+//       title: 'Список',
+//       theme: ThemeData(
+//         fontFamily: "Nunito",
+//         scaffoldBackgroundColor: kBackgroundColor,
+//         textTheme: Theme.of(context).textTheme.apply(displayColor: kTextColor),
+//       ),
+//       home: const HomeScreen(),
+//     );
+//   }
+// }
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -156,7 +155,9 @@ class CategoryCard extends StatelessWidget {
         child: Material(
           color: Colors.transparent,
           child: InkWell(
-            onTap: () {},
+            onTap: () => {
+              Navigator.pushNamed(context, '/catalog', arguments: title)
+            },
             child: Padding(
               padding: const EdgeInsets.all(20.0),
               child: Column(
@@ -164,7 +165,7 @@ class CategoryCard extends StatelessWidget {
                   const Spacer(),
                   const Spacer(),
                   Text(
-                    "YYYYY",
+                    title,
                     textAlign: TextAlign.center,
                     style: Theme.of(context)
                         .textTheme

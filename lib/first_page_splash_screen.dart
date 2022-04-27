@@ -3,6 +3,8 @@ import 'package:splashscreen/splashscreen.dart';
 import 'homescreen.dart';
 
 class SplashScreenPage extends StatelessWidget {
+  const SplashScreenPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return SplashScreen(
