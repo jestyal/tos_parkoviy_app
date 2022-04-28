@@ -6,7 +6,9 @@ import 'package:tos_parkoviy_app/homescreen.dart';
 import 'constants.dart';
 import 'first_page_splash_screen.dart';
 
-void main() {runApp(const MyApp());}
+void main() {
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -30,15 +32,13 @@ class MyApp extends StatelessWidget {
       onGenerateRoute: (settings) {
         if (settings.name == homeRoute) {
           return MaterialPageRoute(builder: (context) => const HomeScreen());
-        }
-        else if (settings.name == catalogRoute) {
+        } else if (settings.name == catalogRoute) {
           var title = settings.arguments;
-          return MaterialPageRoute(builder: (context) => CatalogList(title: '$title'));
-        }
-        else if (settings.name == cardDetailsRoute) {
+          return MaterialPageRoute(
+              builder: (context) => CatalogList(title: '$title'));
+        } else if (settings.name == cardDetailsRoute) {
           return MaterialPageRoute(builder: (context) => const CardDetails());
-        }
-        else if (settings.name == cardMapRoute) {
+        } else if (settings.name == cardMapRoute) {
           return MaterialPageRoute(builder: (context) => const DisplayMap());
         }
         return null;
