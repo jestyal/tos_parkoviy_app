@@ -1,6 +1,3 @@
-import 'package:flutter/material.dart';
-// import 'package:project1/constants.dart';
-
 class Category {
   final String title;
   final String image;

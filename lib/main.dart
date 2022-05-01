@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:tos_parkoviy_app/card_details.dart';
-import 'package:tos_parkoviy_app/catalog.dart';
-import 'package:tos_parkoviy_app/display_map.dart';
-import 'package:tos_parkoviy_app/homescreen.dart';
-import 'constants.dart';
-import 'first_page_splash_screen.dart';
+import 'package:tos_parkoviy_app/screens/4_card_details.dart';
+import 'package:tos_parkoviy_app/screens/3_catalog.dart';
+import 'package:tos_parkoviy_app/screens/5_display_map.dart';
+import 'package:tos_parkoviy_app/screens/2_homescreen.dart';
+import 'components/constants.dart';
+import 'screens/1_splash_screen.dart';
 
 void main() {
   runApp(const MyApp());

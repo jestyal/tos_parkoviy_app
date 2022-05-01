@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'constants.dart';
+import '../components/constants.dart';
 
 // void main() => runApp(const MyApp());
 //
@@ -155,9 +155,8 @@ class CategoryCard extends StatelessWidget {
         child: Material(
           color: Colors.transparent,
           child: InkWell(
-            onTap: () => {
-              Navigator.pushNamed(context, '/catalog', arguments: title)
-            },
+            onTap: () =>
+                {Navigator.pushNamed(context, '/catalog', arguments: title)},
             child: Padding(
               padding: const EdgeInsets.all(20.0),
               child: Column(

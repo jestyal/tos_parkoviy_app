@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:splashscreen/splashscreen.dart';
-import 'homescreen.dart';
+import '2_homescreen.dart';
 
 class SplashScreenPage extends StatelessWidget {
   const SplashScreenPage({Key? key}) : super(key: key);
@@ -12,7 +12,8 @@ class SplashScreenPage extends StatelessWidget {
       navigateAfterSeconds: new HomeScreen(),
       backgroundColor: Color.fromARGB(255, 157, 233, 159),
       title: new Text(
-        'Добро пожаловать в приложение ТОС "Парковый"', textAlign: TextAlign.center,
+        'Добро пожаловать в приложение ТОС "Парковый"',
+        textAlign: TextAlign.center,
         textScaleFactor: 2,
       ),
       image: new Image.network('https://images.app.goo.gl/gj2DscmNumpFqZEg9'),
