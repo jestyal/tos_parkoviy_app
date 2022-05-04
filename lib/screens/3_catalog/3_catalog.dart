@@ -33,9 +33,27 @@ class _CatalogListState extends State<CatalogList> {
 
   static const bgColorHousesAppBar = Color(0xFF178622);
   static const bgColorHouses = Color(0xFF64ae6c);
-  static const bgColorEvents = Color(0xFFf18825);
-  static const bgColorOrganizations = Color(0xFFd60000);
-  static const bgColorPlaces = Color(0xFF003a5a);
+  static const bgColorEventsAppBar = Color(0xFFf18825);
+  static const bgColorEvents = Color(0xFFf5ac67);
+  static const bgColorOrganizationsAppBar = Color(0xFFd60000);
+  static const bgColorOrganizations = Color(0xFFe24d4d);
+  static const bgColorPlacesAppBar = Color(0xFF003a5a);
+  static const bgColorPlaces = Color(0xFF4d758c);
+
+
+  getColorAppBar(String title) {
+    if (title == "Дома") {
+      return bgColorHousesAppBar;
+    } else if (title == "Организации") {
+      return bgColorOrganizationsAppBar;
+    } else if (title == "Пространства") {
+      return bgColorPlacesAppBar;
+    } else if (title == "Мероприятия") {
+      return bgColorEventsAppBar;
+    } else {
+      return bgColorHousesAppBar;
+    }
+  }
 
   final cityController = TextEditingController();
 
@@ -44,13 +62,14 @@ class _CatalogListState extends State<CatalogList> {
     super.initState();
   }
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
         centerTitle: true,
-        backgroundColor: bgColorHousesAppBar,
+        backgroundColor: getColorAppBar(widget.title),
       ),
       resizeToAvoidBottomInset: false,
       body: SizedBox(
@@ -72,7 +91,7 @@ class _CatalogListState extends State<CatalogList> {
                       left: 5, top: 5, right: 5, bottom: 00),
                   height: 50,
                   decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.9),
+                    color: Colors.white,
                     boxShadow: [
                       BoxShadow(
                         color: Colors.black.withOpacity(0.1),
@@ -115,7 +134,7 @@ class _CatalogListState extends State<CatalogList> {
                         child: Container(
                           margin: const EdgeInsets.only(bottom: 15),
                           decoration: BoxDecoration(
-                            color: Colors.white.withOpacity(0.9),
+                            color: Colors.white,
                             borderRadius:
                                 const BorderRadius.all(Radius.circular(10)),
                             boxShadow: [
