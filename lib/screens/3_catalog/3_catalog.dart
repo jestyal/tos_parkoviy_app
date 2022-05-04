@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tos_parkoviy_app/main.dart';
+import 'package:tos_parkoviy_app/components/constants.dart';
 
 class CatalogList extends StatefulWidget {
   final String title;
@@ -31,16 +32,6 @@ class _CatalogListState extends State<CatalogList> {
     'assets/images/place3.jpg',
   ];
 
-  static const bgColorHousesAppBar = Color(0xFF178622);
-  static const bgColorHouses = Color(0xFF64ae6c);
-  static const bgColorEventsAppBar = Color(0xFFf18825);
-  static const bgColorEvents = Color(0xFFf5ac67);
-  static const bgColorOrganizationsAppBar = Color(0xFFd60000);
-  static const bgColorOrganizations = Color(0xFFe24d4d);
-  static const bgColorPlacesAppBar = Color(0xFF003a5a);
-  static const bgColorPlaces = Color(0xFF4d758c);
-
-
   getColorAppBar(String title) {
     if (title == "Дома") {
       return bgColorHousesAppBar;
@@ -61,7 +52,6 @@ class _CatalogListState extends State<CatalogList> {
   void initState() {
     super.initState();
   }
-
 
   @override
   Widget build(BuildContext context) {

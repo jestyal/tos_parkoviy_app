@@ -88,15 +88,9 @@ class _CardDetailsState extends State<CardDetails> {
               height: 10,
             ),
             Container(
-                height: 200,
-                padding: EdgeInsets.all(10.0),
-                child: GoogleMap(
-                    markers: Set.from(_markers),
-                    initialCameraPosition: CameraPosition(
-                      target: LatLng(54.195340, 37.620309),
-                      zoom: 14,
-                      // установить маркер в точку с адресом, внутри target координаты адреса (?)
-                    ))),
+              height: 200,
+              padding: EdgeInsets.all(10.0),
+            ),
             ElevatedButton(
               // style: ButtonStyle(),
               onPressed: () {
