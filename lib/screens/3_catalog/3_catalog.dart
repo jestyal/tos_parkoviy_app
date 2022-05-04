@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tos_parkoviy_app/main.dart';
 
@@ -18,22 +19,23 @@ class CatalogList extends StatefulWidget {
 
 class _CatalogListState extends State<CatalogList> {
   // TODO: будет загрузка данных
-  List listOfPlaces = ['Номер дома', 'Дом 2', 'Дом 3'];
+  List listOfPlaces = ['1', '2', '3'];
   List listOfPlacesDescription = [
-    'Год постройки и тип постройки',
+    'Название улицы',
     'Какая-то инфа 222222222',
     'Какая-то инфа 333333333'
   ];
-  List listOfPlacesImages = [
-    'assets/images/place1.jpg',
+  List listOfPlacesHead = [
+    'ФИО старшего по дому',
     'assets/images/place2.jpg',
     'assets/images/place3.jpg',
   ];
 
-  static const bgColorHouses = Color(0xFFa6c515);
-  static const bgColorEvents = Color(0xFFf28824);
-  static const bgColorOrganizations = Color(0xFFd61315);
-  static const bgColorPlaces = Color(0xFF174aad);
+  static const bgColorHousesAppBar = Color(0xFF178622);
+  static const bgColorHouses = Color(0xFF64ae6c);
+  static const bgColorEvents = Color(0xFFf18825);
+  static const bgColorOrganizations = Color(0xFFd60000);
+  static const bgColorPlaces = Color(0xFF003a5a);
 
   final cityController = TextEditingController();
 
@@ -48,15 +50,7 @@ class _CatalogListState extends State<CatalogList> {
       appBar: AppBar(
         title: Text(widget.title),
         centerTitle: true,
-        backgroundColor: bgColorHouses,
-        // actions: <Widget>[
-        //   IconButton(
-        //     icon: const Icon(Icons.home, size: 30),
-        //     onPressed: () {
-        //       Navigator.pushNamed(context, MyApp.homeRoute);
-        //     },
-        //   ),
-        // ],
+        backgroundColor: bgColorHousesAppBar,
       ),
       resizeToAvoidBottomInset: false,
       body: SizedBox(
@@ -113,18 +107,17 @@ class _CatalogListState extends State<CatalogList> {
               ),
               Expanded(
                 child: ListView.builder(
-                  padding: const EdgeInsets.only(left: 15, top: 20, right: 15, bottom: 15),
-                  // separatorBuilder: (_, index) => const Divider(),
-                  // TODO: сделать длину позиций
+                  padding: const EdgeInsets.only(
+                      left: 15, top: 20, right: 15, bottom: 15),
                   itemCount: listOfPlaces.length,
-                  // itemCount: 5,
                   itemBuilder: (_, index) {
                     return GestureDetector(
                         child: Container(
                           margin: const EdgeInsets.only(bottom: 15),
                           decoration: BoxDecoration(
                             color: Colors.white.withOpacity(0.9),
-                            borderRadius: const BorderRadius.all(Radius.circular(10)),
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(10)),
                             boxShadow: [
                               BoxShadow(
                                 color: Colors.black.withOpacity(0.1),
@@ -137,28 +130,59 @@ class _CatalogListState extends State<CatalogList> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Padding(
-                                padding: const EdgeInsets.only(right: 10, left: 20, top: 10, bottom: 10),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Padding(
-                                      padding:
-                                      const EdgeInsets.only(bottom: 10),
-                                      child: Text(
-                                        listOfPlaces[index],
-                                        style: const TextStyle(
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.bold,
+                              Row(
+                                children: [
+                                  Container(
+                                    width: 50,
+                                    height: 50,
+                                    padding: const EdgeInsets.all(2),
+                                    margin: const EdgeInsets.only(
+                                        right: 18, left: 15),
+                                    decoration: const BoxDecoration(
+                                      color: bgColorHouses,
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(10)),
+                                    ),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          listOfPlaces[index],
+                                          textAlign: TextAlign.center,
+                                          style: const TextStyle(
+                                            fontSize: 16,
+                                          ),
                                         ),
-                                      ),
+                                      ],
                                     ),
-                                    Text(
-                                      listOfPlacesDescription[index],
-                                      style: const TextStyle(fontSize: 18),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                        right: 10,
+                                        // left: 20,
+                                        top: 15,
+                                        bottom: 15),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          listOfPlacesDescription[index],
+                                          style: const TextStyle(
+                                            fontSize: 16,
+                                          ),
+                                        ),
+                                        Text(
+                                          listOfPlacesHead[index],
+                                          style: const TextStyle(fontSize: 14),
+                                        ),
+                                      ],
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
                               Column(
                                 children: [
@@ -166,15 +190,11 @@ class _CatalogListState extends State<CatalogList> {
                                     width: 22,
                                     height: 22,
                                     margin: const EdgeInsets.only(right: 20),
-                                    decoration: BoxDecoration(
-                                      color: Colors.black45,
-                                      borderRadius: BorderRadius.circular(50.0),
-                                    ),
                                     child: const Align(
                                       alignment: Alignment.center,
                                       child: Icon(
-                                        Icons.arrow_forward,
-                                        color: Colors.white,
+                                        Icons.arrow_forward_ios,
+                                        color: Colors.black87,
                                         size: 20,
                                       ),
                                     ),
@@ -185,14 +205,14 @@ class _CatalogListState extends State<CatalogList> {
                           ),
                         ),
                         onTap: () => {
-                          // TODO: передать аргументы
-                          Navigator.pushNamed(
-                              context, MyApp.cardDetailsRoute)
-                          // onSelectedPlaces!(listOfPlaces[index]),
-                          // onSelectedPlacesDescription!(
-                          //     listOfPlacesDescription[index]),
-                          // onSelectedPlacesImages!(listOfPlacesImages[index]),
-                        });
+                              // TODO: передать аргументы
+                              Navigator.pushNamed(
+                                  context, MyApp.cardDetailsRoute)
+                              // onSelectedPlaces!(listOfPlaces[index]),
+                              // onSelectedPlacesDescription!(
+                              //     listOfPlacesDescription[index]),
+                              // onSelectedPlacesImages!(listOfPlacesImages[index]),
+                            });
                   },
                 ),
               ),
