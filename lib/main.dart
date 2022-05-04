@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tos_parkoviy_app/screens/4_card_details.dart';
-import 'package:tos_parkoviy_app/screens/3_catalog.dart';
+import 'package:tos_parkoviy_app/screens/4_card_details/4_card_details.dart';
+import 'package:tos_parkoviy_app/screens/3_catalog/3_catalog.dart';
 import 'package:tos_parkoviy_app/screens/5_display_map.dart';
 import 'package:tos_parkoviy_app/screens/2_homescreen.dart';
 import 'components/constants.dart';

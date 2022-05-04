@@ -24,7 +24,7 @@ class _DisplayMapState extends State<DisplayMap> {
   }
 
   Future loadMarkers() async {
-    var jsonData = await rootBundle.loadString('assets/data.json');
+    var jsonData = await rootBundle.loadString('assets/json/coords.json');
     var data = json.decode(jsonData);
 
     data["coords"].forEach((item) {
