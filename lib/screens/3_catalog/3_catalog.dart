@@ -3,6 +3,36 @@ import 'package:flutter/material.dart';
 import 'package:tos_parkoviy_app/main.dart';
 import 'package:tos_parkoviy_app/components/constants.dart';
 
+class CatalogItem {
+  final String title;
+  final String number; //string потому что может быть номер дома 221б например
+  final String description;
+
+  const CatalogItem({
+    required this.title,
+    required this.number,
+    required this.description,
+  });
+}
+
+const CatalogDataList = [
+  CatalogItem(
+    title: 'Название улицы qwe',
+    number: '11',
+    description: 'ФИО старшего по дому',
+  ),
+  CatalogItem(
+    title: 'Название улицы 2',
+    number: '22',
+    description: 'ФИО старшего по дому 2',
+  ),
+  CatalogItem(
+    title: 'Название улицы 33',
+    number: '33',
+    description: 'ФИО старшего по дому 3',
+  ),
+];
+
 class CatalogList extends StatefulWidget {
   final String title;
 
@@ -19,18 +49,7 @@ class CatalogList extends StatefulWidget {
 }
 
 class _CatalogListState extends State<CatalogList> {
-  // TODO: будет загрузка данных
-  List listOfPlaces = ['1', '2', '3'];
-  List listOfPlacesDescription = [
-    'Название улицы',
-    'Какая-то инфа 222222222',
-    'Какая-то инфа 333333333'
-  ];
-  List listOfPlacesHead = [
-    'ФИО старшего по дому',
-    'assets/images/place2.jpg',
-    'assets/images/place3.jpg',
-  ];
+  List<CatalogItem> items = CatalogDataList;
 
   getColorAppBar(String title) {
     if (title == "Дома") {
@@ -46,12 +65,12 @@ class _CatalogListState extends State<CatalogList> {
     }
   }
 
-  final cityController = TextEditingController();
+  final searchController = TextEditingController();
 
-  @override
-  void initState() {
-    super.initState();
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -77,8 +96,7 @@ class _CatalogListState extends State<CatalogList> {
               Align(
                 alignment: Alignment.topCenter,
                 child: Container(
-                  padding: const EdgeInsets.only(
-                      left: 5, top: 5, right: 5, bottom: 00),
+                  padding: const EdgeInsets.only(left: 5, top: 5, right: 5, bottom: 00),
                   height: 50,
                   decoration: BoxDecoration(
                     color: Colors.white,
@@ -91,42 +109,38 @@ class _CatalogListState extends State<CatalogList> {
                       ),
                     ],
                   ),
-                  child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        IconButton(
-                          icon: const Icon(Icons.search),
-                          color: Colors.black45,
-                          onPressed: () {
-                            // widget.parentCallback(cityController.text);
-                          },
-                        ),
-                        Expanded(
-                          child: TextField(
-                            controller: cityController,
-                            decoration: const InputDecoration.collapsed(
-                                hintText: "Поиск"),
-                            // onSubmitted: (String city) =>
-                            //     {widget.parentCallback(city)}
-                          ),
-                        ),
-                      ]),
+                  child: Row(mainAxisSize: MainAxisSize.max, mainAxisAlignment: MainAxisAlignment.center, children: [
+                    IconButton(
+                      icon: const Icon(Icons.search),
+                      color: Colors.black45,
+                      onPressed: () {
+                        // widget.parentCallback(cityController.text);
+                      },
+                    ),
+                    Expanded(
+                      child: TextField(
+                        controller: searchController,
+                        decoration: const InputDecoration.collapsed(hintText: "Поиск"),
+                        onChanged: searchInCatalog,
+                      ),
+                    ),
+                  ]),
                 ),
               ),
               Expanded(
                 child: ListView.builder(
-                  padding: const EdgeInsets.only(
-                      left: 15, top: 20, right: 15, bottom: 15),
-                  itemCount: listOfPlaces.length,
+                  padding: const EdgeInsets.only(left: 15, top: 20, right: 15, bottom: 15),
+                  // itemCount: listOfPlaces.length,
+                  itemCount: items.length,
                   itemBuilder: (_, index) {
+                    final item = items[index];
+
                     return GestureDetector(
                         child: Container(
                           margin: const EdgeInsets.only(bottom: 15),
                           decoration: BoxDecoration(
                             color: Colors.white,
-                            borderRadius:
-                                const BorderRadius.all(Radius.circular(10)),
+                            borderRadius: const BorderRadius.all(Radius.circular(10)),
                             boxShadow: [
                               BoxShadow(
                                 color: Colors.black.withOpacity(0.1),
@@ -145,21 +159,17 @@ class _CatalogListState extends State<CatalogList> {
                                     width: 50,
                                     height: 50,
                                     padding: const EdgeInsets.all(2),
-                                    margin: const EdgeInsets.only(
-                                        right: 18, left: 15),
+                                    margin: const EdgeInsets.only(right: 18, left: 15),
                                     decoration: const BoxDecoration(
                                       color: bgColorHouses,
-                                      borderRadius:
-                                          BorderRadius.all(Radius.circular(10)),
+                                      borderRadius: BorderRadius.all(Radius.circular(10)),
                                     ),
                                     child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      crossAxisAlignment: CrossAxisAlignment.center,
                                       children: [
                                         Text(
-                                          listOfPlaces[index],
+                                          item.number,
                                           textAlign: TextAlign.center,
                                           style: const TextStyle(
                                             fontSize: 16,
@@ -175,17 +185,16 @@ class _CatalogListState extends State<CatalogList> {
                                         top: 15,
                                         bottom: 15),
                                     child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                      crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          listOfPlacesDescription[index],
+                                          item.title,
                                           style: const TextStyle(
                                             fontSize: 16,
                                           ),
                                         ),
                                         Text(
-                                          listOfPlacesHead[index],
+                                          item.description,
                                           style: const TextStyle(fontSize: 14),
                                         ),
                                       ],
@@ -214,13 +223,11 @@ class _CatalogListState extends State<CatalogList> {
                           ),
                         ),
                         onTap: () => {
-                              // TODO: передать аргументы
                               Navigator.pushNamed(
-                                  context, MyApp.cardDetailsRoute)
-                              // onSelectedPlaces!(listOfPlaces[index]),
-                              // onSelectedPlacesDescription!(
-                              //     listOfPlacesDescription[index]),
-                              // onSelectedPlacesImages!(listOfPlacesImages[index]),
+                                context,
+                                MyApp.cardDetailsRoute,
+                                //    ItemPage(item: item),
+                              )
                             });
                   },
                 ),
@@ -230,5 +237,20 @@ class _CatalogListState extends State<CatalogList> {
         ),
       ),
     );
+  }
+
+  void searchInCatalog(String query) {
+    final suggestions = items.where((item) {
+      final itemTitle = item.title.toLowerCase();
+      // final itemDesc = item.description.toLowerCase();
+      final input = query.toLowerCase();
+
+      return itemTitle.contains(input);
+    }).toList();
+
+    setState(() {
+      items = suggestions;
+      // searchController.clear();
+    });
   }
 }
