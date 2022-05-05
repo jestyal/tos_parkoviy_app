@@ -14,7 +14,12 @@ class DisplayMap extends StatefulWidget {
 }
 
 class _DisplayMapState extends State<DisplayMap> {
-  Set<Marker> _markers = {};
+  Set<Marker> _markers = {
+    Marker(
+        markerId: MarkerId('ID'),
+        position: LatLng(54.195340, 37.620309),
+        icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen))
+  };
   Completer<GoogleMapController> _controller = Completer();
 
   @override
@@ -30,7 +35,7 @@ class _DisplayMapState extends State<DisplayMap> {
     var data = json.decode(jsonData);
 
     data["coords"].forEach((item) {
-      _markers.add(new Marker(
+      _markers.add(Marker(
           markerId: MarkerId(item["ID"]),
           position: LatLng(
               double.parse(item["latitude"]), double.parse(item["longitude"])),
@@ -122,6 +127,9 @@ class _DisplayMapState extends State<DisplayMap> {
         body: Stack(
           children: [
             GoogleMap(
+                onMapCreated: (GoogleMapController controller) {
+                  _controller.complete(controller);
+                },
                 initialCameraPosition: CameraPosition(
                   target: LatLng(54.195340, 37.620309),
                   zoom: 14,
@@ -129,8 +137,8 @@ class _DisplayMapState extends State<DisplayMap> {
                 ),
                 myLocationEnabled: true,
                 myLocationButtonEnabled: true,
-                markers: Set.from(_markers),
-                zoomControlsEnabled: false),
+                markers: _markers,
+                zoomControlsEnabled: true),
             _zoomminusfunction(),
             _zoomplusfunction(),
           ],
