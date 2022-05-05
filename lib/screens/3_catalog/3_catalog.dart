@@ -24,7 +24,7 @@ const catalogDataList = [
   CatalogItem(
     title: 'Название улицы 2',
     number: '22',
-    description: 'ФИО старшего по дому 2',
+    description: 'zxc ФИО старшего по дому 2',
   ),
   CatalogItem(
     title: 'Название улицы 33',
@@ -75,25 +75,22 @@ class _CatalogListState extends State<CatalogList> {
     if (query.isNotEmpty) {
       final suggestions = items.where((item) {
         final itemTitle = item.title.toLowerCase();
-        // final itemDesc = item.description.toLowerCase();
+        final itemDesc = item.description.toLowerCase();
+
         final input = query.toLowerCase();
 
-        return itemTitle.contains(input);
+        return itemTitle.contains(input) || itemDesc.contains(input);
       }).toList();
       setState(() {
         items = suggestions;
       });
     } else {
-      FocusScope.of(context).unfocus();
       _searchController.clear();
-
       setState(() {
         items = catalogDataList;
       });
     }
   }
-
-
 
   @override
   Widget build(BuildContext context) {
