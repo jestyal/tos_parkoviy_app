@@ -5,6 +5,12 @@
         "longitude": "37.618906",
         "latitude": "54.194282",
         "comment": "First"
+    },
+    {
+        "ID": "2",
+        "longitude": "37.61887324",
+        "latitude": "54.19434324",
+        "comment": "Second"
     }
 ]
 }

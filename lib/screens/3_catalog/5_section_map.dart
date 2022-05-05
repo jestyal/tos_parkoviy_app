@@ -1,25 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:tos_parkoviy_app/main.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import '../main.dart';
 import 'dart:async';
 import 'dart:convert';
-import 'package:tos_parkoviy_app/components/constants.dart';
 
-class DisplayMap extends StatefulWidget {
-  const DisplayMap({Key? key}) : super(key: key);
+class TOSMap extends StatefulWidget {
+  const TOSMap({Key? key}) : super(key: key);
 
   @override
-  State<DisplayMap> createState() => _DisplayMapState();
+  State<TOSMap> createState() => _TOSMapState();
 }
 
-class _DisplayMapState extends State<DisplayMap> {
-  Set<Marker> _markers = {
-    Marker(
-        markerId: MarkerId('ID'),
-        position: LatLng(54.195340, 37.620309),
-        icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen))
-  };
+class _TOSMapState extends State<TOSMap> {
+  Set<Marker> _markers = {};
   Completer<GoogleMapController> _controller = Completer();
 
   @override
@@ -35,7 +29,7 @@ class _DisplayMapState extends State<DisplayMap> {
     var data = json.decode(jsonData);
 
     data["coords"].forEach((item) {
-      _markers.add(Marker(
+      _markers.add(new Marker(
           markerId: MarkerId(item["ID"]),
           position: LatLng(
               double.parse(item["latitude"]), double.parse(item["longitude"])),
@@ -88,30 +82,13 @@ class _DisplayMapState extends State<DisplayMap> {
         CameraPosition(target: LatLng(54.195340, 37.620309), zoom: zoomVal)));
   }
 
-  // getColorAppBar(String title) {
-  //   if (title == "Дома") {
-  //     return bgColorHousesAppBar;
-  //   } else if (title == "Организации") {
-  //     return bgColorOrganizationsAppBar;
-  //   } else if (title == "Пространства") {
-  //     return bgColorPlacesAppBar;
-  //   } else if (title == "Мероприятия") {
-  //     return bgColorEventsAppBar;
-  //   } else {
-  //     return bgColorHousesAppBar;
-  //   }
-  // }
-
-  // late final String title;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          //TODO: передать аргумент
-          title: Text('Название'),
+          title: Text('Карта ТОС'),
           centerTitle: true,
-          // backgroundColor: getColorAppBar(title),
+          backgroundColor: Color(0xFf7de1c),
           actions: <Widget>[
             IconButton(
               icon: Icon(
@@ -127,9 +104,6 @@ class _DisplayMapState extends State<DisplayMap> {
         body: Stack(
           children: [
             GoogleMap(
-                onMapCreated: (GoogleMapController controller) {
-                  _controller.complete(controller);
-                },
                 initialCameraPosition: CameraPosition(
                   target: LatLng(54.195340, 37.620309),
                   zoom: 14,
@@ -137,8 +111,8 @@ class _DisplayMapState extends State<DisplayMap> {
                 ),
                 myLocationEnabled: true,
                 myLocationButtonEnabled: true,
-                markers: _markers,
-                zoomControlsEnabled: true),
+                markers: Set.from(_markers),
+                zoomControlsEnabled: false),
             _zoomminusfunction(),
             _zoomplusfunction(),
           ],
