@@ -15,7 +15,7 @@ class CatalogItem {
   });
 }
 
-const CatalogDataList = [
+const catalogDataList = [
   CatalogItem(
     title: 'Название улицы qwe',
     number: '11',
@@ -49,8 +49,6 @@ class CatalogList extends StatefulWidget {
 }
 
 class _CatalogListState extends State<CatalogList> {
-  List<CatalogItem> items = CatalogDataList;
-
   getColorAppBar(String title) {
     if (title == "Дома") {
       return bgColorHousesAppBar;
@@ -65,12 +63,37 @@ class _CatalogListState extends State<CatalogList> {
     }
   }
 
-  final searchController = TextEditingController();
+  final _searchController = TextEditingController();
+  List<CatalogItem> items = catalogDataList;
 
-  // @override
-  // void initState() {
-  //   super.initState();
-  // }
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  void searchInCatalog(String query) {
+    if (query.isNotEmpty) {
+      final suggestions = items.where((item) {
+        final itemTitle = item.title.toLowerCase();
+        // final itemDesc = item.description.toLowerCase();
+        final input = query.toLowerCase();
+
+        return itemTitle.contains(input);
+      }).toList();
+      setState(() {
+        items = suggestions;
+      });
+    } else {
+      FocusScope.of(context).unfocus();
+      _searchController.clear();
+
+      setState(() {
+        items = catalogDataList;
+      });
+    }
+  }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -119,8 +142,10 @@ class _CatalogListState extends State<CatalogList> {
                     ),
                     Expanded(
                       child: TextField(
-                        controller: searchController,
-                        decoration: const InputDecoration.collapsed(hintText: "Поиск"),
+                        controller: _searchController,
+                        decoration: const InputDecoration.collapsed(
+                          hintText: "Поиск",
+                        ),
                         onChanged: searchInCatalog,
                       ),
                     ),
@@ -237,20 +262,5 @@ class _CatalogListState extends State<CatalogList> {
         ),
       ),
     );
-  }
-
-  void searchInCatalog(String query) {
-    final suggestions = items.where((item) {
-      final itemTitle = item.title.toLowerCase();
-      // final itemDesc = item.description.toLowerCase();
-      final input = query.toLowerCase();
-
-      return itemTitle.contains(input);
-    }).toList();
-
-    setState(() {
-      items = suggestions;
-      // searchController.clear();
-    });
   }
 }
