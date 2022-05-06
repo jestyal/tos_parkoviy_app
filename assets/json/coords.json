@@ -12,5 +12,70 @@
         "latitude": "54.190722",
         "comment": "Second"
     }
+],
+
+"coordsHouses": [
+    {
+        "ID": "1",
+        "longitude": "37.602674",
+        "latitude": "54.186991",
+        "comment": "Дом 1"
+    },
+    {
+        "ID": "2",
+        "longitude": "37.605069",
+        "latitude": "54.184167",
+        "comment": "Дом 2"
+    }
+],
+
+"coordsEvents": [
+    {
+        "ID": "1",
+        "longitude": "37.601574",
+        "latitude": "54.188625",
+        "comment": "Мероприятие 1"
+    },
+    {
+        "ID": "2",
+        "longitude": "37.602532",
+        "latitude": "54.186793",
+        "comment": "Мероприятие 2"
+    }
+],
+
+"coordsOrganisations": [
+    {
+        "ID": "1",
+        "longitude": "37.599155",
+        "latitude": "54.184941",
+        "comment": "Организация 1"
+    },
+    {
+        "ID": "2",
+        "longitude": "37.605948",
+        "latitude": "54.185443",
+        "comment": "Организация 2"
+    }
+],
+
+"coordsPlaces": [
+    {
+        "ID": "1",
+        "longitude": "37.598292",
+        "latitude": "54.186449",
+        "comment": "Пространство 1"
+    },
+    {
+        "ID": "2",
+        "longitude": "37.591716",
+        "latitude": "54.182445",
+        "comment": "Пространство 2"
+    }
 ]
+
+
+
+
 }
+

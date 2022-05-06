@@ -3,6 +3,7 @@ import 'package:tos_parkoviy_app/components/constants.dart';
 import 'package:flutter/services.dart';
 import 'package:tos_parkoviy_app/main.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:location/location.dart';
 import 'dart:async';
 import 'dart:convert';
 
@@ -14,34 +15,37 @@ class TOSMap extends StatefulWidget {
 }
 
 class _TOSMapState extends State<TOSMap> {
-  Set<Marker> _markers = {};
-  Set<Marker> _markersHouses = {};
-  Set<Marker> _markersEvents = {};
-  Set<Marker> _markersPlases = {};
-  Set<Marker> _markersOrganizations = {};
-
   Completer<GoogleMapController> _controller = Completer();
+  Location location = Location();
+  late GoogleMapController _mapController;
+
+  _checkLocationPermission() async {
+    bool locationServiceEnabled = await location.serviceEnabled();
+    if (!locationServiceEnabled) {
+      locationServiceEnabled = await location.requestService();
+      if (!locationServiceEnabled) {
+        return;
+      }
+    }
+
+    PermissionStatus locationForAppStatus = await location.hasPermission();
+    if (locationForAppStatus == PermissionStatus.denied) {
+      await location.requestPermission();
+      locationForAppStatus = await location.hasPermission();
+      if (locationForAppStatus != PermissionStatus.granted) {
+        return;
+      }
+    }
+    LocationData locationData = await location.getLocation();
+    _mapController.moveCamera(CameraUpdate.newLatLng(
+        LatLng(locationData.latitude!, locationData.longitude!)));
+  }
 
   @override
   void initState() {
     super.initState();
-    setState(() {
-      loadMarkers();
-    });
-  }
-
-  Future loadMarkers() async {
-    var jsonData = await rootBundle.loadString('assets/json/coords.json');
-    var data = json.decode(jsonData);
-
-    data["coords"].forEach((item) {
-      _markers.add(Marker(
-          markerId: MarkerId(item["ID"]),
-          position: LatLng(
-              double.parse(item["latitude"]), double.parse(item["longitude"])),
-          icon: BitmapDescriptor.defaultMarkerWithHue(
-              BitmapDescriptor.hueGreen)));
-    });
+    _checkLocationPermission();
+    setState(() {});
   }
 
   double zoomVal = 14.0;
@@ -50,6 +54,7 @@ class _TOSMapState extends State<TOSMap> {
     return Container(
         width: 45,
         child: FloatingActionButton(
+            heroTag: "btn1",
             backgroundColor: bgColorMapAppBar,
             child: Icon(Icons.remove, color: Colors.white),
             onPressed: () {
@@ -62,6 +67,7 @@ class _TOSMapState extends State<TOSMap> {
     return Container(
       width: 45,
       child: FloatingActionButton(
+          heroTag: "btn2",
           backgroundColor: bgColorMapAppBar,
           child: Icon(Icons.add, color: Colors.white),
           onPressed: () {
@@ -119,13 +125,13 @@ class _TOSMapState extends State<TOSMap> {
                       ),
                       myLocationEnabled: true,
                       myLocationButtonEnabled: true,
-                      markers: Set.from(_markers),
+                      // markers: Set.from(_markers),
                       zoomControlsEnabled: false)),
               Container(
                 alignment: Alignment.topRight,
                 padding: EdgeInsets.only(top: 170, right: 5),
                 child: Column(
-                  children: [_zoomminusfunction(), _zoomplusfunction()],
+                  children: [_zoomplusfunction(), _zoomminusfunction()],
                 ),
               ),
             ],
@@ -172,6 +178,10 @@ class ToggleButton extends StatefulWidget {
 }
 
 class _ToggleButtonState extends State<ToggleButton> {
+  Set<Marker> _markersHouses = {};
+  Set<Marker> _markersEvents = {};
+  Set<Marker> _markersPlases = {};
+  Set<Marker> _markersOrganizations = {};
   final List<bool> isSelected = [false];
 
   getbgColor(String title) {
@@ -202,6 +212,49 @@ class _ToggleButtonState extends State<ToggleButton> {
     }
   }
 
+  getSetMarkers(String title) {
+    if (title == "Дома") {
+      return _markersHouses;
+    } else if (title == "Организации") {
+      return _markersOrganizations;
+    } else if (title == "Пространства") {
+      return _markersPlases;
+    } else if (title == "Мероприятия") {
+      return _markersEvents;
+    }
+  }
+
+  getJSON(String title) {
+    if (title == "Дома") {
+      return 'coordsHouses';
+    } else if (title == "Организации") {
+      return 'coordsOrganisations';
+    } else if (title == "Пространства") {
+      return 'coordsPlaces';
+    } else if (title == "Мероприятия") {
+      return 'coordsEvents';
+    }
+  }
+
+  Future loadMarkers() async {
+    var jsonData = await rootBundle.loadString('assets/json/coords.json');
+    var data = json.decode(jsonData);
+    data["${getJSON(widget.title)}"].forEach((item) {
+      getSetMarkers(widget.title).add(
+        print('test4'),
+        Marker(
+            markerId: MarkerId(item["ID"]),
+            position: LatLng(double.parse(item["latitude"]),
+                double.parse(item["longitude"])),
+            infoWindow: InfoWindow(
+              title: item["comment"],
+            ),
+            icon:
+                BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed)),
+      );
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return ToggleButtons(
@@ -220,8 +273,11 @@ class _ToggleButtonState extends State<ToggleButton> {
         )
       ],
       onPressed: (int index) {
+        loadMarkers();
+        print('test');
         setState(() {
           isSelected[index] = !isSelected[index];
+          print('test2');
         });
       },
     );

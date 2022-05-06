@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../components/constants.dart';
+import 'package:tos_parkoviy_app/screens/3_catalog/5_section_map.dart';
 
 // void main() => runApp(const MyApp());
 //
@@ -113,6 +114,16 @@ class HomeScreen extends StatelessWidget {
                       ],
                     ),
                   ),
+                  Container(
+                    child: TextButton(
+                      child: Text("Карта локаций"),
+                      onPressed: () {
+                        Route route =
+                            MaterialPageRoute(builder: ((context) => TOSMap()));
+                        Navigator.push(context, route);
+                      },
+                    ),
+                  )
                 ],
               ),
             ),

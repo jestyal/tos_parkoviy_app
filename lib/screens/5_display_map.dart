@@ -54,7 +54,6 @@ class _DisplayMapState extends State<DisplayMap> {
   void initState() {
     super.initState();
     _checkLocationPermission();
-
     setState(() {
       loadMarkers();
     });
@@ -77,7 +76,6 @@ class _DisplayMapState extends State<DisplayMap> {
                 BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed)),
       );
     });
-
     setState(() {});
   }
 
