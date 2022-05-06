@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:location/location.dart';
 import '../main.dart';
 import 'dart:async';
 import 'dart:convert';
@@ -18,33 +19,85 @@ class _DisplayMapState extends State<DisplayMap> {
     Marker(
         markerId: MarkerId('ID'),
         position: LatLng(54.195340, 37.620309),
+        infoWindow: InfoWindow(
+          title: "Kremlin",
+        ),
         icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen))
   };
   Completer<GoogleMapController> _controller = Completer();
+  Location location = Location();
+  late GoogleMapController _mapController;
+
+  _checkLocationPermission() async {
+    bool locationServiceEnabled = await location.serviceEnabled();
+    if (!locationServiceEnabled) {
+      locationServiceEnabled = await location.requestService();
+      if (!locationServiceEnabled) {
+        return;
+      }
+    }
+
+    PermissionStatus locationForAppStatus = await location.hasPermission();
+    if (locationForAppStatus == PermissionStatus.denied) {
+      await location.requestPermission();
+      locationForAppStatus = await location.hasPermission();
+      if (locationForAppStatus != PermissionStatus.granted) {
+        return;
+      }
+    }
+    LocationData locationData = await location.getLocation();
+    _mapController.moveCamera(CameraUpdate.newLatLng(
+        LatLng(locationData.latitude!, locationData.longitude!)));
+  }
 
   @override
   void initState() {
     super.initState();
+    _checkLocationPermission();
+    print('testInit');
+
     setState(() {
+      print('testInitSetState');
       loadMarkers();
     });
   }
 
   Future loadMarkers() async {
-    var jsonData = await rootBundle.loadString('assets/json/coords.json');
-    var data = json.decode(jsonData);
+    var data;
+    print('testLoadMarkers');
 
-    data["coords"].forEach((item) {
-      _markers.add(Marker(
-          markerId: MarkerId(item["ID"]),
-          position: LatLng(
-              double.parse(item["latitude"]), double.parse(item["longitude"])),
-          icon: BitmapDescriptor.defaultMarkerWithHue(
-              BitmapDescriptor.hueGreen)));
+    try {
+      var jsonData = await rootBundle.loadString('assets/json/coords.json');
+      var data = json.decode(jsonData);
+    } catch (e) {
+      print('ERROR');
+    }
+
+    try {
+      data["coords"].forEach((item) {
+        _markers.add(
+          Marker(
+              markerId: MarkerId(item["ID"]),
+              position: LatLng(double.parse(item["latitude"]),
+                  double.parse(item["longitude"])),
+              infoWindow: InfoWindow(
+                title: item["comment"],
+              ),
+              icon: BitmapDescriptor.defaultMarkerWithHue(
+                  BitmapDescriptor.hueRed)),
+        );
+      });
+    } catch (e) {
+      print('testJSON');
+      print('$e');
+    }
+
+    setState(() {
+      print('testSetState');
     });
   }
 
-  int zoomVal = 5;
+  double zoomVal = 14.0;
 
   Widget _zoomminusfunction() {
     return Align(
@@ -52,6 +105,7 @@ class _DisplayMapState extends State<DisplayMap> {
       child: Container(
           width: 45,
           child: FloatingActionButton(
+              heroTag: "btn1",
               backgroundColor: Color(0xFFf18825),
               child: Icon(Icons.remove, color: Colors.white),
               onPressed: () {
@@ -67,6 +121,7 @@ class _DisplayMapState extends State<DisplayMap> {
         child: Container(
           width: 45,
           child: FloatingActionButton(
+              heroTag: "btn2",
               backgroundColor: Color(0xFFf18825),
               child: Icon(Icons.add, color: Colors.white),
               onPressed: () {
@@ -76,16 +131,16 @@ class _DisplayMapState extends State<DisplayMap> {
         ));
   }
 
-  Future<void> _minus(zoomVal) async {
+  Future<void> _minus(double zoomVal) async {
     final GoogleMapController controller = await _controller.future;
     controller.animateCamera(CameraUpdate.newCameraPosition(
-        CameraPosition(target: LatLng(54.195340, 37.620309), zoom: zoomVal)));
+        CameraPosition(target: LatLng(54.186415, 37.599950), zoom: zoomVal)));
   }
 
-  Future<void> _plus(zoomVal) async {
+  Future<void> _plus(double zoomVal) async {
     final GoogleMapController controller = await _controller.future;
     controller.animateCamera(CameraUpdate.newCameraPosition(
-        CameraPosition(target: LatLng(54.195340, 37.620309), zoom: zoomVal)));
+        CameraPosition(target: LatLng(54.186415, 37.599950), zoom: zoomVal)));
   }
 
   // getColorAppBar(String title) {
@@ -131,13 +186,13 @@ class _DisplayMapState extends State<DisplayMap> {
                   _controller.complete(controller);
                 },
                 initialCameraPosition: CameraPosition(
-                  target: LatLng(54.195340, 37.620309),
-                  zoom: 14,
+                  target: LatLng(54.186415, 37.599950),
+                  zoom: zoomVal,
                   // установить маркер в точку с адресом, внутри target координаты адреса (?)
                 ),
                 myLocationEnabled: true,
                 myLocationButtonEnabled: true,
-                markers: _markers,
+                markers: Set.from(_markers),
                 zoomControlsEnabled: true),
             _zoomminusfunction(),
             _zoomplusfunction(),

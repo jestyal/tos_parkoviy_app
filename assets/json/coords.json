@@ -2,14 +2,14 @@
     "coords": [
     {
         "ID": "1",
-        "longitude": "37.618906",
-        "latitude": "54.194282",
+        "longitude": "37.602764",
+        "latitude": "54.185619",
         "comment": "First"
     },
     {
         "ID": "2",
-        "longitude": "37.61887324",
-        "latitude": "54.19434324",
+        "longitude": "37.599782",
+        "latitude": "54.190722",
         "comment": "Second"
     }
 ]
