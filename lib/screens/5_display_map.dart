@@ -54,47 +54,31 @@ class _DisplayMapState extends State<DisplayMap> {
   void initState() {
     super.initState();
     _checkLocationPermission();
-    print('testInit');
 
     setState(() {
-      print('testInitSetState');
       loadMarkers();
     });
   }
 
   Future loadMarkers() async {
-    var data;
-    print('testLoadMarkers');
+    var jsonData = await rootBundle.loadString('assets/json/coords.json');
+    var data = json.decode(jsonData);
 
-    try {
-      var jsonData = await rootBundle.loadString('assets/json/coords.json');
-      var data = json.decode(jsonData);
-    } catch (e) {
-      print('ERROR');
-    }
-
-    try {
-      data["coords"].forEach((item) {
-        _markers.add(
-          Marker(
-              markerId: MarkerId(item["ID"]),
-              position: LatLng(double.parse(item["latitude"]),
-                  double.parse(item["longitude"])),
-              infoWindow: InfoWindow(
-                title: item["comment"],
-              ),
-              icon: BitmapDescriptor.defaultMarkerWithHue(
-                  BitmapDescriptor.hueRed)),
-        );
-      });
-    } catch (e) {
-      print('testJSON');
-      print('$e');
-    }
-
-    setState(() {
-      print('testSetState');
+    data["coords"].forEach((item) {
+      _markers.add(
+        Marker(
+            markerId: MarkerId(item["ID"]),
+            position: LatLng(double.parse(item["latitude"]),
+                double.parse(item["longitude"])),
+            infoWindow: InfoWindow(
+              title: item["comment"],
+            ),
+            icon:
+                BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed)),
+      );
     });
+
+    setState(() {});
   }
 
   double zoomVal = 14.0;

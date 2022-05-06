@@ -7,7 +7,7 @@ const kBlueLightColor = Color(0xFFC7B8F5);
 const kBlueColor = Color(0xFF817DC0);
 const kShadowColor = Color(0xFFE6E6E6);
 
-const bgColorHousesAppBar = Color.fromRGBO(23, 134, 34, 1);
+const bgColorHousesAppBar = Color(0xFF178622);
 const bgColorHouses = Color(0xFF64AE6C);
 const bgColorEventsAppBar = Color(0xFFf18825);
 const bgColorEvents = Color(0xFFf5ac67);
