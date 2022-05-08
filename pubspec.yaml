@@ -89,6 +89,10 @@ flutter:
             weight: 600
           - asset: assets/fonts/Nunito-Bold.ttf
             weight: 700
+fonts:
+    - family: Lato
+      fonts:
+          - asset: assets/fonts/Lato-Black.ttf
   # fonts:
   #   - family: Schyler
   #     fonts:
