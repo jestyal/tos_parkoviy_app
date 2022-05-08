@@ -19,6 +19,13 @@ class _TOSMapState extends State<TOSMap> {
   Location location = Location();
   late GoogleMapController _mapController;
 
+  @override
+  void initState() {
+    super.initState();
+    _checkLocationPermission();
+    setState(() {});
+  }
+
   _checkLocationPermission() async {
     bool locationServiceEnabled = await location.serviceEnabled();
     if (!locationServiceEnabled) {
@@ -39,13 +46,6 @@ class _TOSMapState extends State<TOSMap> {
     LocationData locationData = await location.getLocation();
     _mapController.moveCamera(CameraUpdate.newLatLng(
         LatLng(locationData.latitude!, locationData.longitude!)));
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    _checkLocationPermission();
-    setState(() {});
   }
 
   double zoomVal = 14.0;
@@ -93,7 +93,9 @@ class _TOSMapState extends State<TOSMap> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Карта ТОС'),
+          title: Text(
+            'Карта ТОС',
+          ),
           centerTitle: true,
           backgroundColor: bgColorMapAppBar,
           actions: <Widget>[
@@ -125,7 +127,7 @@ class _TOSMapState extends State<TOSMap> {
                       ),
                       myLocationEnabled: true,
                       myLocationButtonEnabled: true,
-                      // markers: Set.from(_markers),
+                      markers: _markersHouses,
                       zoomControlsEnabled: false)),
               Container(
                 alignment: Alignment.topRight,
@@ -142,106 +144,145 @@ class _TOSMapState extends State<TOSMap> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              ToggleButton(
-                title: 'Дома',
+              ToggleButtons(
+                renderBorder: false,
+                isSelected: isSelectedHouses,
+                color: bgColorHousesAppBar,
+                selectedColor: Colors.white,
+                fillColor: bgColorHousesAppBar,
+                borderRadius: BorderRadius.circular(4.0),
+                borderColor: bgColorHousesAppBar,
+                borderWidth: 2,
+                children: <Widget>[
+                  Container(
+                    width: 180,
+                    child: Center(
+                        child: Text('Дома',
+                            style: TextStyle(
+                              fontSize: 18,
+                            ))),
+                  ),
+                ],
+                onPressed: (int index) {
+                  setState(() {
+                    isSelectedHouses[index] = !isSelectedHouses[index];
+                    isSelectedHouses[index]
+                        ? loadMarkersHouses()
+                        : _markersHouses.clear();
+                  });
+                },
               ),
-              ToggleButton(
-                title: 'Мероприятия',
+              ToggleButtons(
+                renderBorder: false,
+                isSelected: isSelectedEvents,
+                color: bgColorEventsAppBar,
+                selectedColor: Colors.white,
+                fillColor: bgColorEventsAppBar,
+                borderRadius: BorderRadius.circular(4.0),
+                borderColor: bgColorEventsAppBar,
+                borderWidth: 2,
+                children: <Widget>[
+                  Container(
+                    width: 180,
+                    child: Center(
+                        child: Text('Мероприятия',
+                            style: TextStyle(
+                              fontSize: 18,
+                            ))),
+                  ),
+                ],
+                onPressed: (int index) {
+                  setState(() {
+                    isSelectedEvents[index] = !isSelectedEvents[index];
+                    isSelectedEvents[index]
+                        ? loadMarkersEvents()
+                        : _markersEvents.clear();
+                  });
+                },
               ),
             ],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              ToggleButton(
-                title: 'Пространства',
+              ToggleButtons(
+                renderBorder: false,
+                isSelected: isSelectedPlaces,
+                color: bgColorPlacesAppBar,
+                selectedColor: Colors.white,
+                fillColor: bgColorPlacesAppBar,
+                borderRadius: BorderRadius.circular(4.0),
+                borderColor: bgColorPlacesAppBar,
+                borderWidth: 2,
+                children: <Widget>[
+                  Container(
+                    width: 180,
+                    child: Center(
+                        child: Text('Пространства',
+                            style: TextStyle(
+                              fontSize: 18,
+                            ))),
+                  ),
+                ],
+                onPressed: (int index) {
+                  setState(() {
+                    isSelectedPlaces[index] = !isSelectedPlaces[index];
+                    isSelectedPlaces[index]
+                        ? loadMarkersPlaces()
+                        : _markersPlaces.clear();
+                  });
+                },
               ),
-              ToggleButton(
-                title: 'Организации',
+              ToggleButtons(
+                renderBorder: false,
+                isSelected: isSelectedOrganizations,
+                color: bgColorOrganizationsAppBar,
+                selectedColor: Colors.white,
+                fillColor: bgColorOrganizationsAppBar,
+                borderRadius: BorderRadius.circular(4.0),
+                borderColor: bgColorOrganizationsAppBar,
+                borderWidth: 2,
+                children: <Widget>[
+                  Container(
+                    width: 180,
+                    child: Center(
+                        child: Text('Организации',
+                            style: TextStyle(
+                              fontSize: 18,
+                            ))),
+                  ),
+                ],
+                onPressed: (int index) {
+                  setState(() {
+                    isSelectedOrganizations[index] =
+                        !isSelectedOrganizations[index];
+                    isSelectedOrganizations[index]
+                        ? loadMarkersOrganizations()
+                        : _markersOrganizations.clear();
+                  });
+                },
               ),
             ],
           )
         ]));
   }
-}
 
-class ToggleButton extends StatefulWidget {
-  final String title;
-
-  const ToggleButton({
-    Key? key,
-    required this.title,
-  }) : super(key: key);
-
-  @override
-  State<ToggleButton> createState() => _ToggleButtonState();
-}
-
-class _ToggleButtonState extends State<ToggleButton> {
   Set<Marker> _markersHouses = {};
   Set<Marker> _markersEvents = {};
-  Set<Marker> _markersPlases = {};
+  Set<Marker> _markersPlaces = {};
   Set<Marker> _markersOrganizations = {};
-  final List<bool> isSelected = [false];
+  Set<Marker> _markers = {};
 
-  getbgColor(String title) {
-    if (title == "Дома") {
-      return bgColorHousesAppBar;
-    } else if (title == "Организации") {
-      return bgColorOrganizationsAppBar;
-    } else if (title == "Пространства") {
-      return bgColorPlacesAppBar;
-    } else if (title == "Мероприятия") {
-      return bgColorEventsAppBar;
-    } else {
-      return bgColorHousesAppBar;
-    }
-  }
+  final List<bool> isSelectedHouses = [false];
+  final List<bool> isSelectedEvents = [false];
+  final List<bool> isSelectedPlaces = [false];
+  final List<bool> isSelectedOrganizations = [false];
 
-  getBorderColor(String title) {
-    if (title == "Дома") {
-      return bgColorHousesAppBar;
-    } else if (title == "Организации") {
-      return bgColorOrganizationsAppBar;
-    } else if (title == "Пространства") {
-      return bgColorPlacesAppBar;
-    } else if (title == "Мероприятия") {
-      return bgColorEventsAppBar;
-    } else {
-      return bgColorHousesAppBar;
-    }
-  }
-
-  getSetMarkers(String title) {
-    if (title == "Дома") {
-      return _markersHouses;
-    } else if (title == "Организации") {
-      return _markersOrganizations;
-    } else if (title == "Пространства") {
-      return _markersPlases;
-    } else if (title == "Мероприятия") {
-      return _markersEvents;
-    }
-  }
-
-  getJSON(String title) {
-    if (title == "Дома") {
-      return 'coordsHouses';
-    } else if (title == "Организации") {
-      return 'coordsOrganisations';
-    } else if (title == "Пространства") {
-      return 'coordsPlaces';
-    } else if (title == "Мероприятия") {
-      return 'coordsEvents';
-    }
-  }
-
-  Future loadMarkers() async {
+  Future loadMarkersHouses() async {
     var jsonData = await rootBundle.loadString('assets/json/coords.json');
     var data = json.decode(jsonData);
-    data["${getJSON(widget.title)}"].forEach((item) {
-      getSetMarkers(widget.title).add(
-        print('test4'),
+    data["coordsHouses"].forEach((item) {
+      _markersHouses.add(
         Marker(
             markerId: MarkerId(item["ID"]),
             position: LatLng(double.parse(item["latitude"]),
@@ -252,34 +293,181 @@ class _ToggleButtonState extends State<ToggleButton> {
             icon:
                 BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed)),
       );
+      setState(() {});
     });
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return ToggleButtons(
-      renderBorder: false,
-      isSelected: isSelected,
-      fillColor: getBorderColor(widget.title),
-      children: <Widget>[
-        Container(
-          margin: EdgeInsets.all(5),
-          color: getbgColor(widget.title),
-          width: 180,
-          padding: EdgeInsets.symmetric(horizontal: 24),
-          child: Center(
-              child: Text(widget.title,
-                  style: TextStyle(fontSize: 18, color: Colors.white))),
-        )
-      ],
-      onPressed: (int index) {
-        loadMarkers();
-        print('test');
-        setState(() {
-          isSelected[index] = !isSelected[index];
-          print('test2');
-        });
-      },
-    );
+  Future loadMarkersEvents() async {
+    var jsonData = await rootBundle.loadString('assets/json/coords.json');
+    var data = json.decode(jsonData);
+    data["coordsEvents"].forEach((item) {
+      _markersEvents.add(
+        Marker(
+            markerId: MarkerId(item["ID"]),
+            position: LatLng(double.parse(item["latitude"]),
+                double.parse(item["longitude"])),
+            infoWindow: InfoWindow(
+              title: item["comment"],
+            ),
+            icon: BitmapDescriptor.defaultMarkerWithHue(
+                BitmapDescriptor.hueGreen)),
+      );
+      setState(() {});
+    });
+  }
+
+  Future loadMarkersPlaces() async {
+    var jsonData = await rootBundle.loadString('assets/json/coords.json');
+    var data = json.decode(jsonData);
+    data["coordsPlaces"].forEach((item) {
+      _markersPlaces.add(
+        Marker(
+            markerId: MarkerId(item["ID"]),
+            position: LatLng(double.parse(item["latitude"]),
+                double.parse(item["longitude"])),
+            infoWindow: InfoWindow(
+              title: item["comment"],
+            ),
+            icon: BitmapDescriptor.defaultMarkerWithHue(
+                BitmapDescriptor.hueGreen)),
+      );
+      setState(() {});
+    });
+  }
+
+  Future loadMarkersOrganizations() async {
+    var jsonData = await rootBundle.loadString('assets/json/coords.json');
+    var data = json.decode(jsonData);
+    data["coordsOrganizations"].forEach((item) {
+      _markersOrganizations.add(
+        Marker(
+            markerId: MarkerId(item["ID"]),
+            position: LatLng(double.parse(item["latitude"]),
+                double.parse(item["longitude"])),
+            infoWindow: InfoWindow(
+              title: item["comment"],
+            ),
+            icon: BitmapDescriptor.defaultMarkerWithHue(
+                BitmapDescriptor.hueGreen)),
+      );
+      setState(() {});
+    });
   }
 }
+
+// class ToggleButton extends StatefulWidget {
+//   final String title;
+
+//   const ToggleButton({
+//     Key? key,
+//     required this.title,
+//   }) : super(key: key);
+
+//   @override
+//   State<ToggleButton> createState() => _ToggleButtonState();
+// }
+
+// class _ToggleButtonState extends State<ToggleButton> {
+//   Set<Marker> _markersHouses = {};
+//   Set<Marker> _markersEvents = {};
+//   Set<Marker> _markersPlases = {};
+//   Set<Marker> _markersOrganizations = {};
+//   final List<bool> isSelected = [false];
+
+//   getbgColor(String title) {
+//     if (title == "Дома") {
+//       return bgColorHousesAppBar;
+//     } else if (title == "Организации") {
+//       return bgColorOrganizationsAppBar;
+//     } else if (title == "Пространства") {
+//       return bgColorPlacesAppBar;
+//     } else if (title == "Мероприятия") {
+//       return bgColorEventsAppBar;
+//     } else {
+//       return bgColorHousesAppBar;
+//     }
+//   }
+
+//   getBorderColor(String title) {
+//     if (title == "Дома") {
+//       return bgColorHousesAppBar;
+//     } else if (title == "Организации") {
+//       return bgColorOrganizationsAppBar;
+//     } else if (title == "Пространства") {
+//       return bgColorPlacesAppBar;
+//     } else if (title == "Мероприятия") {
+//       return bgColorEventsAppBar;
+//     } else {
+//       return bgColorHousesAppBar;
+//     }
+//   }
+
+//   getSetMarkers(String title) {
+//     if (title == "Дома") {
+//       return _markersHouses;
+//     } else if (title == "Организации") {
+//       return _markersOrganizations;
+//     } else if (title == "Пространства") {
+//       return _markersPlases;
+//     } else if (title == "Мероприятия") {
+//       return _markersEvents;
+//     }
+//   }
+
+//   getJSON(String title) {
+//     if (title == "Дома") {
+//       return 'coordsHouses';
+//     } else if (title == "Организации") {
+//       return 'coordsOrganisations';
+//     } else if (title == "Пространства") {
+//       return 'coordsPlaces';
+//     } else if (title == "Мероприятия") {
+//       return 'coordsEvents';
+//     }
+//   }
+
+//   Future loadMarkers() async {
+//     var jsonData = await rootBundle.loadString('assets/json/coords.json');
+//     var data = json.decode(jsonData);
+//     data["${getJSON(widget.title)}"].forEach((item) {
+//       getSetMarkers(widget.title).add(
+//         Marker(
+//             markerId: MarkerId(item["ID"]),
+//             position: LatLng(double.parse(item["latitude"]),
+//                 double.parse(item["longitude"])),
+//             infoWindow: InfoWindow(
+//               title: item["comment"],
+//             ),
+//             icon:
+//                 BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed)),
+//       );
+//     });
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return ToggleButtons(
+//       renderBorder: false,
+//       isSelected: isSelected,
+//       fillColor: getBorderColor(widget.title),
+//       children: <Widget>[
+//         Container(
+//           margin: EdgeInsets.all(5),
+//           color: getbgColor(widget.title),
+//           width: 180,
+//           padding: EdgeInsets.symmetric(horizontal: 24),
+//           child: Center(
+//               child: Text(widget.title,
+//                   style: TextStyle(fontSize: 18, color: Colors.white))),
+//         )
+//       ],
+//       onPressed: (int index) {
+//         loadMarkers();
+//         setState(() {
+//           isSelected[index] = !isSelected[index];
+//         });
+//       },
+//     );
+//   }
+// }
+
