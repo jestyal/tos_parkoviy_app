@@ -9,7 +9,7 @@ class SplashScreenPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SplashScreen(
       seconds: 3,
-      navigateAfterSeconds: new HomeScreen(),
+      navigateAfterSeconds: new ProfileScreen(),
       backgroundColor: Color.fromARGB(255, 157, 233, 159),
       title: new Text(
         'Добро пожаловать в приложение ТОС "Парковый"',

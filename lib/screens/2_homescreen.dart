@@ -1,30 +1,6 @@
-// ignore_for_file: deprecated_member_use
-
 import 'package:flutter/material.dart';
 import '../../components/constants.dart';
 import 'package:tos_parkoviy_app/screens/3_catalog/5_section_map.dart';
-
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-          bottomSheetTheme: const BottomSheetThemeData(
-            backgroundColor: Colors.white,
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
-          ),
-          textTheme: const TextTheme(
-            caption: TextStyle(fontSize: 20, color: Colors.white),
-          ),
-          fontFamily: 'Lato-Black'),
-      home: const ProfileScreen(),
-    );
-  }
-}
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({Key? key}) : super(key: key);

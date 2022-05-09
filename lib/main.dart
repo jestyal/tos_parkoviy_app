@@ -24,14 +24,19 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'TOS Parkoviy',
       theme: ThemeData(
-        fontFamily: "Nunito",
-        scaffoldBackgroundColor: kBackgroundColor,
-        textTheme: Theme.of(context).textTheme.apply(displayColor: kTextColor),
-      ),
-      home: const SplashScreenPage(),
+          bottomSheetTheme: const BottomSheetThemeData(
+            backgroundColor: Colors.white,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
+          ),
+          textTheme: const TextTheme(
+            caption: TextStyle(fontSize: 20, color: Colors.white),
+          ),
+          fontFamily: 'Lato-Black'),
+      home: const ProfileScreen(),
       onGenerateRoute: (settings) {
         if (settings.name == homeRoute) {
-          return MaterialPageRoute(builder: (context) => const HomeScreen());
+          return MaterialPageRoute(builder: (context) => const ProfileScreen());
         } else if (settings.name == catalogRoute) {
           var title = settings.arguments;
           return MaterialPageRoute(
