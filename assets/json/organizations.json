@@ -1,0 +1,58 @@
+{"organization":[
+    {
+    "ID": "1",
+    "name": "имя1",
+    "type":[{
+        "commercial": true,
+        "state": false,
+        "public": false
+        }],
+    "short_descr":"Организация такая-то",
+    "long_descr": "И еще вот такая",
+    "street": "Льва Толстого",
+    "house": "31",
+    "longitude": "37.599155",
+    "latitude": "54.184941"
+    },
+    {
+    "ID": "2",
+    "name": "имя2",
+    "type":[{
+        "commercial": true,
+        "state": false,
+        "public": false
+        }],
+    "short_descr":"Организация такая-то",
+    "long_descr": "И еще вот такая",
+    "street": "Льва Толстого",
+    "house": "33",
+    "longitude": "37.605948",
+    "latitude": "54.185443"   
+    },
+    {
+    "ID": "3",
+    "name": "имя3",
+    "type":[{
+        "commercial": true,
+        "state": false,
+        "public": false
+        }],
+    "short_descr":"Организация такая-то",
+    "long_descr": "И еще вот такая",
+    "street": "Льва Толстого",
+    "house": "35"
+    },
+    {
+    "ID": "4",
+    "name": "имя4",
+    "type":[{
+        "commercial": true,
+        "state": false,
+        "public": false
+        }],
+    "short_descr":"Организация такая-то",
+    "long_descr": "И еще вот такая",
+    "street": "Льва Толстого",
+    "house": "37A"
+    }
+]}
