@@ -5,7 +5,7 @@ import '../../components/constants.dart';
 import 'package:tos_parkoviy_app/screens/3_catalog/5_section_map.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen ({Key? key}) : super(key: key);
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -85,7 +85,11 @@ class Body extends StatelessWidget {
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(150)),
               color: bgColorHousesAppBar,
-              onPressed: () {},
+              onPressed: () {
+                {
+                  Navigator.pushNamed(context, '/catalog', arguments: 'Дом');
+                }
+              },
               child: Row(
                 children: [
                   Image.asset(
@@ -111,7 +115,12 @@ class Body extends StatelessWidget {
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(150)),
               color: bgColorEventsAppBar,
-              onPressed: () {},
+              onPressed: () {
+                {
+                  Navigator.pushNamed(context, '/catalog',
+                      arguments: 'Мероприятия');
+                }
+              },
               child: Row(
                 children: [
                   Image.asset(
@@ -137,7 +146,12 @@ class Body extends StatelessWidget {
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(150)),
               color: bgColorPlacesAppBar,
-              onPressed: () {},
+              onPressed: () {
+                {
+                  Navigator.pushNamed(context, '/catalog',
+                      arguments: 'Пространства');
+                }
+              },
               child: Row(
                 children: [
                   Image.asset(
@@ -163,7 +177,12 @@ class Body extends StatelessWidget {
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(150)),
               color: bgColorOrganizationsAppBar,
-              onPressed: () {},
+              onPressed: () {
+                {
+                  Navigator.pushNamed(context, '/catalog',
+                      arguments: 'Организации');
+                }
+              },
               child: Row(
                 children: [
                   Image.asset(
@@ -189,7 +208,11 @@ class Body extends StatelessWidget {
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(150)),
               color: bgColorMapAppBar,
-              onPressed: () {},
+              onPressed: () {
+                Route route =
+                    MaterialPageRoute(builder: ((context) => const TOSMap()));
+                Navigator.push(context, route);
+              },
               child: Row(
                 children: [
                   Image.asset(
