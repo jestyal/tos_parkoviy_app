@@ -69,6 +69,13 @@ flutter:
     - assets/images/
     - assets/icons/
     - assets/json/coords.json
+    - assets/icons/pin_house.png
+    - assets/icons/pin_event.png
+    - assets/icons/pin_intstitute.png
+    - assets/icons/pin_area.png
+
+    
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

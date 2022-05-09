@@ -79,14 +79,28 @@ class _TOSMapState extends State<TOSMap> {
 
   Future<void> _minus(double zoomVal) async {
     final GoogleMapController controller = await _controller.future;
+    LatLng pointerLocation = await _getCenter();
     controller.animateCamera(CameraUpdate.newCameraPosition(
-        CameraPosition(target: LatLng(54.186415, 37.599950), zoom: zoomVal)));
+        CameraPosition(target: pointerLocation, zoom: zoomVal)));
   }
 
   Future<void> _plus(double zoomVal) async {
+    LatLng pointerLocation = await _getCenter();
+
     final GoogleMapController controller = await _controller.future;
     controller.animateCamera(CameraUpdate.newCameraPosition(
-        CameraPosition(target: LatLng(54.186415, 37.599950), zoom: zoomVal)));
+        CameraPosition(target: pointerLocation, zoom: zoomVal)));
+  }
+
+  Future<LatLng> _getCenter() async {
+    final GoogleMapController controller = await _controller.future;
+    LatLngBounds visibleRegion = await controller.getVisibleRegion();
+    LatLng centerLatLng = LatLng(
+      (visibleRegion.northeast.latitude + visibleRegion.southwest.latitude) / 2,
+      (visibleRegion.northeast.longitude + visibleRegion.southwest.longitude) /
+          2,
+    );
+    return centerLatLng;
   }
 
   @override
@@ -123,11 +137,14 @@ class _TOSMapState extends State<TOSMap> {
                       initialCameraPosition: CameraPosition(
                         target: LatLng(54.186415, 37.599950),
                         zoom: zoomVal,
-                        // установить маркер в точку с адресом, внутри target координаты адреса (?)
                       ),
                       myLocationEnabled: true,
                       myLocationButtonEnabled: true,
-                      markers: _markersHouses,
+                      markers: _markers
+                          .union(_markersHouses)
+                          .union(_markersEvents)
+                          .union(_markersPlaces)
+                          .union(_markersOrganizations),
                       zoomControlsEnabled: false)),
               Container(
                 alignment: Alignment.topRight,
@@ -145,7 +162,6 @@ class _TOSMapState extends State<TOSMap> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ToggleButtons(
-                renderBorder: false,
                 isSelected: isSelectedHouses,
                 color: bgColorHousesAppBar,
                 selectedColor: Colors.white,
@@ -172,8 +188,10 @@ class _TOSMapState extends State<TOSMap> {
                   });
                 },
               ),
+              SizedBox(
+                width: 5,
+              ),
               ToggleButtons(
-                renderBorder: false,
                 isSelected: isSelectedEvents,
                 color: bgColorEventsAppBar,
                 selectedColor: Colors.white,
@@ -202,11 +220,13 @@ class _TOSMapState extends State<TOSMap> {
               ),
             ],
           ),
+          SizedBox(
+            height: 5,
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ToggleButtons(
-                renderBorder: false,
                 isSelected: isSelectedPlaces,
                 color: bgColorPlacesAppBar,
                 selectedColor: Colors.white,
@@ -233,8 +253,10 @@ class _TOSMapState extends State<TOSMap> {
                   });
                 },
               ),
+              SizedBox(
+                width: 5,
+              ),
               ToggleButtons(
-                renderBorder: false,
                 isSelected: isSelectedOrganizations,
                 color: bgColorOrganizationsAppBar,
                 selectedColor: Colors.white,
@@ -273,6 +295,7 @@ class _TOSMapState extends State<TOSMap> {
   Set<Marker> _markersOrganizations = {};
   Set<Marker> _markers = {};
 
+  final List<bool> isSelected = [false];
   final List<bool> isSelectedHouses = [false];
   final List<bool> isSelectedEvents = [false];
   final List<bool> isSelectedPlaces = [false];
@@ -281,6 +304,11 @@ class _TOSMapState extends State<TOSMap> {
   Future loadMarkersHouses() async {
     var jsonData = await rootBundle.loadString('assets/json/coords.json');
     var data = json.decode(jsonData);
+    BitmapDescriptor markerHouses = await BitmapDescriptor.fromAssetImage(
+      const ImageConfiguration(),
+      'assets/icons/pin_house.png',
+    );
+
     data["coordsHouses"].forEach((item) {
       _markersHouses.add(
         Marker(
@@ -290,8 +318,7 @@ class _TOSMapState extends State<TOSMap> {
             infoWindow: InfoWindow(
               title: item["comment"],
             ),
-            icon:
-                BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed)),
+            icon: markerHouses),
       );
       setState(() {});
     });
@@ -300,6 +327,9 @@ class _TOSMapState extends State<TOSMap> {
   Future loadMarkersEvents() async {
     var jsonData = await rootBundle.loadString('assets/json/coords.json');
     var data = json.decode(jsonData);
+    final pinEvent = await BitmapDescriptor.fromAssetImage(
+        ImageConfiguration(size: Size(32, 32)), 'assets/icons/pin_event.png');
+
     data["coordsEvents"].forEach((item) {
       _markersEvents.add(
         Marker(
@@ -309,8 +339,7 @@ class _TOSMapState extends State<TOSMap> {
             infoWindow: InfoWindow(
               title: item["comment"],
             ),
-            icon: BitmapDescriptor.defaultMarkerWithHue(
-                BitmapDescriptor.hueGreen)),
+            icon: pinEvent),
       );
       setState(() {});
     });
@@ -319,6 +348,10 @@ class _TOSMapState extends State<TOSMap> {
   Future loadMarkersPlaces() async {
     var jsonData = await rootBundle.loadString('assets/json/coords.json');
     var data = json.decode(jsonData);
+    final pinPlaces = await BitmapDescriptor.fromAssetImage(
+        ImageConfiguration(size: Size(15.0, 15.0)),
+        'assets/icons/pin_area.png');
+
     data["coordsPlaces"].forEach((item) {
       _markersPlaces.add(
         Marker(
@@ -328,8 +361,7 @@ class _TOSMapState extends State<TOSMap> {
             infoWindow: InfoWindow(
               title: item["comment"],
             ),
-            icon: BitmapDescriptor.defaultMarkerWithHue(
-                BitmapDescriptor.hueGreen)),
+            icon: pinPlaces),
       );
       setState(() {});
     });
@@ -338,7 +370,11 @@ class _TOSMapState extends State<TOSMap> {
   Future loadMarkersOrganizations() async {
     var jsonData = await rootBundle.loadString('assets/json/coords.json');
     var data = json.decode(jsonData);
-    data["coordsOrganizations"].forEach((item) {
+    final pinOrganizations = await BitmapDescriptor.fromAssetImage(
+        ImageConfiguration(size: Size(15, 15)),
+        'assets/icons/pin_intstitute.png');
+
+    data["coordsOrganisations"].forEach((item) {
       _markersOrganizations.add(
         Marker(
             markerId: MarkerId(item["ID"]),
@@ -347,8 +383,7 @@ class _TOSMapState extends State<TOSMap> {
             infoWindow: InfoWindow(
               title: item["comment"],
             ),
-            icon: BitmapDescriptor.defaultMarkerWithHue(
-                BitmapDescriptor.hueGreen)),
+            icon: pinOrganizations),
       );
       setState(() {});
     });
