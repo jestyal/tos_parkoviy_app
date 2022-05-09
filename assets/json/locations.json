@@ -1,0 +1,58 @@
+{"location":[
+    {
+        "ID": "1",
+        "name": "имя1",
+        "type":[{
+            "household":true,
+            "public": false
+        }],
+        "condition": "Проект",
+        "finance": "Источник финансирования",
+        "full_descr": "Какое-то описание",
+        "street": "Льва Толстого",
+        "house": "37A",
+        "longitude": "37.598292",
+        "latitude": "54.186449"
+    },
+    {
+        "ID": "2",
+        "name": "имя2",
+        "type":[{
+            "household":true,
+            "public": false
+        }],
+        "condition": "Год реализации 2019",
+        "finance": "Источник финансирования",
+        "full_descr": "Какое-то описание",
+        "street": "Льва Толстого",
+        "house": "47A",
+        "longitude": "37.591716",
+        "latitude": "54.182445"
+    },
+    {
+        "ID": "3",
+        "name": "имя3",
+        "type":[{
+            "household":true,
+            "public": false
+        }],
+        "condition": "Проект",
+        "finance": "Источник финансирования",
+        "full_descr": "Какое-то описание",
+        "street": "Льва Толстого",
+        "house": "50"
+    },
+    {
+        "ID": "4",
+        "name": "имя4",
+        "type":[{
+            "household":true,
+            "public": false
+        }],
+        "condition": "Год реализации 2020",
+        "finance": "Источник финансирования",
+        "full_descr": "Какое-то описание",
+        "street": "Льва Толстого",
+        "house": "37"
+    }
+]}
