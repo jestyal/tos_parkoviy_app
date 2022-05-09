@@ -1,0 +1,71 @@
+{"event":[{
+    "ID": "1",
+    "eventName" : "name1",
+    "eventType" : [{
+        "culture":true,
+        "sport":false,
+        "education":true,
+        "ecology":false,
+        "family":true,
+        "voluntiiring":false
+    }],
+    "description": "Мероприятие такое-те",
+    "place":"Место1",
+    "date": "Дата1",
+    "time": "Время1",
+    "longitude": "37.601574",
+    "latitude": "54.188625"
+},
+
+{
+    "ID": "2",
+    "eventName" : "name2",
+    "eventType" : [{
+        "culture":true,
+        "sport":false,
+        "education":true,
+        "ecology":false,
+        "family":true,
+        "voluntiiring":false
+    }],
+    "description": "Мероприятие такое-те",
+    "place":"Место2",
+    "date": "Дата2",
+    "time": "Время2",
+    "longitude": "37.602532",
+    "latitude": "54.186793"
+},
+
+{
+    "ID": "3",
+    "eventName" : "name3",
+    "eventType" : [{
+        "culture":true,
+        "sport":false,
+        "education":true,
+        "ecology":false,
+        "family":true,
+        "voluntiiring":false
+    }],
+    "description": "Мероприятие такое-те",
+    "place":"Место3",
+    "date": "Дата3",
+    "time": "Время3"
+},
+{
+    "ID": "4",
+    "eventName" : "name4",
+    "eventType" : [{
+        "culture":true,
+        "sport":false,
+        "education":true,
+        "ecology":false,
+        "family":true,
+        "voluntiiring":false
+    }],
+    "description": "Мероприятие такое-те",
+    "place":"Место4",
+    "date": "Дата4",
+    "time": "Время4"
+}
+]}
