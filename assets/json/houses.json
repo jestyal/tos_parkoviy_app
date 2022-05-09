@@ -1,0 +1,185 @@
+{"house": [
+    {"ID": "1",
+    "caretaker":[{
+        "caretakerName": "Иван",
+        "caretakerSurname": "Иванов",
+        "caretakerDadname": "Иванович",
+        "contact": 88001005676
+    }],
+    "city": "Тула",
+    "street": "Льва Толстого",
+    "house": "91",
+    "year": 1990,
+    "service_provider": "УК Дыня",
+    "refurbishment":[{
+        "roof": [{
+            "maintenanceYear":2020,
+            "condition": "Выполнен"
+    }],
+        "front": [{
+            "maintenanceYear":2020,
+            "condition": "Выполнен"
+    }],
+        "electronics": [{
+            "maintenanceYear":2020,
+            "condition": "Выполнен"
+    }],
+        "water": [{
+            "maintenanceYear":2020,
+            "condition": "Выполнен"
+    }],
+        "sewerage": [{
+            "maintenanceYear":2020,
+            "condition": "Выполнен"
+    }],
+        "heating": [{
+            "maintenanceYear":2020,
+            "condition": "Выполнен"
+    }],
+        "gas": [{
+            "maintenanceYear":2020,
+            "condition": "Выполнен"
+    }] 
+    }],
+    "longitude": "37.602764",
+    "latitude": "54.185619"
+    },
+
+    {"ID": "2",
+    "caretaker":[{
+        "caretakerName": "Петр",
+        "caretakerSurname": "Петров",
+        "caretakerDadname": "Петрович",
+        "contact": 88002005676
+    }],
+    "city": "Тула",
+    "street": "Льва Толстого",
+    "house": "93",
+    "year": 1890,
+    "service_provider": "УК Дыня",
+    "refurbishment":[{
+        "roof": [{
+            "maintenanceYear":2020,
+            "condition": "Выполнен"
+    }],
+        "front": [{
+            "maintenanceYear":2020,
+            "condition": "Выполнен"
+    }],
+        "electronics": [{
+            "maintenanceYear":2020,
+            "condition": "Выполнен"
+    }],
+        "water": [{
+            "maintenanceYear":2020,
+            "condition": "Выполнен"
+    }],
+        "sewerage": [{
+            "maintenanceYear":2020,
+            "condition": "Выполнен"
+    }],
+        "heating": [{
+            "maintenanceYear":2020,
+            "condition": "Выполнен"
+    }],
+        "gas": [{
+            "maintenanceYear":2020,
+            "condition": "Выполнен"
+    }] 
+    }],
+    "longitude": "37.599782",
+    "latitude": "54.190722"
+    },
+
+    {"ID": "3",
+    "caretaker":[{
+        "caretakerName": "Сидр",
+        "caretakerSurname": "Сидоров",
+        "caretakerDadname": "Сидорович",
+        "contact": 88003005676
+    }],
+    "city": "Тула",
+    "street": "Льва Толстого",
+    "house": "105",
+    "year": 1790,
+    "service_provider": "УК Дыня",
+    "refurbishment":[{
+        "roof": [{
+            "maintenanceYear":2020,
+            "condition": "Выполнен"
+        }],
+        "front": [{
+            "maintenanceYear":2020,
+            "condition": "Выполнен"
+        }],
+        "electronics": [{
+            "maintenanceYear":2020,
+            "condition": "Выполнен"
+        }],
+        "water": [{
+            "maintenanceYear":2020,
+            "condition": "Выполнен"
+        }],
+        "sewerage": [{
+            "maintenanceYear":2020,
+            "condition": "Выполнен"
+        }],
+        "heating": [{
+            "maintenanceYear":2020,
+            "condition": "Выполнен"
+        }],
+        "gas": [{
+            "maintenanceYear":2020,
+            "condition": "Выполнен"
+        }] 
+        }],
+    "longitude": "37.602674",
+    "latitude": "54.186991"
+    },
+
+    {"ID": "4",
+    "caretaker":[{
+        "caretakerName": "Федр",
+        "caretakerSurname": "Федоров",
+        "caretakerDadname": "Федорович",
+        "contact": 88004005676
+    }],
+    "city": "Тула",
+    "street": "Льва Толстого",
+    "house": "111",
+    "year": 1690,
+    "service_provider": "УК Дыня",
+    "refurbishment":[{
+        "roof": [{
+            "maintenanceYear":2020,
+            "condition": "Выполнен"
+        }],
+        "front": [{
+            "maintenanceYear":2020,
+            "condition": "Выполнен"
+        }],
+        "electronics": [{
+            "maintenanceYear":2020,
+            "condition": "Выполнен"
+        }],
+        "water": [{
+            "maintenanceYear":2020,
+            "condition": "Выполнен"
+        }],
+        "sewerage": [{
+            "maintenanceYear":2020,
+            "condition": "Выполнен"
+        }],
+        "heating": [{
+            "maintenanceYear":2020,
+            "condition": "Выполнен"
+        }],
+        "gas": [{
+            "maintenanceYear":2020,
+            "condition": "Выполнен"
+        }] 
+        }],
+        "longitude": "37.605069",
+        "latitude": "54.184167"
+    }
+]}
