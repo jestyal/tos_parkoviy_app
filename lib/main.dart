@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
             caption: TextStyle(fontSize: 20, color: Colors.white),
           ),
           fontFamily: 'Lato-Black'),
-      home: const ProfileScreen(),
+      home: const SplashScreenPage(),
       onGenerateRoute: (settings) {
         if (settings.name == homeRoute) {
           return MaterialPageRoute(builder: (context) => const ProfileScreen());
