@@ -2,11 +2,7 @@
     {
     "ID": "1",
     "name": "имя1",
-    "type":[{
-        "commercial": true,
-        "state": false,
-        "public": false
-        }],
+    "type": "Коммерческая",
     "short_descr":"Организация такая-то",
     "long_descr": "И еще вот такая",
     "street": "Льва Толстого",
@@ -17,11 +13,7 @@
     {
     "ID": "2",
     "name": "имя2",
-    "type":[{
-        "commercial": true,
-        "state": false,
-        "public": false
-        }],
+    "type": "Общественная",
     "short_descr":"Организация такая-то",
     "long_descr": "И еще вот такая",
     "street": "Льва Толстого",
@@ -32,11 +24,7 @@
     {
     "ID": "3",
     "name": "имя3",
-    "type":[{
-        "commercial": true,
-        "state": false,
-        "public": false
-        }],
+    "type": "Государственная",
     "short_descr":"Организация такая-то",
     "long_descr": "И еще вот такая",
     "street": "Льва Толстого",
@@ -45,11 +33,7 @@
     {
     "ID": "4",
     "name": "имя4",
-    "type":[{
-        "commercial": true,
-        "state": false,
-        "public": false
-        }],
+    "type": "Общественная",
     "short_descr":"Организация такая-то",
     "long_descr": "И еще вот такая",
     "street": "Льва Толстого",
