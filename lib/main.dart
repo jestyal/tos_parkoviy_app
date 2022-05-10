@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tos_parkoviy_app/screens/4_card_details/4_card_details.dart';
+import 'package:tos_parkoviy_app/screens/4_card_details/houses_card_details.dart';
 import 'package:tos_parkoviy_app/screens/3_catalog/3_catalog.dart';
 import 'package:tos_parkoviy_app/screens/5_display_map.dart';
 import 'package:tos_parkoviy_app/screens/2_homescreen.dart';
@@ -42,7 +42,8 @@ class MyApp extends StatelessWidget {
           return MaterialPageRoute(
               builder: (context) => CatalogList(title: '$title'));
         } else if (settings.name == cardDetailsRoute) {
-          return MaterialPageRoute(builder: (context) => const CardDetails());
+          return MaterialPageRoute(
+              builder: (context) => const HousesCardDetails());
         } else if (settings.name == cardMapRoute) {
           return MaterialPageRoute(builder: (context) => const DisplayMap());
         }

@@ -1,18 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 import '../../main.dart';
-import 'dart:async';
-import 'dart:convert';
 
-class CardDetails extends StatefulWidget {
-  const CardDetails({Key? key}) : super(key: key);
+class HousesCardDetails extends StatefulWidget {
+  const HousesCardDetails({Key? key}) : super(key: key);
 
   @override
-  State<CardDetails> createState() => _CardDetailsState();
+  State<HousesCardDetails> createState() => _HousesCardDetailsState();
 }
 
-class _CardDetailsState extends State<CardDetails> {
+class _HousesCardDetailsState extends State<HousesCardDetails> {
   @override
   void initState() {
     setState(() {});
