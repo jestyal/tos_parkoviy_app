@@ -59,32 +59,32 @@
     "service_provider": "УК Дыня",
     "refurbishment":[{
         "roof": [{
-            "maintenanceYear":2020,
-            "condition": "Выполнен"
+            "maintenanceYear":2023,
+            "condition": false
     }],
         "front": [{
-            "maintenanceYear":2020,
-            "condition": "Выполнен"
+            "maintenanceYear":2021,
+            "condition": true
     }],
         "electronics": [{
-            "maintenanceYear":2020,
-            "condition": "Выполнен"
+            "maintenanceYear":2021,
+            "condition": true
     }],
         "water": [{
-            "maintenanceYear":2020,
-            "condition": "Выполнен"
+            "maintenanceYear":2024,
+            "condition": false
     }],
         "sewerage": [{
-            "maintenanceYear":2020,
-            "condition": "Выполнен"
+            "maintenanceYear":2018,
+            "condition": true
     }],
         "heating": [{
-            "maintenanceYear":2020,
-            "condition": "Выполнен"
+            "maintenanceYear":2026,
+            "condition": false
     }],
         "gas": [{
             "maintenanceYear":2020,
-            "condition": "Выполнен"
+            "condition": true
     }] 
     }],
     "longitude": "37.599782",
@@ -105,32 +105,32 @@
     "service_provider": "УК Дыня",
     "refurbishment":[{
         "roof": [{
-            "maintenanceYear":2020,
-            "condition": "Выполнен"
+            "maintenanceYear":2021,
+            "condition": true
         }],
         "front": [{
-            "maintenanceYear":2020,
-            "condition": "Выполнен"
+            "maintenanceYear":2019,
+            "condition": true
         }],
         "electronics": [{
             "maintenanceYear":2020,
-            "condition": "Выполнен"
+            "condition": true
         }],
         "water": [{
-            "maintenanceYear":2020,
-            "condition": "Выполнен"
+            "maintenanceYear":2021,
+            "condition": true
         }],
         "sewerage": [{
-            "maintenanceYear":2020,
-            "condition": "Выполнен"
+            "maintenanceYear":2028,
+            "condition": false
         }],
         "heating": [{
             "maintenanceYear":2020,
-            "condition": "Выполнен"
+            "condition": true
         }],
         "gas": [{
-            "maintenanceYear":2020,
-            "condition": "Выполнен"
+            "maintenanceYear":2025,
+            "condition": false
         }] 
         }],
     "longitude": "37.602674",
@@ -152,31 +152,31 @@
     "refurbishment":[{
         "roof": [{
             "maintenanceYear":2020,
-            "condition": "Выполнен"
+            "condition": true
         }],
         "front": [{
-            "maintenanceYear":2020,
-            "condition": "Выполнен"
+            "maintenanceYear":2014,
+            "condition": true
         }],
         "electronics": [{
             "maintenanceYear":2020,
-            "condition": "Выполнен"
+            "condition": true
         }],
         "water": [{
-            "maintenanceYear":2020,
-            "condition": "Выполнен"
+            "maintenanceYear":2021,
+            "condition": true
         }],
         "sewerage": [{
-            "maintenanceYear":2020,
-            "condition": "Выполнен"
+            "maintenanceYear":2019,
+            "condition": true
         }],
         "heating": [{
-            "maintenanceYear":2020,
-            "condition": "Выполнен"
+            "maintenanceYear":2016,
+            "condition": true
         }],
         "gas": [{
-            "maintenanceYear":2020,
-            "condition": "Выполнен"
+            "maintenanceYear":2019,
+            "condition": true
         }] 
         }],
         "longitude": "37.605069",
