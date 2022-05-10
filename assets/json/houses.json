@@ -14,31 +14,31 @@
     "refurbishment":[{
         "roof": [{
             "maintenanceYear":2020,
-            "condition": "Выполнен"
+            "condition": true
     }],
         "front": [{
             "maintenanceYear":2020,
-            "condition": "Выполнен"
+            "condition": true
     }],
         "electronics": [{
             "maintenanceYear":2020,
-            "condition": "Выполнен"
+            "condition": true
     }],
         "water": [{
-            "maintenanceYear":2020,
-            "condition": "Выполнен"
+            "maintenanceYear":2024,
+            "condition": false
     }],
         "sewerage": [{
-            "maintenanceYear":2020,
-            "condition": "Выполнен"
+            "maintenanceYear":2027,
+            "condition": false
     }],
         "heating": [{
             "maintenanceYear":2020,
-            "condition": "Выполнен"
+            "condition": true
     }],
         "gas": [{
             "maintenanceYear":2020,
-            "condition": "Выполнен"
+            "condition": true
     }] 
     }],
     "longitude": "37.602764",
