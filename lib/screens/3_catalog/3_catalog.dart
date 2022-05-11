@@ -124,12 +124,13 @@ class _CatalogListState extends State<CatalogList> {
     }
   }
 
-  late final Data data;
+  // late final Data data;
+  // final DataToCard dataColor = this.data.bgcolor;
 
   @override
   Widget build(BuildContext context) {
-    RouteSettings settings = ModalRoute.of(context)!.settings;
-    data = settings.arguments as Data;
+    // RouteSettings settings = ModalRoute.of(context)!.settings;
+    // data = settings.arguments as Data;
     return Column(
       children: [
         Align(
@@ -272,12 +273,29 @@ class _CatalogListState extends State<CatalogList> {
                       ],
                     ),
                   ),
-                  onTap: () =>
-                      {Navigator.pushNamed(context, '/house_card_details')});
+                  onTap: () => {
+                        // DataToCard dataToCard = DataToCard(bgcolor: dataColor);
+                        Navigator.pushNamed(
+                          context, '/house_card_details',
+                          // argument: dataToCard
+                        )
+                      });
             },
           ),
         ),
       ],
     );
   }
+}
+
+class DataToCard {
+  final dynamic bgcolor;
+  // final dynamic name;
+  // final dynamic json;
+
+  DataToCard({
+    required this.bgcolor,
+    // required this.name,
+    // required this.json,
+  });
 }
