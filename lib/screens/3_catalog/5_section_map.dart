@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tos_parkoviy_app/components/constants.dart';
 import 'package:flutter/services.dart';
-import 'package:tos_parkoviy_app/main.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
 import 'dart:async';

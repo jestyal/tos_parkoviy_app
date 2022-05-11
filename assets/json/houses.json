@@ -1,7 +1,7 @@
 {
   "house": [
     {
-      "ID": "1",
+      "ID": "21",
       "caretaker": [
         {
           "caretakerName": "Иван",
@@ -65,7 +65,7 @@
       "latitude": "53.185009"
     },
     {
-      "ID": "2",
+      "ID": "22",
       "caretaker": [
         {
           "caretakerName": "Петр",
@@ -129,7 +129,7 @@
       "latitude": "54.200722"
     },
     {
-      "ID": "3",
+      "ID": "23",
       "caretaker": [
         {
           "caretakerName": "Сидр",
@@ -193,7 +193,7 @@
       "latitude": "54.206796"
     },
     {
-      "ID": "4",
+      "ID": "24",
       "caretaker": [
         {
           "caretakerName": "Федр",
