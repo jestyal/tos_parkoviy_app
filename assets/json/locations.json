@@ -10,7 +10,7 @@
         "house": "37A",
         "longitude": "37.191434",
         "latitude": "54.564637",
-        "image":"assets/images/location.jpg"
+        "image":"assets/images/location.jpeg"
     },
     {
         "ID": "32",
@@ -23,7 +23,7 @@
         "house": "47A",
         "longitude": "37.464534",
         "latitude": "54.879065",
-        "image": "assets/images/location.jpg"
+        "image": "assets/images/location.jpeg"
     },
     {
         "ID": "33",
@@ -36,7 +36,7 @@
         "house": "50",
         "longitude": "37.675421",
         "latitude": "54.123456",
-        "image": "assets/images/location.jpg"
+        "image": "assets/images/location.jpeg"
     },
     {
         "ID": "34",
@@ -49,6 +49,6 @@
         "house": "37",
         "longitude": "37.654321",
         "latitude": "54.789056",
-        "image": "assets/images/location.jpg"
+        "image": "assets/images/location.jpeg"
     }
 ]}
