@@ -119,7 +119,7 @@ class _TOSMapState extends State<TOSMap> {
                 size: 30,
               ),
               onPressed: () {
-                Navigator.pushNamed(context, MyApp.homeRoute);
+                Navigator.pushNamed(context, '/home');
               },
             ),
           ],

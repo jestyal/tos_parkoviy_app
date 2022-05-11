@@ -156,7 +156,7 @@ class _DisplayMapState extends State<DisplayMap> {
                 size: 30,
               ),
               onPressed: () {
-                Navigator.pushNamed(context, MyApp.homeRoute);
+                Navigator.pushNamed(context, '/home');
               },
             ),
           ],

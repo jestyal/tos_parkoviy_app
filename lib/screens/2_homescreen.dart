@@ -54,130 +54,14 @@ class Body extends StatelessWidget {
           const SizedBox(
             height: 50,
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 7),
-            child: RaisedButton(
-              elevation: 20,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(150)),
-              color: bgColorHousesAppBar,
-              onPressed: () {
-                {
-                  Navigator.pushNamed(context, '/catalog', arguments: 'Дома');
-                }
-              },
-              child: Row(
-                children: [
-                  Image.asset(
-                    'assets/icons/houses.png',
-                    width: 60,
-                    height: 70,
-                  ),
-                  const SizedBox(width: 25),
-                  const Expanded(
-                    child: Text(
-                      'Дома',
-                      style: TextStyle(fontSize: 23, color: Colors.white),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 7),
-            child: RaisedButton(
-              elevation: 20,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(150)),
-              color: bgColorEventsAppBar,
-              onPressed: () {
-                {
-                  Navigator.pushNamed(context, '/catalog',
-                      arguments: 'Мероприятия');
-                }
-              },
-              child: Row(
-                children: [
-                  Image.asset(
-                    'assets/icons/events.png',
-                    width: 60,
-                    height: 70,
-                  ),
-                  const SizedBox(width: 25),
-                  const Expanded(
-                    child: Text(
-                      'Мероприятия',
-                      style: TextStyle(fontSize: 23, color: Colors.white),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 7),
-            child: RaisedButton(
-              elevation: 20,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(150)),
-              color: bgColorPlacesAppBar,
-              onPressed: () {
-                {
-                  Navigator.pushNamed(context, '/catalog',
-                      arguments: 'Пространства');
-                }
-              },
-              child: Row(
-                children: [
-                  Image.asset(
-                    'assets/icons/locations.png',
-                    width: 60,
-                    height: 70,
-                  ),
-                  const SizedBox(width: 25),
-                  const Expanded(
-                    child: Text(
-                      'Пространства',
-                      style: TextStyle(fontSize: 23, color: Colors.white),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 7),
-            child: RaisedButton(
-              elevation: 20,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(150)),
-              color: bgColorOrganizationsAppBar,
-              onPressed: () {
-                {
-                  Navigator.pushNamed(context, '/catalog',
-                      arguments: 'Организации');
-                }
-              },
-              child: Row(
-                children: [
-                  Image.asset(
-                    'assets/icons/organizations.png',
-                    width: 60,
-                    height: 70,
-                  ),
-                  const SizedBox(width: 25),
-                  const Expanded(
-                    child: Text(
-                      'Организации',
-                      style: TextStyle(fontSize: 23, color: Colors.white),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          Padding(
+          MenuCard('assets/icons/houses.png', bgColorHousesAppBar, 'Дома'),
+          MenuCard(
+              'assets/icons/events.png', bgColorEventsAppBar, 'Мероприятия'),
+          MenuCard('assets/icons/locations.png', bgColorPlacesAppBar,
+              'Пространства'),
+          MenuCard('assets/icons/organizations.png', bgColorOrganizationsAppBar,
+              'Организации'),
+          Container(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 7),
             child: RaisedButton(
               elevation: 20,
@@ -209,4 +93,55 @@ class Body extends StatelessWidget {
           ),
         ]);
   }
+}
+
+class MenuCard extends StatelessWidget {
+  late String icon;
+  dynamic bgcolor;
+  late String title;
+
+  MenuCard(String i, dynamic c, String t) {
+    icon = i;
+    bgcolor = c;
+    title = t;
+  }
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 85,
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 7),
+      child: RaisedButton(
+        color: bgcolor,
+        elevation: 20,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(150)),
+        onPressed: () {
+          {
+            Data data = Data(title: this.title, bgcolor: this.bgcolor);
+            Navigator.pushNamed(context, '/catalog', arguments: data);
+          }
+        },
+        child: Row(
+          children: [
+            Image.asset(
+              '$icon',
+              width: 60,
+              height: 60,
+            ),
+            const SizedBox(width: 25),
+            Text(
+              '$title',
+              style: TextStyle(fontSize: 23, color: Colors.white),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class Data {
+  final dynamic title;
+  final dynamic bgcolor;
+
+  Data({required this.title, required this.bgcolor});
 }
