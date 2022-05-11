@@ -302,21 +302,23 @@ class _TOSMapState extends State<TOSMap> {
   final List<bool> isSelectedOrganizations = [false];
 
   Future loadMarkersHouses() async {
-    var jsonData = await rootBundle.loadString('assets/json/coords.json');
+    var jsonData = await rootBundle.loadString('assets/json/houses.json');
     var data = json.decode(jsonData);
     BitmapDescriptor markerHouses = await BitmapDescriptor.fromAssetImage(
       const ImageConfiguration(),
       'assets/icons/pin_house.png',
     );
 
-    data["coordsHouses"].forEach((item) {
+    data["house"].forEach((item) {
+      String comment = 'ул. ' + item["street"] + ', ' + item["house"];
+
       _markersHouses.add(
         Marker(
             markerId: MarkerId(item["ID"]),
             position: LatLng(double.parse(item["latitude"]),
                 double.parse(item["longitude"])),
             infoWindow: InfoWindow(
-              title: item["comment"],
+              title: comment,
             ),
             icon: markerHouses),
       );
@@ -325,19 +327,21 @@ class _TOSMapState extends State<TOSMap> {
   }
 
   Future loadMarkersEvents() async {
-    var jsonData = await rootBundle.loadString('assets/json/coords.json');
+    var jsonData = await rootBundle.loadString('assets/json/events.json');
     var data = json.decode(jsonData);
     final pinEvent = await BitmapDescriptor.fromAssetImage(
         ImageConfiguration(size: Size(32, 32)), 'assets/icons/pin_event.png');
 
-    data["coordsEvents"].forEach((item) {
+    data["event"].forEach((item) {
+      String comment = 'Дата: ' + item["date"] + '. Время: ' + item["time"];
       _markersEvents.add(
         Marker(
             markerId: MarkerId(item["ID"]),
             position: LatLng(double.parse(item["latitude"]),
                 double.parse(item["longitude"])),
             infoWindow: InfoWindow(
-              title: item["comment"],
+              title: item["eventName"],
+              snippet: comment,
             ),
             icon: pinEvent),
       );
@@ -346,20 +350,22 @@ class _TOSMapState extends State<TOSMap> {
   }
 
   Future loadMarkersPlaces() async {
-    var jsonData = await rootBundle.loadString('assets/json/coords.json');
+    var jsonData = await rootBundle.loadString('assets/json/locations.json');
     var data = json.decode(jsonData);
     final pinPlaces = await BitmapDescriptor.fromAssetImage(
         ImageConfiguration(size: Size(15.0, 15.0)),
         'assets/icons/pin_area.png');
 
-    data["coordsPlaces"].forEach((item) {
+    data["location"].forEach((item) {
+      String comment = 'ул. ' + item["street"] + ', ' + item["house"];
       _markersPlaces.add(
         Marker(
             markerId: MarkerId(item["ID"]),
             position: LatLng(double.parse(item["latitude"]),
                 double.parse(item["longitude"])),
             infoWindow: InfoWindow(
-              title: item["comment"],
+              title: item["name"],
+              snippet: comment,
             ),
             icon: pinPlaces),
       );
@@ -368,20 +374,23 @@ class _TOSMapState extends State<TOSMap> {
   }
 
   Future loadMarkersOrganizations() async {
-    var jsonData = await rootBundle.loadString('assets/json/coords.json');
+    var jsonData =
+        await rootBundle.loadString('assets/json/organizations.json');
     var data = json.decode(jsonData);
     final pinOrganizations = await BitmapDescriptor.fromAssetImage(
         ImageConfiguration(size: Size(15, 15)),
         'assets/icons/pin_intstitute.png');
 
-    data["coordsOrganisations"].forEach((item) {
+    data["organization"].forEach((item) {
+      String comment = 'ул. ' + item["street"] + ', ' + item["house"];
       _markersOrganizations.add(
         Marker(
             markerId: MarkerId(item["ID"]),
             position: LatLng(double.parse(item["latitude"]),
                 double.parse(item["longitude"])),
             infoWindow: InfoWindow(
-              title: item["comment"],
+              title: item["name"],
+              snippet: comment,
             ),
             icon: pinOrganizations),
       );
