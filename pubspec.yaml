@@ -84,6 +84,9 @@ flutter:
     - assets/images/backgroundimage.jpg
     - assets/images/backgroundimage1.jpg
     - assets/images/backgroundimage2.jpg
+    - assets/images/event.jpeg
+    - assets/images/location.jpeg
+    - assets/images/organization.jpeg
 
 
 
