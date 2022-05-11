@@ -376,6 +376,8 @@ class _CatalogListState extends State<CatalogList> {
                                     margin: const EdgeInsets.only(right: 18, left: 15),
                                     decoration: const BoxDecoration(
                                       color: bgColorHouses,
+                                      // color: this.data.colorSquare,
+                                      // ERROR: Invalid constant value
                                       borderRadius: BorderRadius.all(Radius.circular(10)),
                                     ),
                                     child: Column(
