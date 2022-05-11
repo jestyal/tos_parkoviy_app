@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'TOS Parkoviy',
+      title: 'ТОС Парковый',
       theme: ThemeData(
           bottomSheetTheme: const BottomSheetThemeData(
             backgroundColor: Colors.white,
@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
           textTheme: const TextTheme(
             caption: TextStyle(fontSize: 20, color: Colors.white),
           ),
-          fontFamily: 'Lato-Black'),
+          fontFamily: 'Lato'),
       home: const SplashScreenPage(),
       onGenerateRoute: (settings) {
         if (settings.name == homeRoute) {

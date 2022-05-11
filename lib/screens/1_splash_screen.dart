@@ -16,7 +16,7 @@ class SplashScreenPage extends StatelessWidget {
         textAlign: TextAlign.center,
         textScaleFactor: 2,
       ),
-      image: new Image.network('https://images.app.goo.gl/gj2DscmNumpFqZEg9'),
+      image: new Image.asset('assets/images/splashscreen.jpg'),
       loadingText: Text("Загрузка"),
       photoSize: 110.0,
       loaderColor: Color.fromARGB(255, 244, 197, 54),

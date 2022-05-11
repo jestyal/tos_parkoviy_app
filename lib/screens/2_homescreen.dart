@@ -13,7 +13,7 @@ class ProfileScreen extends StatelessWidget {
               image: const AssetImage('assets/images/backgroundimage.jpg'),
               fit: BoxFit.cover,
               colorFilter: ColorFilter.mode(
-                Colors.white.withOpacity(0.5),
+                Colors.white.withOpacity(0.7),
                 BlendMode.colorDodge,
               )),
         ),
@@ -44,9 +44,9 @@ class Body extends StatelessWidget {
               Text(
                 'Выберите раздел',
                 style: TextStyle(
-                  fontSize: 30,
-                  color: Color(hexColor('#00008B')),
-                  fontWeight: FontWeight.w700,
+                  fontSize: 22,
+                  color: Color(hexColor('#00365B')),
+                  fontWeight: FontWeight.bold,
                 ),
               ),
             ],
@@ -55,7 +55,7 @@ class Body extends StatelessWidget {
             height: 50,
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 7),
             child: RaisedButton(
               elevation: 20,
               shape: RoundedRectangleBorder(
@@ -63,7 +63,7 @@ class Body extends StatelessWidget {
               color: bgColorHousesAppBar,
               onPressed: () {
                 {
-                  Navigator.pushNamed(context, '/catalog', arguments: 'Дом');
+                  Navigator.pushNamed(context, '/catalog', arguments: 'Дома');
                 }
               },
               child: Row(
@@ -76,8 +76,8 @@ class Body extends StatelessWidget {
                   const SizedBox(width: 25),
                   const Expanded(
                     child: Text(
-                      'Дом',
-                      style: TextStyle(fontSize: 20, color: Colors.white),
+                      'Дома',
+                      style: TextStyle(fontSize: 23, color: Colors.white),
                     ),
                   ),
                 ],
@@ -85,7 +85,7 @@ class Body extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 7),
             child: RaisedButton(
               elevation: 20,
               shape: RoundedRectangleBorder(
@@ -108,7 +108,7 @@ class Body extends StatelessWidget {
                   const Expanded(
                     child: Text(
                       'Мероприятия',
-                      style: TextStyle(fontSize: 20, color: Colors.white),
+                      style: TextStyle(fontSize: 23, color: Colors.white),
                     ),
                   ),
                 ],
@@ -116,7 +116,7 @@ class Body extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 7),
             child: RaisedButton(
               elevation: 20,
               shape: RoundedRectangleBorder(
@@ -139,7 +139,7 @@ class Body extends StatelessWidget {
                   const Expanded(
                     child: Text(
                       'Пространства',
-                      style: TextStyle(fontSize: 20, color: Colors.white),
+                      style: TextStyle(fontSize: 23, color: Colors.white),
                     ),
                   ),
                 ],
@@ -147,7 +147,7 @@ class Body extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 7),
             child: RaisedButton(
               elevation: 20,
               shape: RoundedRectangleBorder(
@@ -170,7 +170,7 @@ class Body extends StatelessWidget {
                   const Expanded(
                     child: Text(
                       'Организации',
-                      style: TextStyle(fontSize: 20, color: Colors.white),
+                      style: TextStyle(fontSize: 23, color: Colors.white),
                     ),
                   ),
                 ],
@@ -178,7 +178,7 @@ class Body extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 7),
             child: RaisedButton(
               elevation: 20,
               shape: RoundedRectangleBorder(
@@ -200,7 +200,7 @@ class Body extends StatelessWidget {
                   const Expanded(
                     child: Text(
                       'Карта локаций',
-                      style: TextStyle(fontSize: 20, color: Colors.white),
+                      style: TextStyle(fontSize: 23, color: Colors.white),
                     ),
                   ),
                 ],
