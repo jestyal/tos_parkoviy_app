@@ -7,8 +7,8 @@
     "long_descr": "И еще вот такая",
     "street": "Льва Толстого",
     "house": "31",
-    "longitude": "37.599155",
-    "latitude": "54.184941"
+    "longitude": "36.599155",
+    "latitude": "53.184941"
     },
     {
     "ID": "2",
@@ -18,8 +18,8 @@
     "long_descr": "И еще вот такая",
     "street": "Льва Толстого",
     "house": "33",
-    "longitude": "37.605948",
-    "latitude": "54.185443"   
+    "longitude": "38.605948",
+    "latitude": "55.185443"   
     },
     {
     "ID": "3",
@@ -29,8 +29,8 @@
     "long_descr": "И еще вот такая",
     "street": "Льва Толстого",
     "house": "35",
-    "longitude": "37.599155",
-    "latitude": "54.184941"
+    "longitude": "37.567432",
+    "latitude": "54.987654"
     },
     {
     "ID": "4",
@@ -40,7 +40,7 @@
     "long_descr": "И еще вот такая",
     "street": "Льва Толстого",
     "house": "37A",
-    "longitude": "37.599155",
-    "latitude": "54.184941"
+    "longitude": "37.128745",
+    "latitude": "54.120954"
     }
 ]}
