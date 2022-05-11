@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 Future<Houses> getHousesList() async {
   var jsonData = await rootBundle.loadString('assets/json/houses.json');
   var data = json.decode(jsonData);
-  return data;
+  return Houses.fromJson(data);
 }
 
 class Houses {
@@ -238,7 +238,7 @@ class Roof {
 
 class Front {
   int? maintenanceYear;
-  String? condition;
+  bool? condition;
 
   Front({this.maintenanceYear, this.condition});
 
@@ -257,7 +257,7 @@ class Front {
 
 class Electronics {
   int? maintenanceYear;
-  String? condition;
+  bool? condition;
 
   Electronics({this.maintenanceYear, this.condition});
 
@@ -276,7 +276,7 @@ class Electronics {
 
 class Water {
   int? maintenanceYear;
-  String? condition;
+  bool? condition;
 
   Water({this.maintenanceYear, this.condition});
 
@@ -295,7 +295,7 @@ class Water {
 
 class Sewerage {
   int? maintenanceYear;
-  String? condition;
+  bool? condition;
 
   Sewerage({this.maintenanceYear, this.condition});
 
@@ -314,7 +314,7 @@ class Sewerage {
 
 class Heating {
   int? maintenanceYear;
-  String? condition;
+  bool? condition;
 
   Heating({this.maintenanceYear, this.condition});
 
@@ -333,7 +333,7 @@ class Heating {
 
 class Gas {
   int? maintenanceYear;
-  String? condition;
+  bool? condition;
 
   Gas({this.maintenanceYear, this.condition});
 

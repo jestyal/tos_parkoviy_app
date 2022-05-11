@@ -1,185 +1,260 @@
-{"house": [
-    {"ID": "1",
-    "caretaker":[{
-        "caretakerName": "Иван",
-        "caretakerSurname": "Иванов",
-        "caretakerDadname": "Иванович",
-        "contact": 88001005676
-    }],
-    "city": "Тула",
-    "street": "Льва Толстого",
-    "house": "91",
-    "year": 1990,
-    "service_provider": "УК Дыня",
-    "refurbishment":[{
-        "roof": [{
-            "maintenanceYear":2020,
-            "condition": true
-    }],
-        "front": [{
-            "maintenanceYear":2020,
-            "condition": true
-    }],
-        "electronics": [{
-            "maintenanceYear":2020,
-            "condition": true
-    }],
-        "water": [{
-            "maintenanceYear":2024,
-            "condition": false
-    }],
-        "sewerage": [{
-            "maintenanceYear":2027,
-            "condition": false
-    }],
-        "heating": [{
-            "maintenanceYear":2020,
-            "condition": true
-    }],
-        "gas": [{
-            "maintenanceYear":2020,
-            "condition": true
-    }] 
-    }],
-    "longitude": "37.602764",
-    "latitude": "54.185619"
+{
+  "house": [
+    {
+      "ID": "1",
+      "caretaker": [
+        {
+          "caretakerName": "Иван",
+          "caretakerSurname": "Иванов",
+          "caretakerDadname": "Иванович",
+          "contact": 88001005676
+        }
+      ],
+      "city": "Тула",
+      "street": "Льва Толстого",
+      "house": "91",
+      "year": 1990,
+      "service_provider": "УК Дыня",
+      "refurbishment": [
+        {
+          "roof": [
+            {
+              "maintenanceYear": 2020,
+              "condition": true
+            }
+          ],
+          "front": [
+            {
+              "maintenanceYear": 2020,
+              "condition": true
+            }
+          ],
+          "electronics": [
+            {
+              "maintenanceYear": 2020,
+              "condition": true
+            }
+          ],
+          "water": [
+            {
+              "maintenanceYear": 2024,
+              "condition": false
+            }
+          ],
+          "sewerage": [
+            {
+              "maintenanceYear": 2027,
+              "condition": false
+            }
+          ],
+          "heating": [
+            {
+              "maintenanceYear": 2020,
+              "condition": true
+            }
+          ],
+          "gas": [
+            {
+              "maintenanceYear": 2020,
+              "condition": true
+            }
+          ]
+        }
+      ],
+      "longitude": "37.602764",
+      "latitude": "54.185619"
     },
-
-    {"ID": "2",
-    "caretaker":[{
-        "caretakerName": "Петр",
-        "caretakerSurname": "Петров",
-        "caretakerDadname": "Петрович",
-        "contact": 88002005676
-    }],
-    "city": "Тула",
-    "street": "Льва Толстого",
-    "house": "93",
-    "year": 1890,
-    "service_provider": "УК Дыня",
-    "refurbishment":[{
-        "roof": [{
-            "maintenanceYear":2023,
-            "condition": false
-    }],
-        "front": [{
-            "maintenanceYear":2021,
-            "condition": true
-    }],
-        "electronics": [{
-            "maintenanceYear":2021,
-            "condition": true
-    }],
-        "water": [{
-            "maintenanceYear":2024,
-            "condition": false
-    }],
-        "sewerage": [{
-            "maintenanceYear":2018,
-            "condition": true
-    }],
-        "heating": [{
-            "maintenanceYear":2026,
-            "condition": false
-    }],
-        "gas": [{
-            "maintenanceYear":2020,
-            "condition": true
-    }] 
-    }],
-    "longitude": "37.599782",
-    "latitude": "54.190722"
+    {
+      "ID": "2",
+      "caretaker": [
+        {
+          "caretakerName": "Петр",
+          "caretakerSurname": "Петров",
+          "caretakerDadname": "Петрович",
+          "contact": 88002005676
+        }
+      ],
+      "city": "Tyla",
+      "street": "Льва Толстого",
+      "house": "93",
+      "year": 1890,
+      "service_provider": "УК Дыня",
+      "refurbishment": [
+        {
+          "roof": [
+            {
+              "maintenanceYear": 2023,
+              "condition": false
+            }
+          ],
+          "front": [
+            {
+              "maintenanceYear": 2021,
+              "condition": true
+            }
+          ],
+          "electronics": [
+            {
+              "maintenanceYear": 2021,
+              "condition": true
+            }
+          ],
+          "water": [
+            {
+              "maintenanceYear": 2024,
+              "condition": false
+            }
+          ],
+          "sewerage": [
+            {
+              "maintenanceYear": 2018,
+              "condition": true
+            }
+          ],
+          "heating": [
+            {
+              "maintenanceYear": 2026,
+              "condition": false
+            }
+          ],
+          "gas": [
+            {
+              "maintenanceYear": 2020,
+              "condition": true
+            }
+          ]
+        }
+      ],
+      "longitude": "37.599782",
+      "latitude": "54.190722"
     },
-
-    {"ID": "3",
-    "caretaker":[{
-        "caretakerName": "Сидр",
-        "caretakerSurname": "Сидоров",
-        "caretakerDadname": "Сидорович",
-        "contact": 88003005676
-    }],
-    "city": "Тула",
-    "street": "Льва Толстого",
-    "house": "105",
-    "year": 1790,
-    "service_provider": "УК Дыня",
-    "refurbishment":[{
-        "roof": [{
-            "maintenanceYear":2021,
-            "condition": true
-        }],
-        "front": [{
-            "maintenanceYear":2019,
-            "condition": true
-        }],
-        "electronics": [{
-            "maintenanceYear":2020,
-            "condition": true
-        }],
-        "water": [{
-            "maintenanceYear":2021,
-            "condition": true
-        }],
-        "sewerage": [{
-            "maintenanceYear":2028,
-            "condition": false
-        }],
-        "heating": [{
-            "maintenanceYear":2020,
-            "condition": true
-        }],
-        "gas": [{
-            "maintenanceYear":2025,
-            "condition": false
-        }] 
-        }],
-    "longitude": "37.602674",
-    "latitude": "54.186991"
+    {
+      "ID": "3",
+      "caretaker": [
+        {
+          "caretakerName": "Сидр",
+          "caretakerSurname": "Сидоров",
+          "caretakerDadname": "Сидорович",
+          "contact": 88003005676
+        }
+      ],
+      "city": "Тула",
+      "street": "Льва Толстого",
+      "house": "105",
+      "year": 1790,
+      "service_provider": "УК Дыня",
+      "refurbishment": [
+        {
+          "roof": [
+            {
+              "maintenanceYear": 2021,
+              "condition": true
+            }
+          ],
+          "front": [
+            {
+              "maintenanceYear": 2019,
+              "condition": true
+            }
+          ],
+          "electronics": [
+            {
+              "maintenanceYear": 2020,
+              "condition": true
+            }
+          ],
+          "water": [
+            {
+              "maintenanceYear": 2021,
+              "condition": true
+            }
+          ],
+          "sewerage": [
+            {
+              "maintenanceYear": 2028,
+              "condition": false
+            }
+          ],
+          "heating": [
+            {
+              "maintenanceYear": 2020,
+              "condition": true
+            }
+          ],
+          "gas": [
+            {
+              "maintenanceYear": 2025,
+              "condition": false
+            }
+          ]
+        }
+      ],
+      "longitude": "37.602674",
+      "latitude": "54.186991"
     },
-
-    {"ID": "4",
-    "caretaker":[{
-        "caretakerName": "Федр",
-        "caretakerSurname": "Федоров",
-        "caretakerDadname": "Федорович",
-        "contact": 88004005676
-    }],
-    "city": "Тула",
-    "street": "Льва Толстого",
-    "house": "111",
-    "year": 1690,
-    "service_provider": "УК Дыня",
-    "refurbishment":[{
-        "roof": [{
-            "maintenanceYear":2020,
-            "condition": true
-        }],
-        "front": [{
-            "maintenanceYear":2014,
-            "condition": true
-        }],
-        "electronics": [{
-            "maintenanceYear":2020,
-            "condition": true
-        }],
-        "water": [{
-            "maintenanceYear":2021,
-            "condition": true
-        }],
-        "sewerage": [{
-            "maintenanceYear":2019,
-            "condition": true
-        }],
-        "heating": [{
-            "maintenanceYear":2016,
-            "condition": true
-        }],
-        "gas": [{
-            "maintenanceYear":2019,
-            "condition": true
-        }] 
-        }],
-        "longitude": "37.605069",
-        "latitude": "54.184167"
+    {
+      "ID": "4",
+      "caretaker": [
+        {
+          "caretakerName": "Федр",
+          "caretakerSurname": "Федоров",
+          "caretakerDadname": "Федорович",
+          "contact": 88004005676
+        }
+      ],
+      "city": "Тула",
+      "street": "Льва Толстого",
+      "house": "111",
+      "year": 1690,
+      "service_provider": "УК Дыня",
+      "refurbishment": [
+        {
+          "roof": [
+            {
+              "maintenanceYear": 2020,
+              "condition": true
+            }
+          ],
+          "front": [
+            {
+              "maintenanceYear": 2014,
+              "condition": true
+            }
+          ],
+          "electronics": [
+            {
+              "maintenanceYear": 2020,
+              "condition": true
+            }
+          ],
+          "water": [
+            {
+              "maintenanceYear": 2021,
+              "condition": true
+            }
+          ],
+          "sewerage": [
+            {
+              "maintenanceYear": 2019,
+              "condition": true
+            }
+          ],
+          "heating": [
+            {
+              "maintenanceYear": 2016,
+              "condition": true
+            }
+          ],
+          "gas": [
+            {
+              "maintenanceYear": 2019,
+              "condition": true
+            }
+          ]
+        }
+      ],
+      "longitude": "37.605069",
+      "latitude": "54.184167"
     }
-]}
+  ]
+}
