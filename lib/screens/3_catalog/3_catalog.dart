@@ -124,8 +124,12 @@ class _CatalogListState extends State<CatalogList> {
     }
   }
 
+  late final Data data;
+
   @override
   Widget build(BuildContext context) {
+    RouteSettings settings = ModalRoute.of(context)!.settings;
+    data = settings.arguments as Data;
     return Column(
       children: [
         Align(
@@ -205,6 +209,8 @@ class _CatalogListState extends State<CatalogList> {
                                   const EdgeInsets.only(right: 18, left: 15),
                               decoration: const BoxDecoration(
                                 color: bgColorHouses,
+                                // color: this.data.colorSquare,
+                                // ERROR: Invalid constant value
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(10)),
                               ),
