@@ -14,7 +14,8 @@
     "date": "Дата1",
     "time": "Время1",
     "longitude": "37.701767",
-    "latitude": "54.208625"
+    "latitude": "54.208625",
+    "image": "assets/images/event.jpg"
 },
 
 {
@@ -33,7 +34,8 @@
     "date": "Дата2",
     "time": "Время2",
     "longitude": "36.604532",
-    "latitude": "53.196765"
+    "latitude": "53.196765",
+    "image": "assets/images/event.jpg"
 },
 
 {
@@ -52,7 +54,8 @@
     "date": "Дата3",
     "time": "Время3",
     "longitude": "35.601574",
-    "latitude": "55.187525"
+    "latitude": "55.187525",
+    "image": "assets/images/event.jpg"
 },
 {
     "ID": "14",
@@ -70,6 +73,7 @@
     "date": "Дата4",
     "time": "Время4",
     "longitude": "37.502600",
-    "latitude": "54.186793"
+    "latitude": "54.186793",
+    "image": "assets/images/event.jpg"
 }
 ]}
