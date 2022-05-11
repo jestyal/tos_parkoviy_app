@@ -9,7 +9,7 @@
     "house": "31",
     "longitude": "36.599155",
     "latitude": "53.184941",
-    "image": "assets/images/organization.jpeg"
+    "image": "assets/images/organization.png"
     },
     {
     "ID": "42",
@@ -21,7 +21,7 @@
     "house": "33",
     "longitude": "38.605948",
     "latitude": "55.185443",
-    "image": "assets/images/organization.jpeg"
+    "image": "assets/images/organization.png"
     },
     {
     "ID": "43",
@@ -33,7 +33,7 @@
     "house": "35",
     "longitude": "37.567432",
     "latitude": "54.987654",
-    "image": "assets/images/organization.jpeg"
+    "image": "assets/images/organization.png"
     },
     {
     "ID": "44",
@@ -45,6 +45,6 @@
     "house": "37A",
     "longitude": "37.128745",
     "latitude": "54.120954",
-    "image": "assets/images/organization.jpeg"
+    "image": "assets/images/organization.png"
     }
 ]}
