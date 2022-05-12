@@ -1,12 +1,5 @@
-import 'dart:convert';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:tos_parkoviy_app/main.dart';
-import 'package:tos_parkoviy_app/components/constants.dart';
 import 'package:tos_parkoviy_app/screens/2_homescreen.dart';
-
 import '../../components/houses_fromJson.dart';
 
 // class CatalogItem {
@@ -86,17 +79,6 @@ class Catalog extends StatelessWidget {
           title: Text('${this.data.title}'),
           centerTitle: true,
           backgroundColor: this.data.bgcolor,
-          actions: <Widget>[
-            IconButton(
-              icon: Icon(
-                Icons.home,
-                size: 30,
-              ),
-              onPressed: () {
-                Navigator.pushNamed(context, '/home');
-              },
-            ),
-          ],
         ),
         resizeToAvoidBottomInset: false,
         body: Container(
@@ -152,7 +134,6 @@ class _CatalogListState extends State<CatalogList> {
   //
   //   return list.map((e) => CatalogItem.fromJson(e)).toList();
   // }
-
   // void searchInCatalog(String query) {
   //   if (query.isNotEmpty) {
   //     final suggestions = items.where((item) {
@@ -175,7 +156,7 @@ class _CatalogListState extends State<CatalogList> {
   // }
 
   late final Data data;
-  // final DataToCard dataColor = this.data.bgcolor;
+  late final DataToCard colorappbar;
 
   @override
   Widget build(BuildContext context) {
@@ -223,7 +204,6 @@ class _CatalogListState extends State<CatalogList> {
                 ]),
           ),
         ),
-
         // Expanded(
         //   child: ListView.builder(
         //     padding:
@@ -330,7 +310,6 @@ class _CatalogListState extends State<CatalogList> {
         //     },
         //   ),
         // ),
-
         Expanded(
           child: FutureBuilder(
             // future: readJsonData(),
@@ -342,7 +321,6 @@ class _CatalogListState extends State<CatalogList> {
               } else if (data.hasData) {
                 var items1 = data.data as Houses;
                 var items = items1.house as List<House>;
-
                 return ListView.builder(
                   padding: const EdgeInsets.only(
                       left: 15, top: 20, right: 15, bottom: 15),
@@ -449,8 +427,11 @@ class _CatalogListState extends State<CatalogList> {
                           ),
                         ),
                         onTap: () => {
+                              colorappbar =
+                                  DataToCard(bgcolor: this.data.bgcolor),
                               Navigator.pushNamed(
-                                  context, '/house_card_details')
+                                  context, '/house_card_details',
+                                  arguments: colorappbar)
                             });
                   },
                 );
@@ -469,12 +450,14 @@ class _CatalogListState extends State<CatalogList> {
 
 class DataToCard {
   final dynamic bgcolor;
-  // final dynamic name;
+  // final dynamic adress;
   // final dynamic json;
+  // final dynamic ID;
 
   DataToCard({
     required this.bgcolor,
-    // required this.name,
+    // required this.adress,
     // required this.json,
+    // required this.ID,
   });
 }

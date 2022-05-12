@@ -111,17 +111,6 @@ class _TOSMapState extends State<TOSMap> {
           ),
           centerTitle: true,
           backgroundColor: bgColorMapAppBar,
-          actions: <Widget>[
-            IconButton(
-              icon: Icon(
-                Icons.home,
-                size: 30,
-              ),
-              onPressed: () {
-                Navigator.pushNamed(context, '/home');
-              },
-            ),
-          ],
         ),
         body: Column(children: [
           Stack(
