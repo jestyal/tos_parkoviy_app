@@ -115,13 +115,13 @@ class _CatalogListState extends State<CatalogList> {
                 return ListView.builder(
                   padding: const EdgeInsets.only(
                       left: 15, top: 20, right: 15, bottom: 15),
-                  itemCount: items == null ? 0 : items.length,
+                  itemCount: items.length,
                   itemBuilder: (_, index) {
                     return
-                      items[index].street!.contains(searchString) &&
-                      items[index].caretaker![0].caretakerDadname!.contains(searchString) &&
-                      items[index].caretaker![0].caretakerName!.contains(searchString) &&
-                      items[index].caretaker![0].caretakerSurname!.contains(searchString)
+                      items[index].street!.toLowerCase().contains(searchString)
+                          || items[index].caretaker![0].caretakerDadname!.toLowerCase().contains(searchString)
+                          || items[index].caretaker![0].caretakerName!.toLowerCase().contains(searchString)
+                          || items[index].caretaker![0].caretakerSurname!.toLowerCase().contains(searchString)
                       ?
                       GestureDetector(
                         child: Container(
