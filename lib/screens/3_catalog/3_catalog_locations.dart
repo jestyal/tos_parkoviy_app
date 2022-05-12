@@ -222,7 +222,7 @@ class _CatalogLocationsListState extends State<CatalogLocationsList> {
                               colorappbar =
                                   DataToCard(bgcolor: this.data.bgcolor),
                               Navigator.pushNamed(
-                                  context, '/house_card_details',
+                                  context, '/location_card_details',
                                   arguments: colorappbar)
                             })
 

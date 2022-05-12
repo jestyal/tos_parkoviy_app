@@ -249,7 +249,7 @@ class _CatalogEventsListState extends State<CatalogEventsList> {
                                   // colorappbar =
                                   //     DataToCard(bgcolor: this.data.bgcolor),
                                   Navigator.pushNamed(
-                                    context, '/house_card_details',
+                                    context, '/event_card_details',
                                     // arguments: colorappbar
                                   )
                                 })
