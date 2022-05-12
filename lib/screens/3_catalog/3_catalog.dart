@@ -120,19 +120,19 @@ class CatalogList extends StatefulWidget {
 }
 
 class _CatalogListState extends State<CatalogList> {
-  getColorAppBar(String title) {
-    if (title == "Дома") {
-      return bgColorHousesAppBar;
-    } else if (title == "Организации") {
-      return bgColorOrganizationsAppBar;
-    } else if (title == "Пространства") {
-      return bgColorPlacesAppBar;
-    } else if (title == "Мероприятия") {
-      return bgColorEventsAppBar;
-    } else {
-      return bgColorHousesAppBar;
-    }
-  }
+  // getColorAppBar(String title) {
+  //   if (title == "Дома") {
+  //     return bgColorHousesAppBar;
+  //   } else if (title == "Организации") {
+  //     return bgColorOrganizationsAppBar;
+  //   } else if (title == "Пространства") {
+  //     return bgColorPlacesAppBar;
+  //   } else if (title == "Мероприятия") {
+  //     return bgColorEventsAppBar;
+  //   } else {
+  //     return bgColorHousesAppBar;
+  //   }
+  // }
 
   final _searchController = TextEditingController();
 
@@ -174,13 +174,13 @@ class _CatalogListState extends State<CatalogList> {
   //   }
   // }
 
-  // late final Data data;
+  late final Data data;
   // final DataToCard dataColor = this.data.bgcolor;
 
   @override
   Widget build(BuildContext context) {
-    // RouteSettings settings = ModalRoute.of(context)!.settings;
-    // data = settings.arguments as Data;
+    RouteSettings settings = ModalRoute.of(context)!.settings;
+    data = settings.arguments as Data;
     return Column(
       children: [
         Align(
@@ -376,10 +376,8 @@ class _CatalogListState extends State<CatalogList> {
                                     padding: const EdgeInsets.all(2),
                                     margin: const EdgeInsets.only(
                                         right: 18, left: 15),
-                                    decoration: const BoxDecoration(
-                                      color: bgColorHouses,
-                                      // color: this.data.colorSquare,
-                                      // ERROR: Invalid constant value
+                                    decoration: BoxDecoration(
+                                      color: this.data.colorSquare,
                                       borderRadius:
                                           BorderRadius.all(Radius.circular(10)),
                                     ),
