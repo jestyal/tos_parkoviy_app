@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/services.dart';
 
-Future<Events> getHousesList() async {
+Future<Events> getEventsList() async {
   var jsonData = await rootBundle.loadString('assets/json/events.json');
   var data = json.decode(jsonData);
   return Events.fromJson(data);

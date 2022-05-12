@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:tos_parkoviy_app/components/organizations_fromJson.dart';
 import 'package:tos_parkoviy_app/screens/2_homescreen.dart';
-import '../../components/houses_fromJson.dart';
+import '../../components/organizations_fromJson.dart';
 
 class CatalogOrganizations extends StatelessWidget {
   late final Data data;
@@ -41,12 +42,12 @@ class _CatalogOrganizationsListState extends State<CatalogOrganizationsList> {
   final _searchController = TextEditingController();
   String searchString = "";
 
-  late Future<Houses> futureData;
+  late Future<Organizations> futureData;
 
   @override
   void initState() {
     super.initState();
-    futureData = getHousesList();
+    futureData = getOrganizationsList();
   }
 
   late Data data;
@@ -109,19 +110,18 @@ class _CatalogOrganizationsListState extends State<CatalogOrganizationsList> {
               if (data.hasError) {
                 return Center(child: Text("${data.error}"));
               } else if (data.hasData) {
-                var houses = data.data as Houses;
-                var items = houses.house as List<House>;
+                var organizations = data.data as Organizations;
+                var items = organizations.organization as List<Organization>;
 
                 return ListView.builder(
                   padding: const EdgeInsets.only(
                       left: 15, top: 20, right: 15, bottom: 15),
-                  itemCount: items.length,
+                  itemCount: items == null ? 0 : items.length,
                   itemBuilder: (_, index) {
                     return
-                      items[index].street!.toLowerCase().contains(searchString)
-                          || items[index].caretaker![0].caretakerDadname!.toLowerCase().contains(searchString)
-                          || items[index].caretaker![0].caretakerName!.toLowerCase().contains(searchString)
-                          || items[index].caretaker![0].caretakerSurname!.toLowerCase().contains(searchString)
+                      items[index].name!.toLowerCase().contains(searchString)
+                          || items[index].type!.toLowerCase().contains(searchString)
+                          || items[index].shortDescr!.toLowerCase().contains(searchString)
                       ?
                       GestureDetector(
                         child: Container(
@@ -162,7 +162,7 @@ class _CatalogOrganizationsListState extends State<CatalogOrganizationsList> {
                                           CrossAxisAlignment.center,
                                       children: [
                                         Text(
-                                          items[index].house.toString(),
+                                          items[index].type.toString(),
                                           textAlign: TextAlign.center,
                                           style: const TextStyle(
                                             fontSize: 16,
@@ -182,15 +182,13 @@ class _CatalogOrganizationsListState extends State<CatalogOrganizationsList> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          items[index].street.toString(),
+                                          items[index].name.toString(),
                                           style: const TextStyle(
                                             fontSize: 16,
                                           ),
                                         ),
                                         Text(
-                                           items[index].caretaker![0].caretakerSurname.toString() + " " +
-                                               items[index].caretaker![0].caretakerName.toString() + " " +
-                                               items[index].caretaker![0].caretakerDadname.toString(),
+                                           items[index].shortDescr.toString(),
                                           style: const TextStyle(fontSize: 14),
                                         ),
                                       ],

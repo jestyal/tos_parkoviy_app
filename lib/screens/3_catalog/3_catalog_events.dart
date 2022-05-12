@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:tos_parkoviy_app/components/events_fromJson.dart';
 import 'package:tos_parkoviy_app/screens/2_homescreen.dart';
-import '../../components/houses_fromJson.dart';
+import '../../components/events_fromJson.dart';
 
 class CatalogEvents extends StatelessWidget {
   late final Data data;
@@ -41,12 +42,12 @@ class _CatalogEventsListState extends State<CatalogEventsList> {
   final _searchController = TextEditingController();
   String searchString = "";
 
-  late Future<Houses> futureData;
+  late Future<Events> futureData;
 
   @override
   void initState() {
     super.initState();
-    futureData = getHousesList();
+    futureData = getEventsList();
   }
 
   late Data data;
@@ -109,8 +110,8 @@ class _CatalogEventsListState extends State<CatalogEventsList> {
               if (data.hasError) {
                 return Center(child: Text("${data.error}"));
               } else if (data.hasData) {
-                var houses = data.data as Houses;
-                var items = houses.house as List<House>;
+                var events = data.data as Events;
+                var items = events.event as List<Event>;
 
                 return ListView.builder(
                   padding: const EdgeInsets.only(
@@ -118,22 +119,11 @@ class _CatalogEventsListState extends State<CatalogEventsList> {
                   itemCount: items.length,
                   itemBuilder: (_, index) {
                     return items[index]
-                                .street!
+                                .eventName!
                                 .toLowerCase()
                                 .contains(searchString) ||
-                            items[index]
-                                .caretaker![0]
-                                .caretakerDadname!
-                                .toLowerCase()
-                                .contains(searchString) ||
-                            items[index]
-                                .caretaker![0]
-                                .caretakerName!
-                                .toLowerCase()
-                                .contains(searchString) ||
-                            items[index]
-                                .caretaker![0]
-                                .caretakerSurname!
+                            items[index].place!.toLowerCase().contains(searchString) ||
+                            items[index].date!
                                 .toLowerCase()
                                 .contains(searchString)
                         ? GestureDetector(
@@ -176,7 +166,7 @@ class _CatalogEventsListState extends State<CatalogEventsList> {
                                               CrossAxisAlignment.center,
                                           children: [
                                             Text(
-                                              items[index].house.toString(),
+                                              items[index].date.toString(),
                                               textAlign: TextAlign.center,
                                               style: const TextStyle(
                                                 fontSize: 16,
@@ -196,26 +186,13 @@ class _CatalogEventsListState extends State<CatalogEventsList> {
                                               CrossAxisAlignment.start,
                                           children: [
                                             Text(
-                                              items[index].street.toString(),
+                                              items[index].eventName.toString(),
                                               style: const TextStyle(
                                                 fontSize: 16,
                                               ),
                                             ),
                                             Text(
-                                              items[index]
-                                                      .caretaker![0]
-                                                      .caretakerSurname
-                                                      .toString() +
-                                                  " " +
-                                                  items[index]
-                                                      .caretaker![0]
-                                                      .caretakerName
-                                                      .toString() +
-                                                  " " +
-                                                  items[index]
-                                                      .caretaker![0]
-                                                      .caretakerDadname
-                                                      .toString(),
+                                              "Место проведения: " + items[index].place.toString(),
                                               style:
                                                   const TextStyle(fontSize: 14),
                                             ),
