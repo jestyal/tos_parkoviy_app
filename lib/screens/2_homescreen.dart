@@ -60,6 +60,7 @@ class Body extends StatelessWidget {
             title: 'Дома',
             colorSquare: bgColorHouses,
             json: 'assets/json/houses.json',
+            pathName: '/catalog_houses',
           ),
           MenuCard(
             icon: 'assets/icons/events.png',
@@ -67,6 +68,7 @@ class Body extends StatelessWidget {
             title: 'Мероприятия',
             colorSquare: bgColorEvents,
             json: 'assets/json/events.json',
+            pathName: '/catalog_events',
           ),
           MenuCard(
             icon: 'assets/icons/locations.png',
@@ -74,6 +76,7 @@ class Body extends StatelessWidget {
             title: 'Пространства',
             colorSquare: bgColorPlaces,
             json: 'assets/json/locations.json',
+            pathName: '/catalog_locations',
           ),
           MenuCard(
             icon: 'assets/icons/organizations.png',
@@ -81,6 +84,7 @@ class Body extends StatelessWidget {
             title: 'Организации',
             colorSquare: bgColorOrganizations,
             json: 'assets/json/organizations.json',
+            pathName: '/catalog_organizations',
           ),
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 7),
@@ -120,6 +124,7 @@ class MenuCard extends StatelessWidget {
   late String icon;
   late String title;
   late String json;
+  late String pathName;
   dynamic bgcolor;
   dynamic colorSquare;
 
@@ -127,6 +132,7 @@ class MenuCard extends StatelessWidget {
       {required this.icon,
       required this.bgcolor,
       required this.title,
+        required this.pathName,
       required this.colorSquare,
       required this.json});
 
@@ -146,7 +152,7 @@ class MenuCard extends StatelessWidget {
                 bgcolor: this.bgcolor,
                 colorSquare: colorSquare,
                 json: json);
-            Navigator.pushNamed(context, '/catalog', arguments: data);
+            Navigator.pushNamed(context, this.pathName, arguments: data);
           }
         },
         child: Row(

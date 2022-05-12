@@ -5,13 +5,13 @@
       "caretaker": [
         {
           "caretakerName": "Иван",
-          "caretakerSurname": "Иванов",
+          "caretakerSurname": "Ivanov",
           "caretakerDadname": "Иванович",
           "contact": 88001005676
         }
       ],
       "city": "Тула",
-      "street": "Льва Толстого",
+      "street": "Льва Толстого qwe",
       "house": "91",
       "year": 1990,
       "service_provider": "УК Дыня",
@@ -68,7 +68,7 @@
       "ID": "22",
       "caretaker": [
         {
-          "caretakerName": "Петр",
+          "caretakerName": "Petr",
           "caretakerSurname": "Петров",
           "caretakerDadname": "Петрович",
           "contact": 88002005676
@@ -134,7 +134,7 @@
         {
           "caretakerName": "Сидр",
           "caretakerSurname": "Сидоров",
-          "caretakerDadname": "Сидорович",
+          "caretakerDadname": "Sidirivich",
           "contact": 88003005676
         }
       ],

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:tos_parkoviy_app/screens/3_catalog/3_catalog_events.dart';
+import 'package:tos_parkoviy_app/screens/3_catalog/3_catalog_locations.dart';
+import 'package:tos_parkoviy_app/screens/3_catalog/3_catalog_organizations.dart';
 import 'package:tos_parkoviy_app/screens/4_card_details/houses_card_details.dart';
-import 'package:tos_parkoviy_app/screens/3_catalog/3_catalog.dart';
+import 'package:tos_parkoviy_app/screens/3_catalog/3_catalog_houses.dart';
 import 'package:tos_parkoviy_app/screens/5_display_map.dart';
 import 'package:tos_parkoviy_app/screens/2_homescreen.dart';
 import 'screens/1_splash_screen.dart';
@@ -17,7 +20,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       routes: {
         '/home': (context) => const ProfileScreen(),
-        '/catalog': (context) => Catalog(),
+        '/catalog_houses': (context) => CatalogHouses(),
+        '/catalog_events': (context) => CatalogEvents(),
+        '/catalog_locations': (context) => CatalogLocations(),
+        '/catalog_organizations': (context) => CatalogOrganizations(),
         '/house_card_details': (context) => const HousesCardDetails(),
         '/card_map': (context) => const DisplayMap(),
       },

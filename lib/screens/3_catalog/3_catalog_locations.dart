@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tos_parkoviy_app/screens/2_homescreen.dart';
 import '../../components/houses_fromJson.dart';
 
-class Catalog extends StatelessWidget {
+class CatalogLocations extends StatelessWidget {
   late final Data data;
 
   @override
@@ -24,20 +24,20 @@ class Catalog extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
-            child: CatalogList()));
+            child: CatalogLocationsList()));
   }
 }
 
-class CatalogList extends StatefulWidget {
-  const CatalogList({
+class CatalogLocationsList extends StatefulWidget {
+  const CatalogLocationsList({
     Key? key,
   }) : super(key: key);
 
   @override
-  _CatalogListState createState() => _CatalogListState();
+  _CatalogLocationsListState createState() => _CatalogLocationsListState();
 }
 
-class _CatalogListState extends State<CatalogList> {
+class _CatalogLocationsListState extends State<CatalogLocationsList> {
   final _searchController = TextEditingController();
   String searchString = "";
 

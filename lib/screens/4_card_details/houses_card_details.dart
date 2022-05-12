@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../components/houses_fromJson.dart';
-import 'package:tos_parkoviy_app/screens/3_catalog/3_catalog.dart';
+import 'package:tos_parkoviy_app/screens/3_catalog/3_catalog_houses.dart';
 import 'package:tos_parkoviy_app/components/constants.dart';
 
 class HousesCardDetails extends StatefulWidget {
