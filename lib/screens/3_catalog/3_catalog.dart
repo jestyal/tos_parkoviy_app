@@ -42,7 +42,6 @@ class _CatalogListState extends State<CatalogList> {
   String searchString = "";
 
   late Future<Houses> futureData;
-  // late List<Caretaker> caretakerData;
 
   @override
   void initState() {
@@ -110,18 +109,20 @@ class _CatalogListState extends State<CatalogList> {
               if (data.hasError) {
                 return Center(child: Text("${data.error}"));
               } else if (data.hasData) {
-                var items1 = data.data as Houses;
-                var items = items1.house as List<House>;
-                // var caretaker = data.data as Caretaker;
-                // var caretaker = caretaker1.caretakerName;
-
+                var houses = data.data as Houses;
+                var items = houses.house as List<House>;
 
                 return ListView.builder(
                   padding: const EdgeInsets.only(
                       left: 15, top: 20, right: 15, bottom: 15),
                   itemCount: items == null ? 0 : items.length,
                   itemBuilder: (_, index) {
-                    return items[index].street!.contains(searchString) ?
+                    return
+                      items[index].street!.contains(searchString) &&
+                      items[index].caretaker![0].caretakerDadname!.contains(searchString) &&
+                      items[index].caretaker![0].caretakerName!.contains(searchString) &&
+                      items[index].caretaker![0].caretakerSurname!.contains(searchString)
+                      ?
                       GestureDetector(
                         child: Container(
                           margin: const EdgeInsets.only(bottom: 15),
@@ -187,9 +188,9 @@ class _CatalogListState extends State<CatalogList> {
                                           ),
                                         ),
                                         Text(
-                                          // caretaker.caretakerDadname.toString() + caretaker.caretakerName.toString() + caretaker.caretakerSurname.toString(),
-                                          items[index].caretaker.toString(),
-                                          // items[index].caretaker['caretakerName'].toString(),
+                                          items[index].caretaker![0].caretakerDadname.toString() + " " +
+                                          items[index].caretaker![0].caretakerName.toString() + " " +
+                                          items[index].caretaker![0].caretakerSurname.toString(),
                                           style: const TextStyle(fontSize: 14),
                                         ),
                                       ],
