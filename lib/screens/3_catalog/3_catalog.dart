@@ -188,9 +188,9 @@ class _CatalogListState extends State<CatalogList> {
                                           ),
                                         ),
                                         Text(
-                                          items[index].caretaker![0].caretakerDadname.toString() + " " +
-                                          items[index].caretaker![0].caretakerName.toString() + " " +
-                                          items[index].caretaker![0].caretakerSurname.toString(),
+                                           items[index].caretaker![0].caretakerSurname.toString() + " " +
+                                               items[index].caretaker![0].caretakerName.toString() + " " +
+                                               items[index].caretaker![0].caretakerDadname.toString(),
                                           style: const TextStyle(fontSize: 14),
                                         ),
                                       ],
