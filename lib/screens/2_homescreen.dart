@@ -58,32 +58,32 @@ class Body extends StatelessWidget {
             icon: 'assets/icons/houses.png',
             bgcolor: bgColorHousesAppBar,
             title: 'Дома',
-            colorSquare: bgColorHouses,
-            json: 'assets/json/houses.json',
+            // colorSquare: bgColorHouses,
+            // json: 'assets/json/houses.json',
             pathName: '/catalog_houses',
           ),
           MenuCard(
             icon: 'assets/icons/events.png',
             bgcolor: bgColorEventsAppBar,
             title: 'Мероприятия',
-            colorSquare: bgColorEvents,
-            json: 'assets/json/events.json',
+            // colorSquare: bgColorEvents,
+            // json: 'assets/json/events.json',
             pathName: '/catalog_events',
           ),
           MenuCard(
             icon: 'assets/icons/locations.png',
             bgcolor: bgColorPlacesAppBar,
             title: 'Пространства',
-            colorSquare: bgColorPlaces,
-            json: 'assets/json/locations.json',
+            // colorSquare: bgColorPlaces,
+            // json: 'assets/json/locations.json',
             pathName: '/catalog_locations',
           ),
           MenuCard(
             icon: 'assets/icons/organizations.png',
             bgcolor: bgColorOrganizationsAppBar,
             title: 'Организации',
-            colorSquare: bgColorOrganizations,
-            json: 'assets/json/organizations.json',
+            // colorSquare: bgColorOrganizations,
+            // json: 'assets/json/organizations.json',
             pathName: '/catalog_organizations',
           ),
           Container(
@@ -123,18 +123,19 @@ class Body extends StatelessWidget {
 class MenuCard extends StatelessWidget {
   late String icon;
   late String title;
-  late String json;
+  // late String json;
   late String pathName;
   dynamic bgcolor;
-  dynamic colorSquare;
+  // dynamic colorSquare;
 
-  MenuCard(
-      {required this.icon,
-      required this.bgcolor,
-      required this.title,
-        required this.pathName,
-      required this.colorSquare,
-      required this.json});
+  MenuCard({
+    required this.icon,
+    required this.bgcolor,
+    required this.title,
+    required this.pathName,
+    // required this.colorSquare,
+    // required this.json
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -147,12 +148,16 @@ class MenuCard extends StatelessWidget {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(150)),
         onPressed: () {
           {
-            Data data = Data(
-                title: this.title,
-                bgcolor: this.bgcolor,
-                colorSquare: colorSquare,
-                json: json);
-            Navigator.pushNamed(context, this.pathName, arguments: data);
+            // Data data = Data(
+            //   title: this.title,
+            //   bgcolor: this.bgcolor,
+            //   colorSquare: colorSquare,
+            //   // json: json
+            // );
+            Navigator.pushNamed(
+              context, this.pathName,
+              // arguments: data
+            );
           }
         },
         child: Row(
@@ -174,15 +179,15 @@ class MenuCard extends StatelessWidget {
   }
 }
 
-class Data {
-  final dynamic title;
-  final dynamic bgcolor;
-  final dynamic json;
-  final dynamic colorSquare;
+// class Data {
+//   final dynamic title;
+//   final dynamic bgcolor;
+//   final dynamic json;
+//   final dynamic colorSquare;
 
-  Data(
-      {required this.title,
-      required this.bgcolor,
-      required this.json,
-      required this.colorSquare});
-}
+//   Data(
+//       {required this.title,
+//       required this.bgcolor,
+//       required this.json,
+//       required this.colorSquare});
+// }

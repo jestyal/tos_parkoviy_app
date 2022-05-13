@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:tos_parkoviy_app/components/constants.dart';
 import 'package:tos_parkoviy_app/components/events_fromJson.dart';
-import 'package:tos_parkoviy_app/screens/2_homescreen.dart';
+// import 'package:tos_parkoviy_app/screens/2_homescreen.dart';
 import '../../components/events_fromJson.dart';
 
 class CatalogEvents extends StatelessWidget {
-  late final Data data;
+  // late final Data data;
 
   @override
   Widget build(BuildContext context) {
-    RouteSettings settings = ModalRoute.of(context)!.settings;
-    data = settings.arguments as Data;
+    // RouteSettings settings = ModalRoute.of(context)!.settings;
+    // data = settings.arguments as Data;
 
     return Scaffold(
         appBar: AppBar(
-          title: Text('${this.data.title}'),
+          title: Text('Мероприятия'),
           centerTitle: true,
-          backgroundColor: this.data.bgcolor,
+          backgroundColor: bgColorEventsAppBar,
         ),
         resizeToAvoidBottomInset: false,
         body: Container(
@@ -50,13 +51,13 @@ class _CatalogEventsListState extends State<CatalogEventsList> {
     futureData = getEventsList();
   }
 
-  late Data data;
-  late final DataToCard colorappbar;
+  // late Data data;
+  // late final DataToCard colorappbar;
 
   @override
   Widget build(BuildContext context) {
-    RouteSettings settings = ModalRoute.of(context)!.settings;
-    data = settings.arguments as Data;
+    // RouteSettings settings = ModalRoute.of(context)!.settings;
+    // data = settings.arguments as Data;
     return Column(
       children: [
         Align(
@@ -122,8 +123,12 @@ class _CatalogEventsListState extends State<CatalogEventsList> {
                                 .eventName!
                                 .toLowerCase()
                                 .contains(searchString) ||
-                            items[index].place!.toLowerCase().contains(searchString) ||
-                            items[index].date!
+                            items[index]
+                                .place!
+                                .toLowerCase()
+                                .contains(searchString) ||
+                            items[index]
+                                .date!
                                 .toLowerCase()
                                 .contains(searchString)
                         ? GestureDetector(
@@ -155,7 +160,7 @@ class _CatalogEventsListState extends State<CatalogEventsList> {
                                         margin: const EdgeInsets.only(
                                             right: 18, left: 15),
                                         decoration: BoxDecoration(
-                                          color: this.data.colorSquare,
+                                          color: bgColorEvents,
                                           borderRadius: const BorderRadius.all(
                                               Radius.circular(10)),
                                         ),
@@ -192,7 +197,8 @@ class _CatalogEventsListState extends State<CatalogEventsList> {
                                               ),
                                             ),
                                             Text(
-                                              "Место проведения: " + items[index].place.toString(),
+                                              "Место проведения: " +
+                                                  items[index].place.toString(),
                                               style:
                                                   const TextStyle(fontSize: 14),
                                             ),
@@ -246,16 +252,16 @@ class _CatalogEventsListState extends State<CatalogEventsList> {
   }
 }
 
-class DataToCard {
-  final dynamic bgcolor;
-  // final dynamic adress;
-  // final dynamic json;
-  // final dynamic ID;
+// class DataToCard {
+//   final dynamic bgcolor;
+//   final dynamic adress;
+//   final dynamic json;
+//   final dynamic ID;
 
-  DataToCard({
-    required this.bgcolor,
-    // required this.adress,
-    // required this.json,
-    // required this.ID,
-  });
-}
+//   DataToCard({
+//     required this.bgcolor,
+//     required this.adress,
+//     required this.json,
+//     required this.ID,
+//   });
+// }

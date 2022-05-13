@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
-import '../main.dart';
+import 'package:tos_parkoviy_app/screens/4_card_details/houses_card_details.dart';
+// import 'package:tos_parkoviy_app/screens/4_card_details/events_card_details.dart';
+// import 'package:tos_parkoviy_app/screens/4_card_details/locations_card_details.dart';
+// import 'package:tos_parkoviy_app/screens/4_card_details/organizations_card_details.dart';
+
 import 'dart:async';
 import 'dart:convert';
-import 'package:tos_parkoviy_app/components/constants.dart';
 
 class DisplayMap extends StatefulWidget {
   const DisplayMap({Key? key}) : super(key: key);
@@ -15,15 +18,7 @@ class DisplayMap extends StatefulWidget {
 }
 
 class _DisplayMapState extends State<DisplayMap> {
-  Set<Marker> _markers = {
-    Marker(
-        markerId: MarkerId('ID'),
-        position: LatLng(54.195340, 37.620309),
-        infoWindow: InfoWindow(
-          title: "Kremlin",
-        ),
-        icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen))
-  };
+  Set<Marker> _markers = {};
   Completer<GoogleMapController> _controller = Completer();
   Location location = Location();
   late GoogleMapController _mapController;
@@ -88,7 +83,7 @@ class _DisplayMapState extends State<DisplayMap> {
           width: 45,
           child: FloatingActionButton(
               heroTag: "btn1",
-              backgroundColor: Color(0xFFf18825),
+              backgroundColor: this.dataToMap.bgcolor,
               child: Icon(Icons.remove, color: Colors.white),
               onPressed: () {
                 zoomVal--;
@@ -104,7 +99,7 @@ class _DisplayMapState extends State<DisplayMap> {
           width: 45,
           child: FloatingActionButton(
               heroTag: "btn2",
-              backgroundColor: Color(0xFFf18825),
+              backgroundColor: this.dataToMap.bgcolor,
               child: Icon(Icons.add, color: Colors.white),
               onPressed: () {
                 zoomVal++;
@@ -125,30 +120,18 @@ class _DisplayMapState extends State<DisplayMap> {
         CameraPosition(target: LatLng(54.186415, 37.599950), zoom: zoomVal)));
   }
 
-  // getColorAppBar(String title) {
-  //   if (title == "Дома") {
-  //     return bgColorHousesAppBar;
-  //   } else if (title == "Организации") {
-  //     return bgColorOrganizationsAppBar;
-  //   } else if (title == "Пространства") {
-  //     return bgColorPlacesAppBar;
-  //   } else if (title == "Мероприятия") {
-  //     return bgColorEventsAppBar;
-  //   } else {
-  //     return bgColorHousesAppBar;
-  //   }
-  // }
-
-  // late final String title;
+  late DataToMap dataToMap;
 
   @override
   Widget build(BuildContext context) {
+    RouteSettings settings = ModalRoute.of(context)!.settings;
+    dataToMap = settings.arguments as DataToMap;
     return Scaffold(
         appBar: AppBar(
           //TODO: передать аргумент
-          title: Text('Название'),
+          title: Text('Адрес'),
           centerTitle: true,
-          // backgroundColor: getColorAppBar(title),
+          backgroundColor: this.dataToMap.bgcolor,
           actions: <Widget>[
             IconButton(
               icon: Icon(
@@ -175,7 +158,7 @@ class _DisplayMapState extends State<DisplayMap> {
                 myLocationEnabled: true,
                 myLocationButtonEnabled: true,
                 markers: Set.from(_markers),
-                zoomControlsEnabled: true),
+                zoomControlsEnabled: false),
             _zoomminusfunction(),
             _zoomplusfunction(),
           ],

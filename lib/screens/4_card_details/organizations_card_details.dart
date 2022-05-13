@@ -26,7 +26,8 @@ class _OrganizationsCardDetailsState extends State<OrganizationsCardDetails> {
               ),
               onPressed: () {
                 //TODO: передать аргументы
-                Navigator.pushNamed(context, '/card_map');
+                DataToMap dataToMap = DataToMap(bgcolor: bgColorHousesAppBar);
+                Navigator.pushNamed(context, '/card_map', arguments: dataToMap);
               },
             ),
           ],
@@ -132,4 +133,16 @@ class _OrganizationsCardDetailsState extends State<OrganizationsCardDetails> {
                       const SizedBox(height: 7),
                     ])))));
   }
+}
+
+class DataToMap {
+  final dynamic bgcolor;
+  // final dynamic json;
+  // final dynamic ID;
+
+  DataToMap({
+    required this.bgcolor,
+    // required this.json,
+    // required this.ID,
+  });
 }

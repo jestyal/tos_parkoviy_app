@@ -34,8 +34,8 @@ class _HousesCardDetailsState extends State<HousesCardDetails> {
                 size: 30,
               ),
               onPressed: () {
-                //TODO: передать аргументы
-                Navigator.pushNamed(context, '/card_map');
+                DataToMap dataToMap = DataToMap(bgcolor: bgColorHousesAppBar);
+                Navigator.pushNamed(context, '/card_map', arguments: dataToMap);
               },
             ),
           ],
@@ -111,6 +111,18 @@ class _HousesCardDetailsState extends State<HousesCardDetails> {
                       Refurbishment(),
                     ])))));
   }
+}
+
+class DataToMap {
+  final dynamic bgcolor;
+  // final dynamic json;
+  // final dynamic ID;
+
+  DataToMap({
+    required this.bgcolor,
+    // required this.json,
+    // required this.ID,
+  });
 }
 
 class Caretaker extends StatelessWidget {
