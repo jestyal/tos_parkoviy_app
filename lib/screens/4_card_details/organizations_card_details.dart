@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tos_parkoviy_app/components/constants.dart';
+import 'package:tos_parkoviy_app/screens/4_card_details/class_DataToMap.dart';
 
 class OrganizationsCardDetails extends StatefulWidget {
   const OrganizationsCardDetails({Key? key}) : super(key: key);
@@ -135,14 +136,14 @@ class _OrganizationsCardDetailsState extends State<OrganizationsCardDetails> {
   }
 }
 
-class DataToMap {
-  final dynamic bgcolor;
-  // final dynamic json;
-  // final dynamic ID;
+// class DataToMap {
+//   final dynamic bgcolor;
+//   // final dynamic json;
+//   // final dynamic ID;
 
-  DataToMap({
-    required this.bgcolor,
-    // required this.json,
-    // required this.ID,
-  });
-}
+//   DataToMap({
+//     required this.bgcolor,
+//     // required this.json,
+//     // required this.ID,
+//   });
+// }

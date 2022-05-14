@@ -2,11 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
-import 'package:tos_parkoviy_app/screens/4_card_details/houses_card_details.dart';
-// import 'package:tos_parkoviy_app/screens/4_card_details/events_card_details.dart';
-// import 'package:tos_parkoviy_app/screens/4_card_details/locations_card_details.dart';
-// import 'package:tos_parkoviy_app/screens/4_card_details/organizations_card_details.dart';
-
+import 'package:tos_parkoviy_app/screens/4_card_details/class_DataToMap.dart';
 import 'dart:async';
 import 'dart:convert';
 

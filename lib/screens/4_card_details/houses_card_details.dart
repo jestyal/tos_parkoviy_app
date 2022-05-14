@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../components/houses_fromJson.dart';
 import 'package:tos_parkoviy_app/screens/3_catalog/3_catalog_houses.dart';
 import 'package:tos_parkoviy_app/components/constants.dart';
+import 'package:tos_parkoviy_app/screens/4_card_details/class_DataToMap.dart';
 
 class HousesCardDetails extends StatefulWidget {
   const HousesCardDetails({Key? key}) : super(key: key);
@@ -113,17 +114,6 @@ class _HousesCardDetailsState extends State<HousesCardDetails> {
   }
 }
 
-class DataToMap {
-  final dynamic bgcolor;
-  // final dynamic json;
-  // final dynamic ID;
-
-  DataToMap({
-    required this.bgcolor,
-    // required this.json,
-    // required this.ID,
-  });
-}
 
 class Caretaker extends StatelessWidget {
   const Caretaker({Key? key}) : super(key: key);
