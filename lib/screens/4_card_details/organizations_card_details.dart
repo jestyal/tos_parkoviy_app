@@ -13,10 +13,11 @@ class OrganizationsCardDetails extends StatefulWidget {
 class _OrganizationsCardDetailsState extends State<OrganizationsCardDetails> {
   @override
   Widget build(BuildContext context) {
+    final args = ModalRoute.of(context)!.settings.arguments as DataToMap;
+
     return Scaffold(
         appBar: AppBar(
-          //TODO: передать аргументы
-          title: const Text('Название организации'),
+          title: Text(args.organizationName),
           centerTitle: true,
           backgroundColor: bgColorOrganizationsAppBar,
           actions: <Widget>[
@@ -26,9 +27,7 @@ class _OrganizationsCardDetailsState extends State<OrganizationsCardDetails> {
                 size: 30,
               ),
               onPressed: () {
-                //TODO: передать аргументы
-                DataToMap dataToMap = DataToMap(bgcolor: bgColorHousesAppBar);
-                Navigator.pushNamed(context, '/card_map', arguments: dataToMap);
+                Navigator.pushNamed(context, '/card_map', arguments: DataToMap(bgcolor: args.bgcolor));
               },
             ),
           ],
@@ -72,11 +71,11 @@ class _OrganizationsCardDetailsState extends State<OrganizationsCardDetails> {
                                   Container(
                                       margin: const EdgeInsets.fromLTRB(
                                           0, 15, 0, 2),
-                                      child: const Align(
+                                      child: Align(
                                           alignment: Alignment.centerLeft,
-                                          child: const Text(
-                                            'street + house',
-                                            style: TextStyle(fontSize: 18),
+                                          child: Text(
+                                            args.organizationStreet + " " + args.organizationHouse,
+                                            style: const TextStyle(fontSize: 18),
                                           ))),
                                 ],
                               ),
@@ -97,11 +96,11 @@ class _OrganizationsCardDetailsState extends State<OrganizationsCardDetails> {
                                   Container(
                                       margin: const EdgeInsets.fromLTRB(
                                           0, 2, 0, 15),
-                                      child: const Align(
+                                      child: Align(
                                           alignment: Alignment.centerLeft,
                                           child: Text(
-                                            'type',
-                                            style: TextStyle(fontSize: 18),
+                                            args.organizationType,
+                                            style: const TextStyle(fontSize: 18),
                                           ))),
                                 ],
                               ),
@@ -110,7 +109,7 @@ class _OrganizationsCardDetailsState extends State<OrganizationsCardDetails> {
                       const SizedBox(height: 7),
                       ClipRRect(
                         borderRadius: BorderRadius.circular(10.0),
-                        child: Image.asset('assets/images/organization.png'),
+                        child: Image.asset(args.organizationImage),
                       ),
                       const SizedBox(height: 7),
                       Container(
@@ -121,11 +120,11 @@ class _OrganizationsCardDetailsState extends State<OrganizationsCardDetails> {
                               color: Colors.white),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
-                            children: const [
+                            children: [
                               Flexible(
                                   child: Text(
-                                      'long_descriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescription',
-                                      style: TextStyle(
+                                      args.organizationLongDescr,
+                                      style: const TextStyle(
                                         fontSize: 18,
                                       ),
                                       overflow: TextOverflow.clip)),

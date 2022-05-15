@@ -36,6 +36,17 @@ class DataToMap {
   final dynamic eventImg;
 
   //for organizations
+  final dynamic organizationId;
+  final dynamic organizationName;
+  final dynamic organizationType;
+  final dynamic organizationShortDescr;
+  final dynamic organizationLongDescr;
+  final dynamic organizationStreet;
+  final dynamic organizationHouse;
+  final dynamic organizationLongitude;
+  final dynamic organizationLatitude;
+  final dynamic organizationImage;
+
   //for locations
   final dynamic locationId;
   final dynamic locationName;
@@ -86,6 +97,17 @@ class DataToMap {
     this.eventImg,
 
     //for organizations
+    this.organizationId,
+    this.organizationName,
+    this.organizationType,
+    this.organizationShortDescr,
+    this.organizationLongDescr,
+    this.organizationStreet,
+    this.organizationHouse,
+    this.organizationLongitude,
+    this.organizationLatitude,
+    this.organizationImage,
+
     //for locations
     this.locationId,
     this.locationName,

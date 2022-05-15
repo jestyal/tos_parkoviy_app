@@ -3,6 +3,7 @@ import 'package:tos_parkoviy_app/components/constants.dart';
 import 'package:tos_parkoviy_app/components/organizations_fromJson.dart';
 // import 'package:tos_parkoviy_app/screens/2_homescreen.dart';
 import '../../components/organizations_fromJson.dart';
+import '../4_card_details/class_DataToMap.dart';
 
 class CatalogOrganizations extends StatelessWidget {
   // late final Data data;
@@ -175,7 +176,7 @@ class _CatalogOrganizationsListState extends State<CatalogOrganizationsList> {
                                               items[index].type.toString(),
                                               textAlign: TextAlign.center,
                                               style: const TextStyle(
-                                                fontSize: 16,
+                                                fontSize: 10,
                                               ),
                                             ),
                                           ],
@@ -231,13 +232,22 @@ class _CatalogOrganizationsListState extends State<CatalogOrganizationsList> {
                               ),
                             ),
                             onTap: () => {
-                                  // colorappbar =
-                                  //     DataToCard(bgcolor: this.data.bgcolor),
-                                  Navigator.pushNamed(
-                                    context, '/organization_card_details',
-                                    // arguments: colorappbar
+                              Navigator.pushNamed(
+                                  context, '/organization_card_details',
+                                  arguments: DataToMap(
+                                    bgcolor: bgColorOrganizationsAppBar,
+                                      organizationName: items[index].name,
+                                      organizationType: items[index].type,
+                                      organizationShortDescr: items[index].shortDescr,
+                                      organizationLongDescr: items[index].longDescr,
+                                      organizationStreet: items[index].street,
+                                      organizationHouse: items[index].house,
+                                      organizationLongitude: items[index].longitude,
+                                      organizationLatitude: items[index].latitude,
+                                      organizationImage: items[index].image,
                                   )
-                                })
+                              )
+                            })
                         : Container();
                   },
                 );
@@ -253,17 +263,3 @@ class _CatalogOrganizationsListState extends State<CatalogOrganizationsList> {
     );
   }
 }
-
-// class DataToCard {
-//   final dynamic bgcolor;
-//   final dynamic adress;
-//   final dynamic json;
-//   final dynamic ID;
-
-//   DataToCard({
-//     required this.bgcolor,
-//     required this.adress,
-//     required this.json,
-//     required this.ID,
-//   });
-// }
