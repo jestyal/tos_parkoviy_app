@@ -122,12 +122,19 @@ class _HousesCardDetailsState extends State<HousesCardDetails> {
                       const SizedBox(height: 7),
                       Refurbishment(
                           refurbishmentRoofYear: args.refurbishmentRoofYear,
+                          refurbishmentRoofCondition: args.refurbishmentRoofCondition,
                           refurbishmentFrontYear: args.refurbishmentFrontYear,
+                          refurbishmentFrontCondition: args.refurbishmentFrontCondition,
                           refurbishmentElectronicsYear: args.refurbishmentElectronicsYear,
+                          refurbishmentElectronicsCondition: args.refurbishmentElectronicsCondition,
                           refurbishmentWaterYear: args.refurbishmentWaterYear,
+                          refurbishmentWaterCondition: args.refurbishmentWaterCondition,
                           refurbishmentSewerageYear: args.refurbishmentSewerageYear,
+                          refurbishmentSewerageCondition: args.refurbishmentSewerageCondition,
                           refurbishmentHeatingYear: args.refurbishmentHeatingYear,
+                          refurbishmentHeatingCondition: args.refurbishmentHeatingCondition,
                           refurbishmentGasYear: args.refurbishmentGasYear,
+                          refurbishmentGasCondition: args.refurbishmentGasCondition,
                       ),
                     ])))));
   }
@@ -290,24 +297,37 @@ class Information extends StatelessWidget {
 
 class Refurbishment extends StatelessWidget {
   final int? refurbishmentRoofYear;
+  final bool? refurbishmentRoofCondition;
   final int? refurbishmentFrontYear;
+  final bool? refurbishmentFrontCondition;
   final int? refurbishmentElectronicsYear;
+  final bool? refurbishmentElectronicsCondition;
   final int? refurbishmentWaterYear;
+  final bool? refurbishmentWaterCondition;
   final int? refurbishmentSewerageYear;
+  final bool? refurbishmentSewerageCondition;
   final int? refurbishmentHeatingYear;
+  final bool? refurbishmentHeatingCondition;
   final int? refurbishmentGasYear;
+  final bool? refurbishmentGasCondition;
 
   const Refurbishment({
     Key? key,
     this.refurbishmentRoofYear,
+    this.refurbishmentRoofCondition,
     this.refurbishmentFrontYear,
+    this.refurbishmentFrontCondition,
     this.refurbishmentElectronicsYear,
+    this.refurbishmentElectronicsCondition,
     this.refurbishmentWaterYear,
+    this.refurbishmentWaterCondition,
     this.refurbishmentSewerageYear,
+    this.refurbishmentSewerageCondition,
     this.refurbishmentHeatingYear,
+    this.refurbishmentHeatingCondition,
     this.refurbishmentGasYear,
+    this.refurbishmentGasCondition,
   }) : super(key: key);
-
 
   @override
   Widget build(BuildContext context) {
@@ -366,8 +386,8 @@ class Refurbishment extends StatelessWidget {
                 Center(
                     child: Container(
                         margin: const EdgeInsets.fromLTRB(0, 2, 15, 2),
-                        child: const Icon(
-                          Icons.done,
+                        child: Icon(
+                          isTrue(refurbishmentRoofCondition) ? Icons.done : Icons.close,
                           size: 30,
                         ))),
               ],
@@ -390,8 +410,8 @@ class Refurbishment extends StatelessWidget {
                 Center(
                     child: Container(
                         margin: const EdgeInsets.fromLTRB(0, 2, 15, 2),
-                        child: const Icon(
-                          Icons.done,
+                        child: Icon(
+                          isTrue(refurbishmentFrontCondition) ? Icons.done : Icons.close,
                           size: 30,
                         ))),
               ],
@@ -414,8 +434,8 @@ class Refurbishment extends StatelessWidget {
                 Center(
                     child: Container(
                         margin: const EdgeInsets.fromLTRB(0, 2, 15, 2),
-                        child: const Icon(
-                          Icons.done,
+                        child: Icon(
+                          isTrue(refurbishmentElectronicsCondition) ? Icons.done : Icons.close,
                           size: 30,
                         ))),
               ],
@@ -438,8 +458,8 @@ class Refurbishment extends StatelessWidget {
                 Center(
                     child: Container(
                         margin: const EdgeInsets.fromLTRB(0, 2, 15, 2),
-                        child: const Icon(
-                          Icons.done,
+                        child: Icon(
+                          isTrue(refurbishmentWaterCondition) ? Icons.done : Icons.close,
                           size: 30,
                         ))),
               ],
@@ -462,8 +482,8 @@ class Refurbishment extends StatelessWidget {
                 Center(
                     child: Container(
                         margin: const EdgeInsets.fromLTRB(0, 2, 15, 2),
-                        child: const Icon(
-                          Icons.close,
+                        child: Icon(
+                          isTrue(refurbishmentSewerageCondition) ? Icons.done : Icons.close,
                           size: 30,
                         ))),
               ],
@@ -486,8 +506,8 @@ class Refurbishment extends StatelessWidget {
                 Center(
                     child: Container(
                         margin: const EdgeInsets.fromLTRB(0, 2, 15, 2),
-                        child: const Icon(
-                          Icons.close,
+                        child: Icon(
+                          isTrue(refurbishmentHeatingCondition) ? Icons.done : Icons.close,
                           size: 30,
                         ))),
               ],
@@ -510,8 +530,8 @@ class Refurbishment extends StatelessWidget {
                 Center(
                     child: Container(
                         margin: const EdgeInsets.fromLTRB(0, 2, 15, 15),
-                        child: const Icon(
-                          Icons.close,
+                        child: Icon(
+                          isTrue(refurbishmentGasCondition) ? Icons.done : Icons.close,
                           size: 30,
                         ))),
               ],
@@ -519,4 +539,12 @@ class Refurbishment extends StatelessWidget {
           ],
         ));
   }
+
+}
+
+bool isTrue (bool? a) {
+  if (a == null) {
+    return false;
+  }
+  return a;
 }

@@ -263,12 +263,19 @@ class _CatalogHousesListState extends State<CatalogHousesList> {
                                       houseYear: items[index].year,
                                       serviceProvider: items[index].serviceProvider,
                                       refurbishmentRoofYear: items[index].refurbishment![0].roof![0].maintenanceYear,
+                                      refurbishmentRoofCondition: items[index].refurbishment![0].roof![0].condition,
                                       refurbishmentFrontYear: items[index].refurbishment![0].front![0].maintenanceYear,
+                                      refurbishmentFrontCondition: items[index].refurbishment![0].front![0].condition,
                                       refurbishmentElectronicsYear: items[index].refurbishment![0].electronics![0].maintenanceYear,
+                                      refurbishmentElectronicsCondition: items[index].refurbishment![0].electronics![0].condition,
                                       refurbishmentWaterYear: items[index].refurbishment![0].water![0].maintenanceYear,
+                                      refurbishmentWaterCondition: items[index].refurbishment![0].water![0].condition,
                                       refurbishmentSewerageYear: items[index].refurbishment![0].sewerage![0].maintenanceYear,
+                                      refurbishmentSewerageCondition: items[index].refurbishment![0].sewerage![0].condition,
                                       refurbishmentHeatingYear: items[index].refurbishment![0].heating![0].maintenanceYear,
+                                      refurbishmentHeatingCondition: items[index].refurbishment![0].heating![0].condition,
                                       refurbishmentGasYear: items[index].refurbishment![0].gas![0].maintenanceYear,
+                                      refurbishmentGasCondition: items[index].refurbishment![0].gas![0].condition,
                                     )
                                   )
                                 })
