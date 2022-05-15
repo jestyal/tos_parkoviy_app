@@ -123,7 +123,6 @@ class _DisplayMapState extends State<DisplayMap> {
     RouteSettings settings = ModalRoute.of(context)!.settings;
     dataToMap = settings.arguments as DataToMap;
 
-
     final args = ModalRoute.of(context)!.settings.arguments as DataToMap;
 
     return Scaffold(
@@ -134,7 +133,7 @@ class _DisplayMapState extends State<DisplayMap> {
           backgroundColor: this.dataToMap.bgcolor,
           actions: <Widget>[
             IconButton(
-              icon: Icon(
+              icon: const Icon(
                 Icons.home,
                 size: 30,
               ),

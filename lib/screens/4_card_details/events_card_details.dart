@@ -12,6 +12,8 @@ class EventsCardDetails extends StatefulWidget {
 class _EventsCardDetailsState extends State<EventsCardDetails> {
   @override
   Widget build(BuildContext context) {
+    final args = ModalRoute.of(context)!.settings.arguments as DataToMap;
+
     return Scaffold(
         appBar: AppBar(
           //TODO: передать аргументы
@@ -26,8 +28,9 @@ class _EventsCardDetailsState extends State<EventsCardDetails> {
               ),
               onPressed: () {
                 //TODO: передать аргументы
-                DataToMap dataToMap = DataToMap(bgcolor: bgColorHousesAppBar);
-                Navigator.pushNamed(context, '/card_map', arguments: dataToMap);
+                // DataToMap dataToMap = DataToMap(bgcolor: bgColorHousesAppBar);
+                // Navigator.pushNamed(context, '/card_map', arguments: dataToMap);
+                Navigator.pushNamed(context, '/card_map', arguments: DataToMap(bgcolor: args.bgcolor));
               },
             ),
           ],

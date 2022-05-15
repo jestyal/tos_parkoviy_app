@@ -165,9 +165,9 @@ class _CatalogHousesListState extends State<CatalogHousesList> {
                                         padding: const EdgeInsets.all(2),
                                         margin: const EdgeInsets.only(
                                             right: 18, left: 15),
-                                        decoration: BoxDecoration(
+                                        decoration: const BoxDecoration(
                                           color: bgColorHouses,
-                                          borderRadius: const BorderRadius.all(
+                                          borderRadius: BorderRadius.all(
                                               Radius.circular(10)),
                                         ),
                                         child: Column(
@@ -247,12 +247,8 @@ class _CatalogHousesListState extends State<CatalogHousesList> {
                               ),
                             ),
                             onTap: () => {
-                                  // colorappbar =
-                                  //     DataToCard(bgcolor: this.data.bgcolor),
                                   Navigator.pushNamed(
                                     context, '/house_card_details',
-                                    // arguments: colorappbar
-                                    // arguments: DataToMap(bgcolor: bgColorHousesAppBar, itemId: items[index].iD)
                                     arguments: DataToMap(
                                       bgcolor: bgColorHousesAppBar,
                                       itemId: items[index].iD,
@@ -294,17 +290,3 @@ class _CatalogHousesListState extends State<CatalogHousesList> {
     );
   }
 }
-
-// class DataToCard {
-//   final dynamic bgcolor;
-//   final dynamic adress;
-//   final dynamic json;
-//   final dynamic ID;
-
-//   DataToCard({
-//     required this.bgcolor,
-//     required this.adress,
-//     required this.json,
-//     required this.ID,
-//   });
-// }

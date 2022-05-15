@@ -3,6 +3,7 @@ import 'package:tos_parkoviy_app/components/constants.dart';
 import 'package:tos_parkoviy_app/components/events_fromJson.dart';
 // import 'package:tos_parkoviy_app/screens/2_homescreen.dart';
 import '../../components/events_fromJson.dart';
+import '../4_card_details/class_DataToMap.dart';
 
 class CatalogEvents extends StatelessWidget {
   // late final Data data;
@@ -159,9 +160,9 @@ class _CatalogEventsListState extends State<CatalogEventsList> {
                                         padding: const EdgeInsets.all(2),
                                         margin: const EdgeInsets.only(
                                             right: 18, left: 15),
-                                        decoration: BoxDecoration(
+                                        decoration: const BoxDecoration(
                                           color: bgColorEvents,
-                                          borderRadius: const BorderRadius.all(
+                                          borderRadius: BorderRadius.all(
                                               Radius.circular(10)),
                                         ),
                                         child: Column(
@@ -231,11 +232,15 @@ class _CatalogEventsListState extends State<CatalogEventsList> {
                             onTap: () => {
                                   // colorappbar =
                                   //     DataToCard(bgcolor: this.data.bgcolor),
-                                  Navigator.pushNamed(
-                                    context, '/event_card_details',
-                                    // arguments: colorappbar
+                              Navigator.pushNamed(
+                                  context, '/event_card_details',
+                                  arguments: DataToMap(
+                                    bgcolor: bgColorEventsAppBar,
+
                                   )
-                                })
+                              )
+
+                            })
                         : Container();
                   },
                 );
