@@ -1,8 +1,5 @@
 class DataToMap {
   final dynamic bgcolor;
-  // final dynamic json;
-  // final dynamic ID;
-
   //for houses
   final dynamic itemId;
   final dynamic caretakerName;
@@ -27,13 +24,20 @@ class DataToMap {
   final dynamic refurbishmentGasCondition;
 
   //for events
+  final dynamic eventId;
+  final dynamic eventName;
+  final dynamic eventDesc;
+  final dynamic eventType;
+  final dynamic eventPlace;
+  final dynamic eventDate;
+  final dynamic eventTime;
+  final dynamic eventImg;
+
   //for organizations
   //for locations
 
   DataToMap({
     required this.bgcolor,
-    // required this.json,
-    // required this.ID,
 
     //for houses
     this.itemId,
@@ -59,6 +63,15 @@ class DataToMap {
     this.refurbishmentGasCondition,
 
     //for events
+    this.eventId,
+    this.eventName,
+    this.eventDesc,
+    this.eventType,
+    this.eventPlace,
+    this.eventDate,
+    this.eventTime,
+    this.eventImg,
+
     //for organizations
     //for locations
 
