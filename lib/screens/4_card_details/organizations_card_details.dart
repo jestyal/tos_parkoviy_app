@@ -27,7 +27,13 @@ class _OrganizationsCardDetailsState extends State<OrganizationsCardDetails> {
                 size: 30,
               ),
               onPressed: () {
-                Navigator.pushNamed(context, '/card_map', arguments: DataToMap(bgcolor: args.bgcolor));
+                Navigator.pushNamed(context, '/card_map', arguments: DataToMap(
+                    bgcolor: args.bgcolor,
+                    organizationStreet: args.organizationStreet,
+                    organizationHouse: args.organizationHouse,
+                    organizationLatitude: args.organizationLatitude,
+                    organizationLongitude: args.organizationLongitude,
+                ));
               },
             ),
           ],
@@ -134,15 +140,3 @@ class _OrganizationsCardDetailsState extends State<OrganizationsCardDetails> {
                     ])))));
   }
 }
-
-// class DataToMap {
-//   final dynamic bgcolor;
-//   // final dynamic json;
-//   // final dynamic ID;
-
-//   DataToMap({
-//     required this.bgcolor,
-//     // required this.json,
-//     // required this.ID,
-//   });
-// }

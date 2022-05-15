@@ -128,7 +128,7 @@ class _DisplayMapState extends State<DisplayMap> {
     return Scaffold(
         appBar: AppBar(
           //TODO: передать аргумент
-          title: Text('Адрес'),
+          title: Text(args.organizationStreet + " " + args.organizationHouse),
           centerTitle: true,
           backgroundColor: this.dataToMap.bgcolor,
           actions: <Widget>[
@@ -150,7 +150,8 @@ class _DisplayMapState extends State<DisplayMap> {
                   _controller.complete(controller);
                 },
                 initialCameraPosition: CameraPosition(
-                  target: LatLng(54.186415, 37.599950),
+                  // target: LatLng(54.186415, 37.599950),
+                  target: LatLng(args.organizationLatitude, args.organizationLongitude),
                   zoom: zoomVal,
                   // установить маркер в точку с адресом, внутри target координаты адреса (?)
                 ),
