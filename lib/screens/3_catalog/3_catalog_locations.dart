@@ -237,7 +237,7 @@ class _CatalogLocationsListState extends State<CatalogLocationsList> {
                               Navigator.pushNamed(
                                   context, '/location_card_details',
                                   arguments: DataToMap(
-                                    bgcolor: bgColorOrganizationsAppBar,
+                                    bgcolor: bgColorPlacesAppBar,
                                     locationName: items[index].name,
                                     locationType: items[index].type,
                                     locationCondition: items[index].condition,
