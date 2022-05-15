@@ -37,6 +37,15 @@ class DataToMap {
 
   //for organizations
   //for locations
+  final dynamic locationId;
+  final dynamic locationName;
+  final dynamic locationType;
+  final dynamic locationCondition;
+  final dynamic locationFinance;
+  final dynamic locationFullDescr;
+  final dynamic locationStreet;
+  final dynamic locationHouse;
+  final dynamic locationImage;
 
   DataToMap({
     required this.bgcolor,
@@ -78,6 +87,15 @@ class DataToMap {
 
     //for organizations
     //for locations
+    this.locationId,
+    this.locationName,
+    this.locationType,
+    this.locationCondition,
+    this.locationFinance,
+    this.locationFullDescr,
+    this.locationStreet,
+    this.locationHouse,
+    this.locationImage,
 
   });
 }

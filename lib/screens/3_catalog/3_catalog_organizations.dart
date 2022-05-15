@@ -160,9 +160,9 @@ class _CatalogOrganizationsListState extends State<CatalogOrganizationsList> {
                                         padding: const EdgeInsets.all(2),
                                         margin: const EdgeInsets.only(
                                             right: 18, left: 15),
-                                        decoration: BoxDecoration(
+                                        decoration: const BoxDecoration(
                                           color: bgColorOrganizations,
-                                          borderRadius: const BorderRadius.all(
+                                          borderRadius: BorderRadius.all(
                                               Radius.circular(10)),
                                         ),
                                         child: Column(

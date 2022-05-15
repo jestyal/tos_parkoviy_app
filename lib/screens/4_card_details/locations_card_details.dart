@@ -10,12 +10,14 @@ class LocationsCardDetails extends StatefulWidget {
 }
 
 class _LocationsCardDetailsState extends State<LocationsCardDetails> {
+
   @override
   Widget build(BuildContext context) {
+    final args = ModalRoute.of(context)!.settings.arguments as DataToMap;
+
     return Scaffold(
         appBar: AppBar(
-          //TODO: передать аргументы
-          title: const Text('Название пространства'),
+          title: Text(args.locationName),
           centerTitle: true,
           backgroundColor: bgColorPlacesAppBar,
           actions: <Widget>[
@@ -25,9 +27,7 @@ class _LocationsCardDetailsState extends State<LocationsCardDetails> {
                 size: 30,
               ),
               onPressed: () {
-                //TODO: передать аргументы
-                DataToMap dataToMap = DataToMap(bgcolor: bgColorHousesAppBar);
-                Navigator.pushNamed(context, '/card_map', arguments: dataToMap);
+                Navigator.pushNamed(context, '/card_map', arguments: DataToMap(bgcolor: args.bgcolor));
               },
             ),
           ],
@@ -71,11 +71,11 @@ class _LocationsCardDetailsState extends State<LocationsCardDetails> {
                                   Container(
                                       margin: const EdgeInsets.fromLTRB(
                                           0, 15, 0, 2),
-                                      child: const Align(
+                                      child: Align(
                                           alignment: Alignment.centerLeft,
-                                          child: const Text(
-                                            'street + house',
-                                            style: TextStyle(fontSize: 18),
+                                          child: Text(
+                                            args.locationStreet + ' ' + args.locationHouse,
+                                            style: const TextStyle(fontSize: 18),
                                           ))),
                                 ],
                               ),
@@ -88,7 +88,7 @@ class _LocationsCardDetailsState extends State<LocationsCardDetails> {
                                           alignment: Alignment.centerLeft,
                                           child: Text(
                                             'Тип пространства',
-                                            style: const TextStyle(
+                                            style: TextStyle(
                                               fontSize: 18,
                                               fontWeight: FontWeight.bold,
                                             ),
@@ -96,11 +96,11 @@ class _LocationsCardDetailsState extends State<LocationsCardDetails> {
                                   Container(
                                       margin:
                                           const EdgeInsets.fromLTRB(0, 2, 0, 2),
-                                      child: const Align(
+                                      child: Align(
                                           alignment: Alignment.centerLeft,
                                           child: Text(
-                                            'type',
-                                            style: TextStyle(fontSize: 18),
+                                            args.locationType,
+                                            style: const TextStyle(fontSize: 18),
                                           ))),
                                 ],
                               ),
@@ -121,10 +121,10 @@ class _LocationsCardDetailsState extends State<LocationsCardDetails> {
                                   Container(
                                       margin:
                                           const EdgeInsets.fromLTRB(0, 2, 0, 2),
-                                      child: const Align(
+                                      child: Align(
                                           alignment: Alignment.centerLeft,
                                           child: Text(
-                                            'condition',
+                                            args.locationCondition,
                                             style:
                                                 const TextStyle(fontSize: 18),
                                           ))),
@@ -148,11 +148,11 @@ class _LocationsCardDetailsState extends State<LocationsCardDetails> {
                                       height: 50,
                                       margin: const EdgeInsets.fromLTRB(
                                           0, 2, 0, 15),
-                                      child: const Align(
+                                      child: Align(
                                           alignment: Alignment.centerLeft,
                                           child: Text(
-                                            'finance',
-                                            style: TextStyle(fontSize: 18),
+                                            args.locationFinance,
+                                            style: const TextStyle(fontSize: 18),
                                           ))),
                                 ],
                               ),
@@ -161,7 +161,7 @@ class _LocationsCardDetailsState extends State<LocationsCardDetails> {
                       const SizedBox(height: 7),
                       ClipRRect(
                         borderRadius: BorderRadius.circular(10.0),
-                        child: Image.asset('assets/images/location.jpeg'),
+                        child: Image.asset(args.locationImage),
                       ),
                       const SizedBox(height: 7),
                       Container(
@@ -172,11 +172,11 @@ class _LocationsCardDetailsState extends State<LocationsCardDetails> {
                               color: Colors.white),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
-                            children: const [
+                            children: [
                               Flexible(
                                   child: Text(
-                                      'full_descriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescription',
-                                      style: TextStyle(
+                                      args.locationFullDescr,
+                                      style: const TextStyle(
                                         fontSize: 18,
                                       ),
                                       overflow: TextOverflow.clip)),
@@ -186,15 +186,3 @@ class _LocationsCardDetailsState extends State<LocationsCardDetails> {
                     ])))));
   }
 }
-
-// class DataToMap {
-//   final dynamic bgcolor;
-//   // final dynamic json;
-//   // final dynamic ID;
-
-//   DataToMap({
-//     required this.bgcolor,
-//     // required this.json,
-//     // required this.ID,
-//   });
-// }

@@ -3,6 +3,7 @@ import 'package:tos_parkoviy_app/components/constants.dart';
 import 'package:tos_parkoviy_app/components/locations_fromJson.dart';
 // import 'package:tos_parkoviy_app/screens/2_homescreen.dart';
 import '../../components/locations_fromJson.dart';
+import '../4_card_details/class_DataToMap.dart';
 
 class CatalogLocations extends StatelessWidget {
   // late final Data data;
@@ -14,7 +15,7 @@ class CatalogLocations extends StatelessWidget {
 
     return Scaffold(
         appBar: AppBar(
-          title: Text('Пространства'),
+          title: const Text('Пространства'),
           centerTitle: true,
           backgroundColor: bgColorPlacesAppBar,
         ),
@@ -117,7 +118,7 @@ class _CatalogLocationsListState extends State<CatalogLocationsList> {
                 return ListView.builder(
                   padding: const EdgeInsets.only(
                       left: 15, top: 20, right: 15, bottom: 15),
-                  itemCount: items == null ? 0 : items.length,
+                  itemCount: items.length,
                   itemBuilder: (_, index) {
                     return items[index]
                                 .condition!
@@ -159,9 +160,9 @@ class _CatalogLocationsListState extends State<CatalogLocationsList> {
                                         padding: const EdgeInsets.all(2),
                                         margin: const EdgeInsets.only(
                                             right: 18, left: 15),
-                                        decoration: BoxDecoration(
+                                        decoration: const BoxDecoration(
                                           color: bgColorPlaces,
-                                          borderRadius: const BorderRadius.all(
+                                          borderRadius: BorderRadius.all(
                                               Radius.circular(10)),
                                         ),
                                         child: Column(
@@ -177,7 +178,7 @@ class _CatalogLocationsListState extends State<CatalogLocationsList> {
                                                       .toString(),
                                               textAlign: TextAlign.center,
                                               style: const TextStyle(
-                                                fontSize: 16,
+                                                fontSize: 10,
                                               ),
                                             ),
                                           ],
@@ -233,13 +234,21 @@ class _CatalogLocationsListState extends State<CatalogLocationsList> {
                               ),
                             ),
                             onTap: () => {
-                                  // colorappbar =
-                                  //     DataToCard(bgcolor: this.data.bgcolor),
-                                  Navigator.pushNamed(
-                                    context, '/location_card_details',
-                                    // arguments: colorappbar
+                              Navigator.pushNamed(
+                                  context, '/location_card_details',
+                                  arguments: DataToMap(
+                                    bgcolor: bgColorOrganizationsAppBar,
+                                    locationName: items[index].name,
+                                    locationType: items[index].type,
+                                    locationCondition: items[index].condition,
+                                    locationFinance: items[index].finance,
+                                    locationFullDescr: items[index].fullDescr,
+                                    locationStreet: items[index].street,
+                                    locationHouse: items[index].house,
+                                    locationImage: items[index].image,
                                   )
-                                })
+                              )
+                            })
                         : Container();
                   },
                 );
@@ -255,17 +264,3 @@ class _CatalogLocationsListState extends State<CatalogLocationsList> {
     );
   }
 }
-
-// class DataToCard {
-//   final dynamic bgcolor;
-//   final dynamic adress;
-//   final dynamic json;
-//   final dynamic ID;
-
-//   DataToCard({
-//     required this.bgcolor,
-//     required this.adress,
-//     required this.json,
-//     required this.ID,
-//   });
-// }

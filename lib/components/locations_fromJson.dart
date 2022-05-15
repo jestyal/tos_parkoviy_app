@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:flutter/services.dart';
 
 Future<Locations> getLocationsList() async {
-  var jsonData = await rootBundle.loadString('assets/json/events.json');
+  var jsonData = await rootBundle.loadString('assets/json/locations.json');
   var data = json.decode(jsonData);
   return Locations.fromJson(data);
 }

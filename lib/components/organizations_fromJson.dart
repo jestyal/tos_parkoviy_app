@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:flutter/services.dart';
 
 Future<Organizations> getOrganizationsList() async {
-  var jsonData = await rootBundle.loadString('assets/json/events.json');
+  var jsonData = await rootBundle.loadString('assets/json/organizations.json');
   var data = json.decode(jsonData);
   return Organizations.fromJson(data);
 }
