@@ -246,6 +246,8 @@ class _CatalogLocationsListState extends State<CatalogLocationsList> {
                                     locationStreet: items[index].street,
                                     locationHouse: items[index].house,
                                     locationImage: items[index].image,
+                                    locationLongitude: items[index].longitude,
+                                    locationLatitude: items[index].latitude,
                                   )
                               )
                             })

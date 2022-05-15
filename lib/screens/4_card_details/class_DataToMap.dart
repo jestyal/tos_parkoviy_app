@@ -1,5 +1,7 @@
 class DataToMap {
   final dynamic bgcolor;
+  final dynamic whatIsThis;
+
   //for houses
   final dynamic itemId;
   final dynamic streetHouse;
@@ -66,6 +68,7 @@ class DataToMap {
 
   DataToMap({
     required this.bgcolor,
+    this.whatIsThis,
 
     //for houses
     this.itemId,

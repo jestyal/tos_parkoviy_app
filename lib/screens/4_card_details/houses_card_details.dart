@@ -38,6 +38,7 @@ class _HousesCardDetailsState extends State<HousesCardDetails> {
               onPressed: () {
                 Navigator.pushNamed(context, '/card_map', arguments: DataToMap(
                     bgcolor: args.bgcolor,
+                  whatIsThis: "house",
                   streetHouse: args.streetHouse,
                   numberHouse: args.numberHouse,
                   houseLongitude: args.houseLongitude,

@@ -28,6 +28,7 @@ class _EventsCardDetailsState extends State<EventsCardDetails> {
               onPressed: () {
                 Navigator.pushNamed(context, '/card_map', arguments: DataToMap(
                     bgcolor: args.bgcolor,
+                  whatIsThis: "event",
                   eventPlace: args.eventPlace,
                   eventLongitude: args.eventLongitude,
                   eventLatitude: args.eventLatitude,

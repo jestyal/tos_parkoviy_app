@@ -241,6 +241,8 @@ class _CatalogEventsListState extends State<CatalogEventsList> {
                                     eventDate: items[index].date,
                                     eventTime: items[index].time,
                                     eventImg: items[index].image,
+                                    eventLongitude: items[index].longitude,
+                                    eventLatitude: items[index].latitude,
                                   )
                               )
                             })

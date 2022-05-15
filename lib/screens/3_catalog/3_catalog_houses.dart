@@ -274,6 +274,8 @@ class _CatalogHousesListState extends State<CatalogHousesList> {
                                       refurbishmentHeatingCondition: items[index].refurbishment![0].heating![0].condition,
                                       refurbishmentGasYear: items[index].refurbishment![0].gas![0].maintenanceYear,
                                       refurbishmentGasCondition: items[index].refurbishment![0].gas![0].condition,
+                                      houseLongitude: items[index].longitude,
+                                      houseLatitude: items[index].latitude,
                                     )
                                   )
                                 })

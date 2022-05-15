@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import '2_homescreen.dart';
 
@@ -15,7 +17,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
     super.initState();
     Timer(Duration(seconds: 3), ()=> Navigator.push (
       context, MaterialPageRoute(
-        builder: (context)=> ProfieleScreen())),);
+        builder: (context)=> const ProfileScreen())),);
   }
   
  @override
@@ -25,7 +27,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Image.asset('assets/images/splashscreen.jpeg', height: 530, width: 450),
+            Image.asset('assets/images/splashscreen.jpg', height: 530, width: 450),
             Text(" "),
             Text('ТОС «Парковый»', style: TextStyle(fontSize: 25, color: Colors.green, fontStyle: FontStyle.italic), textAlign: TextAlign.end,),
             Text(" "),

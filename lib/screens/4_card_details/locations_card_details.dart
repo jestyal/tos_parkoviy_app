@@ -29,6 +29,7 @@ class _LocationsCardDetailsState extends State<LocationsCardDetails> {
               onPressed: () {
                 Navigator.pushNamed(context, '/card_map', arguments: DataToMap(
                     bgcolor: args.bgcolor,
+                  whatIsThis: "location",
                   locationStreet: args.locationStreet,
                   locationHouse: args.locationHouse,
                   locationLatitude: args.locationLatitude,
