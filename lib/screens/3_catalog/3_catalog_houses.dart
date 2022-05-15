@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tos_parkoviy_app/components/constants.dart';
+import 'package:tos_parkoviy_app/screens/4_card_details/class_DataToMap.dart';
 // import 'package:tos_parkoviy_app/screens/2_homescreen.dart';
 import '../../components/houses_fromJson.dart';
 
@@ -248,9 +249,12 @@ class _CatalogHousesListState extends State<CatalogHousesList> {
                             onTap: () => {
                                   // colorappbar =
                                   //     DataToCard(bgcolor: this.data.bgcolor),
+                              print(items[index].iD),
                                   Navigator.pushNamed(
                                     context, '/house_card_details',
                                     // arguments: colorappbar
+                                    // arguments: DataToMap(bgcolor: bgColorHousesAppBar, itemId: items[index].iD)
+                                    arguments: DataToMap(bgcolor: Colors.pinkAccent, itemId: items[index].iD)
                                   )
                                 })
                         : Container();

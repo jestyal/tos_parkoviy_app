@@ -122,6 +122,10 @@ class _DisplayMapState extends State<DisplayMap> {
   Widget build(BuildContext context) {
     RouteSettings settings = ModalRoute.of(context)!.settings;
     dataToMap = settings.arguments as DataToMap;
+
+
+    final args = ModalRoute.of(context)!.settings.arguments as DataToMap;
+
     return Scaffold(
         appBar: AppBar(
           //TODO: передать аргумент

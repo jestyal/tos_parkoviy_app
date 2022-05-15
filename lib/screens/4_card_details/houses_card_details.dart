@@ -22,12 +22,14 @@ class _HousesCardDetailsState extends State<HousesCardDetails> {
     // RouteSettings settings = ModalRoute.of(context)!.settings;
     // colorappbar = settings.arguments as DataToCard;
 
+    final args = ModalRoute.of(context)!.settings.arguments as DataToMap;
+
     return Scaffold(
         appBar: AppBar(
           //TODO: передать аргументы
           title: const Text('Адрес'),
           centerTitle: true,
-          backgroundColor: bgColorHousesAppBar,
+          backgroundColor: args.bgcolor,
           actions: <Widget>[
             IconButton(
               icon: const Icon(
@@ -35,8 +37,9 @@ class _HousesCardDetailsState extends State<HousesCardDetails> {
                 size: 30,
               ),
               onPressed: () {
-                DataToMap dataToMap = DataToMap(bgcolor: bgColorHousesAppBar);
-                Navigator.pushNamed(context, '/card_map', arguments: dataToMap);
+                // DataToMap dataToMap = DataToMap(bgcolor: bgColorHousesAppBar);
+                // Navigator.pushNamed(context, '/card_map', arguments: dataToMap);
+                Navigator.pushNamed(context, '/card_map', arguments: DataToMap(bgcolor: args.bgcolor));
               },
             ),
           ],
