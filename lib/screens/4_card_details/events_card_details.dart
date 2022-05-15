@@ -16,8 +16,7 @@ class _EventsCardDetailsState extends State<EventsCardDetails> {
 
     return Scaffold(
         appBar: AppBar(
-          //TODO: передать аргументы
-          title: const Text('Название мероприятия'),
+          title: Text(args.eventName),
           centerTitle: true,
           backgroundColor: bgColorEventsAppBar,
           actions: <Widget>[
@@ -27,9 +26,6 @@ class _EventsCardDetailsState extends State<EventsCardDetails> {
                 size: 30,
               ),
               onPressed: () {
-                //TODO: передать аргументы
-                // DataToMap dataToMap = DataToMap(bgcolor: bgColorHousesAppBar);
-                // Navigator.pushNamed(context, '/card_map', arguments: dataToMap);
                 Navigator.pushNamed(context, '/card_map', arguments: DataToMap(bgcolor: args.bgcolor));
               },
             ),
@@ -72,9 +68,9 @@ class _EventsCardDetailsState extends State<EventsCardDetails> {
                                   Container(
                                       margin: const EdgeInsets.fromLTRB(
                                           0, 15, 0, 2),
-                                      child: const Text(
-                                        'place',
-                                        style: TextStyle(fontSize: 18),
+                                      child: Text(
+                                        args.eventPlace,
+                                        style: const TextStyle(fontSize: 18),
                                       )),
                                 ],
                               ),
@@ -93,9 +89,9 @@ class _EventsCardDetailsState extends State<EventsCardDetails> {
                                   Container(
                                       margin:
                                           const EdgeInsets.fromLTRB(0, 2, 0, 2),
-                                      child: const Text(
-                                        'date + time',
-                                        style: TextStyle(fontSize: 18),
+                                      child: Text(
+                                        args.eventDate + " " + args.eventTime,
+                                        style: const TextStyle(fontSize: 18),
                                       )),
                                 ],
                               ),
@@ -106,7 +102,7 @@ class _EventsCardDetailsState extends State<EventsCardDetails> {
                                           15, 2, 0, 15),
                                       child: const Text(
                                         'Тип мероприятия',
-                                        style: const TextStyle(
+                                        style: TextStyle(
                                           fontSize: 18,
                                           fontWeight: FontWeight.bold,
                                         ),
@@ -114,9 +110,10 @@ class _EventsCardDetailsState extends State<EventsCardDetails> {
                                   Container(
                                       margin: const EdgeInsets.fromLTRB(
                                           0, 2, 0, 15),
-                                      child: const Text(
-                                        'eventType',
-                                        style: TextStyle(fontSize: 18),
+                                      child: Text(
+                                        // args.eventType,
+                                        "args.eventType",
+                                        style: const TextStyle(fontSize: 18),
                                       )),
                                 ],
                               ),
@@ -125,7 +122,7 @@ class _EventsCardDetailsState extends State<EventsCardDetails> {
                       const SizedBox(height: 7),
                       ClipRRect(
                         borderRadius: BorderRadius.circular(10.0),
-                        child: Image.asset('assets/images/event.jpeg'),
+                        child: Image.asset(args.eventImg),
                       ),
                       const SizedBox(height: 7),
                       Container(
@@ -136,11 +133,11 @@ class _EventsCardDetailsState extends State<EventsCardDetails> {
                               color: Colors.white),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
-                            children: const [
+                            children: [
                               Flexible(
                                   child: Text(
-                                      'descriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescription',
-                                      style: TextStyle(
+                                      args.eventDesc,
+                                      style: const TextStyle(
                                         fontSize: 18,
                                       ),
                                       overflow: TextOverflow.clip)),
@@ -150,15 +147,3 @@ class _EventsCardDetailsState extends State<EventsCardDetails> {
                     ])))));
   }
 }
-
-// class DataToMap {
-//   final dynamic bgcolor;
-//   // final dynamic json;
-//   // final dynamic ID;
-
-//   DataToMap({
-//     required this.bgcolor,
-//     // required this.json,
-//     // required this.ID,
-//   });
-// }

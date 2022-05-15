@@ -252,6 +252,8 @@ class _CatalogHousesListState extends State<CatalogHousesList> {
                                     arguments: DataToMap(
                                       bgcolor: bgColorHousesAppBar,
                                       itemId: items[index].iD,
+                                      streetHouse: items[index].street,
+                                      numberHouse: items[index].house,
                                       caretakerName: items[index].caretaker![0].caretakerName,
                                       caretakerDadname: items[index].caretaker![0].caretakerDadname,
                                       caretakerSurname: items[index].caretaker![0].caretakerSurname,

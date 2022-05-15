@@ -2,6 +2,8 @@ class DataToMap {
   final dynamic bgcolor;
   //for houses
   final dynamic itemId;
+  final dynamic streetHouse;
+  final dynamic numberHouse;
   final dynamic caretakerName;
   final dynamic caretakerDadname;
   final dynamic caretakerSurname;
@@ -41,6 +43,8 @@ class DataToMap {
 
     //for houses
     this.itemId,
+    this.streetHouse,
+    this.numberHouse,
     this.caretakerName,
     this.caretakerDadname,
     this.caretakerSurname,

@@ -26,8 +26,7 @@ class _HousesCardDetailsState extends State<HousesCardDetails> {
 
     return Scaffold(
         appBar: AppBar(
-          //TODO: передать аргументы
-          title: const Text('Адрес'),
+          title: Text(args.streetHouse + " " + args.numberHouse),
           centerTitle: true,
           backgroundColor: args.bgcolor,
           actions: <Widget>[
@@ -37,8 +36,6 @@ class _HousesCardDetailsState extends State<HousesCardDetails> {
                 size: 30,
               ),
               onPressed: () {
-                // DataToMap dataToMap = DataToMap(bgcolor: bgColorHousesAppBar);
-                // Navigator.pushNamed(context, '/card_map', arguments: dataToMap);
                 Navigator.pushNamed(context, '/card_map', arguments: DataToMap(bgcolor: args.bgcolor));
               },
             ),

@@ -230,16 +230,19 @@ class _CatalogEventsListState extends State<CatalogEventsList> {
                               ),
                             ),
                             onTap: () => {
-                                  // colorappbar =
-                                  //     DataToCard(bgcolor: this.data.bgcolor),
                               Navigator.pushNamed(
                                   context, '/event_card_details',
                                   arguments: DataToMap(
                                     bgcolor: bgColorEventsAppBar,
-
+                                    eventName: items[index].eventName,
+                                    eventDesc: items[index].description,
+                                    eventType: items[index].eventType,
+                                    eventPlace: items[index].place,
+                                    eventDate: items[index].date,
+                                    eventTime: items[index].time,
+                                    eventImg: items[index].image,
                                   )
                               )
-
                             })
                         : Container();
                   },
@@ -256,17 +259,3 @@ class _CatalogEventsListState extends State<CatalogEventsList> {
     );
   }
 }
-
-// class DataToCard {
-//   final dynamic bgcolor;
-//   final dynamic adress;
-//   final dynamic json;
-//   final dynamic ID;
-
-//   DataToCard({
-//     required this.bgcolor,
-//     required this.adress,
-//     required this.json,
-//     required this.ID,
-//   });
-// }
