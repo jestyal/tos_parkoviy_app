@@ -26,7 +26,12 @@ class _EventsCardDetailsState extends State<EventsCardDetails> {
                 size: 30,
               ),
               onPressed: () {
-                Navigator.pushNamed(context, '/card_map', arguments: DataToMap(bgcolor: args.bgcolor));
+                Navigator.pushNamed(context, '/card_map', arguments: DataToMap(
+                    bgcolor: args.bgcolor,
+                  eventPlace: args.eventPlace,
+                  eventLongitude: args.eventLongitude,
+                  eventLatitude: args.eventLatitude,
+                ));
               },
             ),
           ],

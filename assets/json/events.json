@@ -13,8 +13,8 @@
     "place":"Место1",
     "date": "15 мая 2022",
     "time": "13:00",
-    "longitude": "37.701767",
-    "latitude": "54.208625",
+    "longitude": 37.701767,
+    "latitude": 54.208625,
     "image": "assets/images/event.jpeg"
 },
 
@@ -33,8 +33,8 @@
     "place":"Место2",
     "date": "15 мая 2022",
     "time": "10:00",
-    "longitude": "36.604532",
-    "latitude": "53.196765",
+    "longitude": 36.604532,
+    "latitude": 53.196765,
     "image": "assets/images/event.jpeg"
 },
 
@@ -53,8 +53,8 @@
     "place":"Место3",
     "date": "Дата3",
     "time": "Время3",
-    "longitude": "35.601574",
-    "latitude": "55.187525",
+    "longitude": 35.601574,
+    "latitude": 55.187525,
     "image": "assets/images/event.jpeg"
 },
 {
@@ -72,8 +72,8 @@
     "place":"Место4",
     "date": "Дата4",
     "time": "Время4",
-    "longitude": "37.502600",
-    "latitude": "54.186793",
+    "longitude": 37.502600,
+    "latitude": 54.186793,
     "image": "assets/images/event.jpeg"
 }
 ]}

@@ -36,7 +36,13 @@ class _HousesCardDetailsState extends State<HousesCardDetails> {
                 size: 30,
               ),
               onPressed: () {
-                Navigator.pushNamed(context, '/card_map', arguments: DataToMap(bgcolor: args.bgcolor));
+                Navigator.pushNamed(context, '/card_map', arguments: DataToMap(
+                    bgcolor: args.bgcolor,
+                  streetHouse: args.streetHouse,
+                  numberHouse: args.numberHouse,
+                  houseLongitude: args.houseLongitude,
+                  houseLatitude: args.houseLatitude,
+                ));
               },
             ),
           ],

@@ -39,8 +39,8 @@ class Location {
   String? fullDescr;
   String? street;
   String? house;
-  String? longitude;
-  String? latitude;
+  double? longitude;
+  double? latitude;
   String? image;
 
   Location(

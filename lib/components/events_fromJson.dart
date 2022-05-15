@@ -38,8 +38,8 @@ class Event {
   String? place;
   String? date;
   String? time;
-  String? longitude;
-  String? latitude;
+  double? longitude;
+  double? latitude;
   String? image;
 
   Event(

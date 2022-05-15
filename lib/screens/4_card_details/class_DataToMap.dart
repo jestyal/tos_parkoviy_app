@@ -24,6 +24,8 @@ class DataToMap {
   final dynamic refurbishmentHeatingCondition;
   final dynamic refurbishmentGasYear;
   final dynamic refurbishmentGasCondition;
+  final dynamic houseLongitude;
+  final dynamic houseLatitude;
 
   //for events
   final dynamic eventId;
@@ -34,6 +36,8 @@ class DataToMap {
   final dynamic eventDate;
   final dynamic eventTime;
   final dynamic eventImg;
+  final dynamic eventLongitude;
+  final dynamic eventLatitude;
 
   //for organizations
   final dynamic organizationId;
@@ -57,6 +61,8 @@ class DataToMap {
   final dynamic locationStreet;
   final dynamic locationHouse;
   final dynamic locationImage;
+  final dynamic locationLongitude;
+  final dynamic locationLatitude;
 
   DataToMap({
     required this.bgcolor,
@@ -85,6 +91,8 @@ class DataToMap {
     this.refurbishmentHeatingCondition,
     this.refurbishmentGasYear,
     this.refurbishmentGasCondition,
+    this.houseLatitude,
+    this.houseLongitude,
 
     //for events
     this.eventId,
@@ -95,6 +103,8 @@ class DataToMap {
     this.eventDate,
     this.eventTime,
     this.eventImg,
+    this.eventLatitude,
+    this.eventLongitude,
 
     //for organizations
     this.organizationId,
@@ -118,6 +128,8 @@ class DataToMap {
     this.locationStreet,
     this.locationHouse,
     this.locationImage,
+    this.locationLatitude,
+    this.locationLongitude,
 
   });
 }

@@ -39,8 +39,8 @@ class House {
   int? year;
   String? serviceProvider;
   List<Refurbishment>? refurbishment;
-  String? longitude;
-  String? latitude;
+  double? longitude;
+  double? latitude;
 
   House(
       {this.iD,
