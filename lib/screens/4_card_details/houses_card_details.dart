@@ -76,7 +76,12 @@ class _HousesCardDetailsState extends State<HousesCardDetails> {
                             ],
                           )),
                       const SizedBox(height: 7),
-                      Caretaker(),
+                      Caretaker(
+                        name: args.caretakerName,
+                        dadname: args.caretakerDadname,
+                        surname: args.caretakerSurname,
+                        contact: args.caretakerContact,
+                      ),
                       const SizedBox(height: 7),
                       Container(
                           padding: const EdgeInsets.all(5),
@@ -94,7 +99,10 @@ class _HousesCardDetailsState extends State<HousesCardDetails> {
                             ],
                           )),
                       const SizedBox(height: 7),
-                      Information(),
+                      Information(
+                        year: args.houseYear,
+                        serviceProvider: args.serviceProvider,
+                      ),
                       const SizedBox(height: 7),
                       Container(
                           padding: const EdgeInsets.all(5),
@@ -103,8 +111,8 @@ class _HousesCardDetailsState extends State<HousesCardDetails> {
                               color: bgColorHouses),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              const Text('Капитальный ремонт',
+                            children: const [
+                              Text('Капитальный ремонт',
                                   style: TextStyle(
                                     fontSize: 22,
                                     fontWeight: FontWeight.bold,
@@ -112,14 +120,33 @@ class _HousesCardDetailsState extends State<HousesCardDetails> {
                             ],
                           )),
                       const SizedBox(height: 7),
-                      Refurbishment(),
+                      Refurbishment(
+                          refurbishmentRoofYear: args.refurbishmentRoofYear,
+                          refurbishmentFrontYear: args.refurbishmentFrontYear,
+                          refurbishmentElectronicsYear: args.refurbishmentElectronicsYear,
+                          refurbishmentWaterYear: args.refurbishmentWaterYear,
+                          refurbishmentSewerageYear: args.refurbishmentSewerageYear,
+                          refurbishmentHeatingYear: args.refurbishmentHeatingYear,
+                          refurbishmentGasYear: args.refurbishmentGasYear,
+                      ),
                     ])))));
   }
 }
 
 
 class Caretaker extends StatelessWidget {
-  const Caretaker({Key? key}) : super(key: key);
+  final String? name;
+  final String? surname;
+  final String? dadname;
+  final int? contact;
+
+  const Caretaker({
+    Key? key,
+    this.name,
+    this.surname,
+    this.dadname,
+    this.contact,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -139,9 +166,10 @@ class Caretaker extends StatelessWidget {
                     )),
                 Container(
                     margin: const EdgeInsets.fromLTRB(0, 15, 0, 2),
-                    child: const Text(
-                      'caretakerName',
-                      style: TextStyle(fontSize: 18),
+                    child: Text(
+                      // 'caretakerName',
+                      name.toString(),
+                      style: const TextStyle(fontSize: 18),
                     )),
               ],
             ),
@@ -155,9 +183,10 @@ class Caretaker extends StatelessWidget {
                     )),
                 Container(
                     margin: const EdgeInsets.fromLTRB(0, 2, 0, 2),
-                    child: const Text(
-                      'caretakerDadname',
-                      style: TextStyle(fontSize: 18),
+                    child: Text(
+                      // 'caretakerDadname',
+                      dadname.toString(),
+                      style: const TextStyle(fontSize: 18),
                     )),
               ],
             ),
@@ -171,9 +200,10 @@ class Caretaker extends StatelessWidget {
                     )),
                 Container(
                     margin: const EdgeInsets.fromLTRB(0, 2, 0, 2),
-                    child: const Text(
-                      'caretakerSurname',
-                      style: TextStyle(fontSize: 18),
+                    child: Text(
+                      // 'caretakerSurname',
+                      surname.toString(),
+                      style: const TextStyle(fontSize: 18),
                     )),
               ],
             ),
@@ -183,13 +213,13 @@ class Caretaker extends StatelessWidget {
                     margin: const EdgeInsets.fromLTRB(15, 2, 0, 15),
                     child: const Text(
                       'Контакт',
-                      style: const TextStyle(fontSize: 18),
+                      style: TextStyle(fontSize: 18),
                     )),
                 Container(
                     margin: const EdgeInsets.fromLTRB(0, 2, 0, 15),
-                    child: const Text(
-                      'contact',
-                      style: TextStyle(fontSize: 18),
+                    child: Text(
+                      contact.toString(),
+                      style: const TextStyle(fontSize: 18),
                     )),
               ],
             ),
@@ -199,7 +229,15 @@ class Caretaker extends StatelessWidget {
 }
 
 class Information extends StatelessWidget {
-  const Information({Key? key}) : super(key: key);
+  final int? year;
+  final String? serviceProvider;
+
+  const Information({
+    Key? key,
+    this.year,
+    this.serviceProvider,
+  }) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {
@@ -220,9 +258,9 @@ class Information extends StatelessWidget {
                 Center(
                     child: Container(
                         margin: const EdgeInsets.fromLTRB(0, 15, 0, 2),
-                        child: const Text(
-                          'year',
-                          style: TextStyle(fontSize: 18),
+                        child: Text(
+                          year.toString(),
+                          style: const TextStyle(fontSize: 18),
                         ))),
               ],
             ),
@@ -238,9 +276,10 @@ class Information extends StatelessWidget {
                 Center(
                     child: Container(
                         margin: const EdgeInsets.fromLTRB(0, 2, 0, 15),
-                        child: const Text(
-                          'service_provider',
-                          style: TextStyle(fontSize: 18),
+                        child: Text(
+                          // 'service_provider',
+                          serviceProvider.toString(),
+                          style: const TextStyle(fontSize: 18),
                         ))),
               ],
             ),
@@ -250,7 +289,25 @@ class Information extends StatelessWidget {
 }
 
 class Refurbishment extends StatelessWidget {
-  const Refurbishment({Key? key}) : super(key: key);
+  final int? refurbishmentRoofYear;
+  final int? refurbishmentFrontYear;
+  final int? refurbishmentElectronicsYear;
+  final int? refurbishmentWaterYear;
+  final int? refurbishmentSewerageYear;
+  final int? refurbishmentHeatingYear;
+  final int? refurbishmentGasYear;
+
+  const Refurbishment({
+    Key? key,
+    this.refurbishmentRoofYear,
+    this.refurbishmentFrontYear,
+    this.refurbishmentElectronicsYear,
+    this.refurbishmentWaterYear,
+    this.refurbishmentSewerageYear,
+    this.refurbishmentHeatingYear,
+    this.refurbishmentGasYear,
+  }) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {
@@ -302,9 +359,9 @@ class Refurbishment extends StatelessWidget {
                 Center(
                     child: Container(
                         margin: const EdgeInsets.fromLTRB(0, 2, 0, 2),
-                        child: const Text(
-                          'year',
-                          style: TextStyle(fontSize: 18),
+                        child: Text(
+                          refurbishmentRoofYear.toString(),
+                          style: const TextStyle(fontSize: 18),
                         ))),
                 Center(
                     child: Container(
@@ -326,9 +383,9 @@ class Refurbishment extends StatelessWidget {
                 Center(
                     child: Container(
                         margin: const EdgeInsets.fromLTRB(0, 2, 0, 2),
-                        child: const Text(
-                          'year',
-                          style: TextStyle(fontSize: 18),
+                        child: Text(
+                          refurbishmentFrontYear.toString(),
+                          style: const TextStyle(fontSize: 18),
                         ))),
                 Center(
                     child: Container(
@@ -345,13 +402,13 @@ class Refurbishment extends StatelessWidget {
                     margin: const EdgeInsets.fromLTRB(15, 2, 0, 2),
                     child: const Text(
                       'Электрика',
-                      style: const TextStyle(fontSize: 18),
+                      style: TextStyle(fontSize: 18),
                     )),
                 Center(
                     child: Container(
                         margin: const EdgeInsets.fromLTRB(0, 2, 0, 2),
-                        child: const Text(
-                          'year',
+                        child: Text(
+                          refurbishmentElectronicsYear.toString(),
                           style: const TextStyle(fontSize: 18),
                         ))),
                 Center(
@@ -369,14 +426,14 @@ class Refurbishment extends StatelessWidget {
                     margin: const EdgeInsets.fromLTRB(15, 2, 0, 2),
                     child: const Text(
                       'Вода',
-                      style: const TextStyle(fontSize: 18),
+                      style: TextStyle(fontSize: 18),
                     )),
                 Center(
                     child: Container(
                         margin: const EdgeInsets.fromLTRB(0, 2, 0, 2),
-                        child: const Text(
-                          'year',
-                          style: TextStyle(fontSize: 18),
+                        child: Text(
+                          refurbishmentWaterYear.toString(),
+                          style: const TextStyle(fontSize: 18),
                         ))),
                 Center(
                     child: Container(
@@ -393,14 +450,14 @@ class Refurbishment extends StatelessWidget {
                     margin: const EdgeInsets.fromLTRB(15, 2, 0, 2),
                     child: const Text(
                       'Канализация',
-                      style: const TextStyle(fontSize: 18),
+                      style: TextStyle(fontSize: 18),
                     )),
                 Center(
                     child: Container(
                         margin: const EdgeInsets.fromLTRB(0, 2, 0, 2),
-                        child: const Text(
-                          'year',
-                          style: TextStyle(fontSize: 18),
+                        child: Text(
+                          refurbishmentSewerageYear.toString(),
+                          style: const TextStyle(fontSize: 18),
                         ))),
                 Center(
                     child: Container(
@@ -422,8 +479,8 @@ class Refurbishment extends StatelessWidget {
                 Center(
                     child: Container(
                         margin: const EdgeInsets.fromLTRB(0, 2, 0, 2),
-                        child: const Text(
-                          'year',
+                        child: Text(
+                          refurbishmentHeatingYear.toString(),
                           style: const TextStyle(fontSize: 18),
                         ))),
                 Center(
@@ -441,14 +498,14 @@ class Refurbishment extends StatelessWidget {
                     margin: const EdgeInsets.fromLTRB(15, 2, 0, 15),
                     child: const Text(
                       'Газ',
-                      style: const TextStyle(fontSize: 18),
+                      style: TextStyle(fontSize: 18),
                     )),
                 Center(
                     child: Container(
                         margin: const EdgeInsets.fromLTRB(0, 2, 0, 15),
-                        child: const Text(
-                          'year',
-                          style: TextStyle(fontSize: 18),
+                        child: Text(
+                          refurbishmentGasYear.toString(),
+                          style: const TextStyle(fontSize: 18),
                         ))),
                 Center(
                     child: Container(

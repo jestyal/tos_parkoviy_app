@@ -249,12 +249,27 @@ class _CatalogHousesListState extends State<CatalogHousesList> {
                             onTap: () => {
                                   // colorappbar =
                                   //     DataToCard(bgcolor: this.data.bgcolor),
-                              print(items[index].iD),
                                   Navigator.pushNamed(
                                     context, '/house_card_details',
                                     // arguments: colorappbar
                                     // arguments: DataToMap(bgcolor: bgColorHousesAppBar, itemId: items[index].iD)
-                                    arguments: DataToMap(bgcolor: Colors.pinkAccent, itemId: items[index].iD)
+                                    arguments: DataToMap(
+                                      bgcolor: bgColorHousesAppBar,
+                                      itemId: items[index].iD,
+                                      caretakerName: items[index].caretaker![0].caretakerName,
+                                      caretakerDadname: items[index].caretaker![0].caretakerDadname,
+                                      caretakerSurname: items[index].caretaker![0].caretakerSurname,
+                                      caretakerContact: items[index].caretaker![0].contact,
+                                      houseYear: items[index].year,
+                                      serviceProvider: items[index].serviceProvider,
+                                      refurbishmentRoofYear: items[index].refurbishment![0].roof![0].maintenanceYear,
+                                      refurbishmentFrontYear: items[index].refurbishment![0].front![0].maintenanceYear,
+                                      refurbishmentElectronicsYear: items[index].refurbishment![0].electronics![0].maintenanceYear,
+                                      refurbishmentWaterYear: items[index].refurbishment![0].water![0].maintenanceYear,
+                                      refurbishmentSewerageYear: items[index].refurbishment![0].sewerage![0].maintenanceYear,
+                                      refurbishmentHeatingYear: items[index].refurbishment![0].heating![0].maintenanceYear,
+                                      refurbishmentGasYear: items[index].refurbishment![0].gas![0].maintenanceYear,
+                                    )
                                   )
                                 })
                         : Container();
