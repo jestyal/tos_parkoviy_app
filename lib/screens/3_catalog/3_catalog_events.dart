@@ -175,7 +175,7 @@ class _CatalogEventsListState extends State<CatalogEventsList> {
                                               items[index].date.toString(),
                                               textAlign: TextAlign.center,
                                               style: const TextStyle(
-                                                fontSize: 16,
+                                                fontSize: 12,
                                               ),
                                             ),
                                           ],

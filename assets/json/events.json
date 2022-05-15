@@ -11,8 +11,8 @@
     }],
     "description": "Мероприятие такое-те",
     "place":"Место1",
-    "date": "Дата1",
-    "time": "Время1",
+    "date": "15 мая 2022",
+    "time": "13:00",
     "longitude": "37.701767",
     "latitude": "54.208625",
     "image": "assets/images/event.jpeg"
@@ -29,10 +29,10 @@
         "family":true,
         "voluntiiring":false
     }],
-    "description": "Мероприятие такое-те",
+    "description": "Мероприятие такое-то, то то то то то то то то",
     "place":"Место2",
-    "date": "Дата2",
-    "time": "Время2",
+    "date": "15 мая 2022",
+    "time": "10:00",
     "longitude": "36.604532",
     "latitude": "53.196765",
     "image": "assets/images/event.jpeg"

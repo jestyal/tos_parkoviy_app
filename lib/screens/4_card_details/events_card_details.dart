@@ -35,6 +35,7 @@ class _EventsCardDetailsState extends State<EventsCardDetails> {
             child: Container(
                 decoration: BoxDecoration(
                   image: DecorationImage(
+                    //TODO: растянуть бэкграунд на всю высоту
                     image:
                         const AssetImage("assets/images/backgroundimage2.jpg"),
                     fit: BoxFit.cover,
@@ -112,6 +113,7 @@ class _EventsCardDetailsState extends State<EventsCardDetails> {
                                           0, 2, 0, 15),
                                       child: Text(
                                         // args.eventType,
+                                        // TODO: как должен выводиться тип?
                                         "args.eventType",
                                         style: const TextStyle(fontSize: 18),
                                       )),
