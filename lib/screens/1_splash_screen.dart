@@ -27,7 +27,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Image.asset('assets/images/splashscreen.jpg', height: 530, width: 450),
+            Image.asset('assets/images/splashscreen.jpg', height: 530, width: 530),
             Text(" "),
             Text('ТОС «Парковый»', style: TextStyle(fontSize: 25, color: Colors.green, fontStyle: FontStyle.italic), textAlign: TextAlign.end,),
             Text(" "),
