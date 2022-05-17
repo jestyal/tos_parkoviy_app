@@ -29,9 +29,9 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
           children: [
             Image.asset('assets/images/splashscreen.jpg', height: 530, width: 530),
             Text(" "),
-            Text('ТОС «Парковый»', style: TextStyle(fontSize: 25, color: Colors.green, fontStyle: FontStyle.italic), textAlign: TextAlign.end,),
+            Text('ТОС «Парковый»', style: TextStyle(fontSize: 25, color: Colors.green, fontStyle: FontStyle.italic, fontFamily: 'Lato-Regular'), textAlign: TextAlign.end,),
             Text(" "),
-            Text('Вместе сможем больше!', style: TextStyle(fontSize: 22, color: Colors.blue, fontStyle: FontStyle.italic),textAlign: TextAlign.end,)
+            Text('Вместе сможем больше!', style: TextStyle(fontSize: 22, color: Colors.blue, fontStyle: FontStyle.italic, fontFamily: 'Lato-Regular'),textAlign: TextAlign.end,)
           ],
         ),
       )
