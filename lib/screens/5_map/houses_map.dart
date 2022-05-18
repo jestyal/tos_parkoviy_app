@@ -6,14 +6,14 @@ import 'package:tos_parkoviy_app/screens/4_card_details/class_DataToMap.dart';
 import 'dart:async';
 import 'dart:convert';
 
-class DisplayMap extends StatefulWidget {
-  const DisplayMap({Key? key}) : super(key: key);
+class HouseMap extends StatefulWidget {
+  const HouseMap({Key? key}) : super(key: key);
 
   @override
-  State<DisplayMap> createState() => _DisplayMapState();
+  State<HouseMap> createState() => _HouseMapState();
 }
 
-class _DisplayMapState extends State<DisplayMap> {
+class _HouseMapState extends State<HouseMap> {
   Set<Marker> _markers = {};
   Completer<GoogleMapController> _controller = Completer();
   Location location = Location();
@@ -45,30 +45,31 @@ class _DisplayMapState extends State<DisplayMap> {
   void initState() {
     super.initState();
     _checkLocationPermission();
-    setState(() {
-      loadMarkers();
-    });
+    // setState(() {
+    //   loadMarkers();
+    // })
+    ;
   }
 
-  Future loadMarkers() async {
-    var jsonData = await rootBundle.loadString('assets/json/coords.json');
-    var data = json.decode(jsonData);
+  // Future loadMarkers() async {
+  //   var jsonData = await rootBundle.loadString('assets/json/coords.json');
+  //   var data = json.decode(jsonData);
 
-    data["coords"].forEach((item) {
-      _markers.add(
-        Marker(
-            markerId: MarkerId(item["ID"]),
-            position: LatLng(double.parse(item["latitude"]),
-                double.parse(item["longitude"])),
-            infoWindow: InfoWindow(
-              title: item["comment"],
-            ),
-            icon:
-                BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed)),
-      );
-    });
-    setState(() {});
-  }
+  //   data["coords"].forEach((item) {
+  //     _markers.add(
+  //       Marker(
+  //           markerId: MarkerId(item["ID"]),
+  //           position: LatLng(double.parse(item["latitude"]),
+  //               double.parse(item["longitude"])),
+  //           infoWindow: InfoWindow(
+  //             title: item["comment"],
+  //           ),
+  //           icon:
+  //               BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed)),
+  //     );
+  //   });
+  //   setState(() {});
+  // }
 
   double zoomVal = 14.0;
 
@@ -125,10 +126,18 @@ class _DisplayMapState extends State<DisplayMap> {
 
     final args = ModalRoute.of(context)!.settings.arguments as DataToMap;
 
+    String comment = 'ул. ' + args.streetHouse + ', ' + args.numberHouse;
+    Marker houseMarker = Marker(
+        markerId: MarkerId(args.itemId),
+        position: LatLng(double.parse(args.houseLatitude), args.houseLongitude),
+        infoWindow: InfoWindow(
+          title: comment,
+        ),
+        icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed));
+
     return Scaffold(
         appBar: AppBar(
-          //TODO: передать аргумент
-          title: Text(args.organizationStreet + " " + args.organizationHouse),
+          title: Text("Ул." + args.streetHouse + ", " + args.numberHouse),
           centerTitle: true,
           backgroundColor: this.dataToMap.bgcolor,
           actions: <Widget>[
@@ -150,14 +159,12 @@ class _DisplayMapState extends State<DisplayMap> {
                   _controller.complete(controller);
                 },
                 initialCameraPosition: CameraPosition(
-                  // target: LatLng(54.186415, 37.599950),
-                  target: LatLng(args.organizationLatitude, args.organizationLongitude),
+                  target: LatLng(args.houseLatitude, args.houseLongitude),
                   zoom: zoomVal,
-                  // установить маркер в точку с адресом, внутри target координаты адреса (?)
                 ),
                 myLocationEnabled: true,
                 myLocationButtonEnabled: true,
-                markers: Set.from(_markers),
+                markers: {houseMarker},
                 zoomControlsEnabled: false),
             _zoomminusfunction(),
             _zoomplusfunction(),

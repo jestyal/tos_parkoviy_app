@@ -61,9 +61,9 @@
           ]
         }
       ],
-      "longitude": 56.840322,
-      "latitude": 60.620164
-    },
+      "longitude": 37.602674,
+      "latitude": 54.186991
+  },
     {
       "ID": "22",
       "caretaker": [
@@ -125,8 +125,8 @@
           ]
         }
       ],
-      "longitude": 34.599782,
-      "latitude": 54.200722
+      "longitude": 37.602784,
+      "latitude": 54.189846
     },
     {
       "ID": "23",
@@ -189,8 +189,8 @@
           ]
         }
       ],
-      "longitude": 38.607986,
-      "latitude": 54.206796
+      "longitude": 37.602947,
+      "latitude": 54.180947
     },
     {
       "ID": "24",
@@ -253,8 +253,8 @@
           ]
         }
       ],
-      "longitude": 33.695969,
-      "latitude": 54.777770
+      "longitude": 37.604998,
+      "latitude": 54.182346
     }
   ]
 }

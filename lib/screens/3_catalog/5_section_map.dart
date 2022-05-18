@@ -303,8 +303,7 @@ class _TOSMapState extends State<TOSMap> {
       _markersHouses.add(
         Marker(
             markerId: MarkerId(item["ID"]),
-            position: LatLng(double.parse(item["latitude"]),
-                double.parse(item["longitude"])),
+            position: LatLng((item["latitude"]), (item["longitude"])),
             infoWindow: InfoWindow(
               title: comment,
             ),
@@ -325,8 +324,7 @@ class _TOSMapState extends State<TOSMap> {
       _markersEvents.add(
         Marker(
             markerId: MarkerId(item["ID"]),
-            position: LatLng(double.parse(item["latitude"]),
-                double.parse(item["longitude"])),
+            position: LatLng((item["latitude"]), (item["longitude"])),
             infoWindow: InfoWindow(
               title: item["eventName"],
               snippet: comment,
@@ -349,8 +347,7 @@ class _TOSMapState extends State<TOSMap> {
       _markersPlaces.add(
         Marker(
             markerId: MarkerId(item["ID"]),
-            position: LatLng(double.parse(item["latitude"]),
-                double.parse(item["longitude"])),
+            position: LatLng((item["latitude"]), (item["longitude"])),
             infoWindow: InfoWindow(
               title: item["name"],
               snippet: comment,
@@ -374,8 +371,7 @@ class _TOSMapState extends State<TOSMap> {
       _markersOrganizations.add(
         Marker(
             markerId: MarkerId(item["ID"]),
-            position: LatLng(double.parse(item["latitude"]),
-                double.parse(item["longitude"])),
+            position: LatLng((item["latitude"]), (item["longitude"])),
             infoWindow: InfoWindow(
               title: item["name"],
               snippet: comment,

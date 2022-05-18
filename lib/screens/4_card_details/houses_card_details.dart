@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import '../../components/houses_fromJson.dart';
-import 'package:tos_parkoviy_app/screens/3_catalog/3_catalog_houses.dart';
 import 'package:tos_parkoviy_app/components/constants.dart';
 import 'package:tos_parkoviy_app/screens/4_card_details/class_DataToMap.dart';
 
@@ -26,7 +24,7 @@ class _HousesCardDetailsState extends State<HousesCardDetails> {
 
     return Scaffold(
         appBar: AppBar(
-          title: Text(args.streetHouse + " " + args.numberHouse),
+          title: Text("Ул." + args.streetHouse + ", " + args.numberHouse),
           centerTitle: true,
           backgroundColor: args.bgcolor,
           actions: <Widget>[
@@ -36,14 +34,15 @@ class _HousesCardDetailsState extends State<HousesCardDetails> {
                 size: 30,
               ),
               onPressed: () {
-                Navigator.pushNamed(context, '/card_map', arguments: DataToMap(
-                    bgcolor: args.bgcolor,
-                  whatIsThis: "house",
-                  streetHouse: args.streetHouse,
-                  numberHouse: args.numberHouse,
-                  houseLongitude: args.houseLongitude,
-                  houseLatitude: args.houseLatitude,
-                ));
+                Navigator.pushNamed(context, '/house_map',
+                    arguments: DataToMap(
+                      bgcolor: args.bgcolor,
+                      whatIsThis: "house",
+                      streetHouse: args.streetHouse,
+                      numberHouse: args.numberHouse,
+                      houseLongitude: args.houseLongitude,
+                      houseLatitude: args.houseLatitude,
+                    ));
               },
             ),
           ],
@@ -125,25 +124,33 @@ class _HousesCardDetailsState extends State<HousesCardDetails> {
                           )),
                       const SizedBox(height: 7),
                       Refurbishment(
-                          refurbishmentRoofYear: args.refurbishmentRoofYear,
-                          refurbishmentRoofCondition: args.refurbishmentRoofCondition,
-                          refurbishmentFrontYear: args.refurbishmentFrontYear,
-                          refurbishmentFrontCondition: args.refurbishmentFrontCondition,
-                          refurbishmentElectronicsYear: args.refurbishmentElectronicsYear,
-                          refurbishmentElectronicsCondition: args.refurbishmentElectronicsCondition,
-                          refurbishmentWaterYear: args.refurbishmentWaterYear,
-                          refurbishmentWaterCondition: args.refurbishmentWaterCondition,
-                          refurbishmentSewerageYear: args.refurbishmentSewerageYear,
-                          refurbishmentSewerageCondition: args.refurbishmentSewerageCondition,
-                          refurbishmentHeatingYear: args.refurbishmentHeatingYear,
-                          refurbishmentHeatingCondition: args.refurbishmentHeatingCondition,
-                          refurbishmentGasYear: args.refurbishmentGasYear,
-                          refurbishmentGasCondition: args.refurbishmentGasCondition,
+                        refurbishmentRoofYear: args.refurbishmentRoofYear,
+                        refurbishmentRoofCondition:
+                            args.refurbishmentRoofCondition,
+                        refurbishmentFrontYear: args.refurbishmentFrontYear,
+                        refurbishmentFrontCondition:
+                            args.refurbishmentFrontCondition,
+                        refurbishmentElectronicsYear:
+                            args.refurbishmentElectronicsYear,
+                        refurbishmentElectronicsCondition:
+                            args.refurbishmentElectronicsCondition,
+                        refurbishmentWaterYear: args.refurbishmentWaterYear,
+                        refurbishmentWaterCondition:
+                            args.refurbishmentWaterCondition,
+                        refurbishmentSewerageYear:
+                            args.refurbishmentSewerageYear,
+                        refurbishmentSewerageCondition:
+                            args.refurbishmentSewerageCondition,
+                        refurbishmentHeatingYear: args.refurbishmentHeatingYear,
+                        refurbishmentHeatingCondition:
+                            args.refurbishmentHeatingCondition,
+                        refurbishmentGasYear: args.refurbishmentGasYear,
+                        refurbishmentGasCondition:
+                            args.refurbishmentGasCondition,
                       ),
                     ])))));
   }
 }
-
 
 class Caretaker extends StatelessWidget {
   final String? name;
@@ -248,7 +255,6 @@ class Information extends StatelessWidget {
     this.year,
     this.serviceProvider,
   }) : super(key: key);
-
 
   @override
   Widget build(BuildContext context) {
@@ -391,7 +397,9 @@ class Refurbishment extends StatelessWidget {
                     child: Container(
                         margin: const EdgeInsets.fromLTRB(0, 2, 15, 2),
                         child: Icon(
-                          isTrue(refurbishmentRoofCondition) ? Icons.done : Icons.close,
+                          isTrue(refurbishmentRoofCondition)
+                              ? Icons.done
+                              : Icons.close,
                           size: 30,
                         ))),
               ],
@@ -415,7 +423,9 @@ class Refurbishment extends StatelessWidget {
                     child: Container(
                         margin: const EdgeInsets.fromLTRB(0, 2, 15, 2),
                         child: Icon(
-                          isTrue(refurbishmentFrontCondition) ? Icons.done : Icons.close,
+                          isTrue(refurbishmentFrontCondition)
+                              ? Icons.done
+                              : Icons.close,
                           size: 30,
                         ))),
               ],
@@ -439,7 +449,9 @@ class Refurbishment extends StatelessWidget {
                     child: Container(
                         margin: const EdgeInsets.fromLTRB(0, 2, 15, 2),
                         child: Icon(
-                          isTrue(refurbishmentElectronicsCondition) ? Icons.done : Icons.close,
+                          isTrue(refurbishmentElectronicsCondition)
+                              ? Icons.done
+                              : Icons.close,
                           size: 30,
                         ))),
               ],
@@ -463,7 +475,9 @@ class Refurbishment extends StatelessWidget {
                     child: Container(
                         margin: const EdgeInsets.fromLTRB(0, 2, 15, 2),
                         child: Icon(
-                          isTrue(refurbishmentWaterCondition) ? Icons.done : Icons.close,
+                          isTrue(refurbishmentWaterCondition)
+                              ? Icons.done
+                              : Icons.close,
                           size: 30,
                         ))),
               ],
@@ -487,7 +501,9 @@ class Refurbishment extends StatelessWidget {
                     child: Container(
                         margin: const EdgeInsets.fromLTRB(0, 2, 15, 2),
                         child: Icon(
-                          isTrue(refurbishmentSewerageCondition) ? Icons.done : Icons.close,
+                          isTrue(refurbishmentSewerageCondition)
+                              ? Icons.done
+                              : Icons.close,
                           size: 30,
                         ))),
               ],
@@ -511,7 +527,9 @@ class Refurbishment extends StatelessWidget {
                     child: Container(
                         margin: const EdgeInsets.fromLTRB(0, 2, 15, 2),
                         child: Icon(
-                          isTrue(refurbishmentHeatingCondition) ? Icons.done : Icons.close,
+                          isTrue(refurbishmentHeatingCondition)
+                              ? Icons.done
+                              : Icons.close,
                           size: 30,
                         ))),
               ],
@@ -535,7 +553,9 @@ class Refurbishment extends StatelessWidget {
                     child: Container(
                         margin: const EdgeInsets.fromLTRB(0, 2, 15, 15),
                         child: Icon(
-                          isTrue(refurbishmentGasCondition) ? Icons.done : Icons.close,
+                          isTrue(refurbishmentGasCondition)
+                              ? Icons.done
+                              : Icons.close,
                           size: 30,
                         ))),
               ],
@@ -543,10 +563,9 @@ class Refurbishment extends StatelessWidget {
           ],
         ));
   }
-
 }
 
-bool isTrue (bool? a) {
+bool isTrue(bool? a) {
   if (a == null) {
     return false;
   }
