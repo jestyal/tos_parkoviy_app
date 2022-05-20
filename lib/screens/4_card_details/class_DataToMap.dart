@@ -133,6 +133,5 @@ class DataToMap {
     this.locationImage,
     this.locationLatitude,
     this.locationLongitude,
-
   });
 }

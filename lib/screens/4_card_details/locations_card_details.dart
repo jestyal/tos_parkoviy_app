@@ -10,7 +10,6 @@ class LocationsCardDetails extends StatefulWidget {
 }
 
 class _LocationsCardDetailsState extends State<LocationsCardDetails> {
-
   @override
   Widget build(BuildContext context) {
     final args = ModalRoute.of(context)!.settings.arguments as DataToMap;
@@ -27,14 +26,16 @@ class _LocationsCardDetailsState extends State<LocationsCardDetails> {
                 size: 30,
               ),
               onPressed: () {
-                Navigator.pushNamed(context, '/card_map', arguments: DataToMap(
-                    bgcolor: args.bgcolor,
-                  whatIsThis: "location",
-                  locationStreet: args.locationStreet,
-                  locationHouse: args.locationHouse,
-                  locationLatitude: args.locationLatitude,
-                  locationLongitude: args.locationLongitude,
-                ));
+                Navigator.pushNamed(context, '/location_map',
+                    arguments: DataToMap(
+                      bgcolor: args.bgcolor,
+                      whatIsThis: "location",
+                      locationName: args.locationName,
+                      locationStreet: args.locationStreet,
+                      locationHouse: args.locationHouse,
+                      locationLatitude: args.locationLatitude,
+                      locationLongitude: args.locationLongitude,
+                    ));
               },
             ),
           ],
@@ -81,8 +82,11 @@ class _LocationsCardDetailsState extends State<LocationsCardDetails> {
                                       child: Align(
                                           alignment: Alignment.centerLeft,
                                           child: Text(
-                                            args.locationStreet + ' ' + args.locationHouse,
-                                            style: const TextStyle(fontSize: 18),
+                                            args.locationStreet +
+                                                ' ' +
+                                                args.locationHouse,
+                                            style:
+                                                const TextStyle(fontSize: 18),
                                           ))),
                                 ],
                               ),
@@ -107,7 +111,8 @@ class _LocationsCardDetailsState extends State<LocationsCardDetails> {
                                           alignment: Alignment.centerLeft,
                                           child: Text(
                                             args.locationType,
-                                            style: const TextStyle(fontSize: 18),
+                                            style:
+                                                const TextStyle(fontSize: 18),
                                           ))),
                                 ],
                               ),
@@ -159,7 +164,8 @@ class _LocationsCardDetailsState extends State<LocationsCardDetails> {
                                           alignment: Alignment.centerLeft,
                                           child: Text(
                                             args.locationFinance,
-                                            style: const TextStyle(fontSize: 18),
+                                            style:
+                                                const TextStyle(fontSize: 18),
                                           ))),
                                 ],
                               ),
@@ -181,8 +187,7 @@ class _LocationsCardDetailsState extends State<LocationsCardDetails> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Flexible(
-                                  child: Text(
-                                      args.locationFullDescr,
+                                  child: Text(args.locationFullDescr,
                                       style: const TextStyle(
                                         fontSize: 18,
                                       ),

@@ -10,21 +10,13 @@ class HousesCardDetails extends StatefulWidget {
 }
 
 class _HousesCardDetailsState extends State<HousesCardDetails> {
-  // late final DataToCard colorappbar;
-
-  // @override
-  // void initState() {}
-
   @override
   Widget build(BuildContext context) {
-    // RouteSettings settings = ModalRoute.of(context)!.settings;
-    // colorappbar = settings.arguments as DataToCard;
-
     final args = ModalRoute.of(context)!.settings.arguments as DataToMap;
 
     return Scaffold(
         appBar: AppBar(
-          title: Text("Ул." + args.streetHouse + ", " + args.numberHouse),
+          title: Text("Ул. " + args.streetHouse + ", " + args.numberHouse),
           centerTitle: true,
           backgroundColor: args.bgcolor,
           actions: <Widget>[
@@ -185,7 +177,6 @@ class Caretaker extends StatelessWidget {
                 Container(
                     margin: const EdgeInsets.fromLTRB(0, 15, 0, 2),
                     child: Text(
-                      // 'caretakerName',
                       name.toString(),
                       style: const TextStyle(fontSize: 18),
                     )),
@@ -202,7 +193,6 @@ class Caretaker extends StatelessWidget {
                 Container(
                     margin: const EdgeInsets.fromLTRB(0, 2, 0, 2),
                     child: Text(
-                      // 'caretakerDadname',
                       dadname.toString(),
                       style: const TextStyle(fontSize: 18),
                     )),
@@ -219,7 +209,6 @@ class Caretaker extends StatelessWidget {
                 Container(
                     margin: const EdgeInsets.fromLTRB(0, 2, 0, 2),
                     child: Text(
-                      // 'caretakerSurname',
                       surname.toString(),
                       style: const TextStyle(fontSize: 18),
                     )),
@@ -294,7 +283,6 @@ class Information extends StatelessWidget {
                     child: Container(
                         margin: const EdgeInsets.fromLTRB(0, 2, 0, 15),
                         child: Text(
-                          // 'service_provider',
                           serviceProvider.toString(),
                           style: const TextStyle(fontSize: 18),
                         ))),

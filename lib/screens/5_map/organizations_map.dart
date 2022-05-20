@@ -3,14 +3,14 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:tos_parkoviy_app/screens/4_card_details/class_DataToMap.dart';
 import 'dart:async';
 
-class HouseMap extends StatefulWidget {
-  const HouseMap({Key? key}) : super(key: key);
+class OrganizationMap extends StatefulWidget {
+  const OrganizationMap({Key? key}) : super(key: key);
 
   @override
-  State<HouseMap> createState() => _HouseMapState();
+  State<OrganizationMap> createState() => _OrganizationMapState();
 }
 
-class _HouseMapState extends State<HouseMap> {
+class _OrganizationMapState extends State<OrganizationMap> {
   final Set<Marker> _markers = {};
   final Completer<GoogleMapController> _controller = Completer();
 
@@ -20,16 +20,16 @@ class _HouseMapState extends State<HouseMap> {
   }
 
   Future _addMarker() async {
-    String comment =
-        'ул. ' + dataToMap.streetHouse + ', ' + dataToMap.numberHouse;
+    String comment = dataToMap.organizationName.toString();
     BitmapDescriptor marker = await BitmapDescriptor.fromAssetImage(
       const ImageConfiguration(),
-      'assets/icons/pin_house.png',
+      'assets/icons/pin_intstitute.png',
     );
     _markers.add(Marker(
       markerId: const MarkerId('main target'),
       infoWindow: InfoWindow(title: comment),
-      position: LatLng(dataToMap.houseLatitude, dataToMap.houseLongitude),
+      position: LatLng(
+          dataToMap.organizationLatitude, dataToMap.organizationLongitude),
       icon: marker,
     ));
 
@@ -73,14 +73,16 @@ class _HouseMapState extends State<HouseMap> {
   Future<void> _minus(double zoomVal) async {
     final GoogleMapController controller = await _controller.future;
     controller.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(
-        target: LatLng(dataToMap.houseLatitude, dataToMap.houseLongitude),
+        target: LatLng(
+            dataToMap.organizationLatitude, dataToMap.organizationLongitude),
         zoom: zoomVal)));
   }
 
   Future<void> _plus(double zoomVal) async {
     final GoogleMapController controller = await _controller.future;
     controller.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(
-        target: LatLng(dataToMap.houseLatitude, dataToMap.houseLongitude),
+        target: LatLng(
+            dataToMap.organizationLatitude, dataToMap.organizationLongitude),
         zoom: zoomVal)));
   }
 
@@ -95,8 +97,7 @@ class _HouseMapState extends State<HouseMap> {
 
     return Scaffold(
         appBar: AppBar(
-          title: Text(
-              "Ул. " + dataToMap.streetHouse + ", " + dataToMap.numberHouse),
+          title: Text(dataToMap.organizationName.toString()),
           centerTitle: true,
           backgroundColor: dataToMap.bgcolor,
           actions: <Widget>[
@@ -118,8 +119,8 @@ class _HouseMapState extends State<HouseMap> {
                   _controller.complete(controller);
                 },
                 initialCameraPosition: CameraPosition(
-                  target:
-                      LatLng(dataToMap.houseLatitude, dataToMap.houseLongitude),
+                  target: LatLng(dataToMap.organizationLatitude,
+                      dataToMap.organizationLongitude),
                   zoom: zoomVal,
                 ),
                 myLocationEnabled: false,

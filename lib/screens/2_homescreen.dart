@@ -58,32 +58,24 @@ class Body extends StatelessWidget {
             icon: 'assets/icons/houses.png',
             bgcolor: bgColorHousesAppBar,
             title: 'Дома',
-            // colorSquare: bgColorHouses,
-            // json: 'assets/json/houses.json',
             pathName: '/catalog_houses',
           ),
           MenuCard(
             icon: 'assets/icons/events.png',
             bgcolor: bgColorEventsAppBar,
             title: 'Мероприятия',
-            // colorSquare: bgColorEvents,
-            // json: 'assets/json/events.json',
             pathName: '/catalog_events',
           ),
           MenuCard(
             icon: 'assets/icons/locations.png',
             bgcolor: bgColorPlacesAppBar,
             title: 'Пространства',
-            // colorSquare: bgColorPlaces,
-            // json: 'assets/json/locations.json',
             pathName: '/catalog_locations',
           ),
           MenuCard(
             icon: 'assets/icons/organizations.png',
             bgcolor: bgColorOrganizationsAppBar,
             title: 'Организации',
-            // colorSquare: bgColorOrganizations,
-            // json: 'assets/json/organizations.json',
             pathName: '/catalog_organizations',
           ),
           Container(
@@ -123,19 +115,16 @@ class Body extends StatelessWidget {
 class MenuCard extends StatelessWidget {
   late String icon;
   late String title;
-  // late String json;
   late String pathName;
   dynamic bgcolor;
-  // dynamic colorSquare;
 
   MenuCard({
+    Key? key,
     required this.icon,
     required this.bgcolor,
     required this.title,
     required this.pathName,
-    // required this.colorSquare,
-    // required this.json
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -148,29 +137,23 @@ class MenuCard extends StatelessWidget {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(150)),
         onPressed: () {
           {
-            // Data data = Data(
-            //   title: this.title,
-            //   bgcolor: this.bgcolor,
-            //   colorSquare: colorSquare,
-            //   // json: json
-            // );
             Navigator.pushNamed(
-              context, this.pathName,
-              // arguments: data
+              context,
+              pathName,
             );
           }
         },
         child: Row(
           children: [
             Image.asset(
-              '$icon',
+              icon,
               width: 60,
               height: 60,
             ),
             const SizedBox(width: 25),
             Text(
-              '$title',
-              style: TextStyle(fontSize: 23, color: Colors.white),
+              title,
+              style: const TextStyle(fontSize: 23, color: Colors.white),
             ),
           ],
         ),
@@ -178,16 +161,3 @@ class MenuCard extends StatelessWidget {
     );
   }
 }
-
-// class Data {
-//   final dynamic title;
-//   final dynamic bgcolor;
-//   final dynamic json;
-//   final dynamic colorSquare;
-
-//   Data(
-//       {required this.title,
-//       required this.bgcolor,
-//       required this.json,
-//       required this.colorSquare});
-// }

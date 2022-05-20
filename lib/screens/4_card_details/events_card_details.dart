@@ -26,13 +26,15 @@ class _EventsCardDetailsState extends State<EventsCardDetails> {
                 size: 30,
               ),
               onPressed: () {
-                Navigator.pushNamed(context, '/card_map', arguments: DataToMap(
-                    bgcolor: args.bgcolor,
-                  whatIsThis: "event",
-                  eventPlace: args.eventPlace,
-                  eventLongitude: args.eventLongitude,
-                  eventLatitude: args.eventLatitude,
-                ));
+                Navigator.pushNamed(context, '/event_map',
+                    arguments: DataToMap(
+                      bgcolor: args.bgcolor,
+                      whatIsThis: "event",
+                      eventName: args.eventName,
+                      eventPlace: args.eventPlace,
+                      eventLongitude: args.eventLongitude,
+                      eventLatitude: args.eventLatitude,
+                    ));
               },
             ),
           ],
@@ -143,8 +145,7 @@ class _EventsCardDetailsState extends State<EventsCardDetails> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Flexible(
-                                  child: Text(
-                                      args.eventDesc,
+                                  child: Text(args.eventDesc,
                                       style: const TextStyle(
                                         fontSize: 18,
                                       ),

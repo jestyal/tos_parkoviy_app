@@ -8,6 +8,9 @@ import 'package:tos_parkoviy_app/screens/3_catalog/3_catalog_houses.dart';
 import 'package:tos_parkoviy_app/screens/4_card_details/locations_card_details.dart';
 import 'package:tos_parkoviy_app/screens/4_card_details/organizations_card_details.dart';
 import 'package:tos_parkoviy_app/screens/5_map/houses_map.dart';
+import 'package:tos_parkoviy_app/screens/5_map/events_map.dart';
+import 'package:tos_parkoviy_app/screens/5_map/locations_map.dart';
+import 'package:tos_parkoviy_app/screens/5_map/organizations_map.dart';
 import 'package:tos_parkoviy_app/screens/2_homescreen.dart';
 import 'screens/1_splash_screen.dart';
 
@@ -33,9 +36,9 @@ class MyApp extends StatelessWidget {
         '/organization_card_details': (context) =>
             const OrganizationsCardDetails(),
         '/house_map': (context) => const HouseMap(),
-        // '/event_map': (context) => const DisplayMap(),
-        // '/organization_map': (context) => const DisplayMap(),
-        // '/location_map': (context) => const DisplayMap(),
+        '/event_map': (context) => const EventMap(),
+        '/organization_map': (context) => const OrganizationMap(),
+        '/location_map': (context) => const LocationMap(),
       },
       debugShowCheckedModeBanner: false,
       title: 'ТОС Парковый',

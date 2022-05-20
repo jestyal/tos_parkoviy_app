@@ -27,14 +27,16 @@ class _OrganizationsCardDetailsState extends State<OrganizationsCardDetails> {
                 size: 30,
               ),
               onPressed: () {
-                Navigator.pushNamed(context, '/card_map', arguments: DataToMap(
-                    bgcolor: args.bgcolor,
-                    whatIsThis: "organization",
-                    organizationStreet: args.organizationStreet,
-                    organizationHouse: args.organizationHouse,
-                    organizationLatitude: args.organizationLatitude,
-                    organizationLongitude: args.organizationLongitude,
-                ));
+                Navigator.pushNamed(context, '/organization_map',
+                    arguments: DataToMap(
+                      bgcolor: args.bgcolor,
+                      whatIsThis: "organization",
+                      organizationName: args.organizationName,
+                      organizationStreet: args.organizationStreet,
+                      organizationHouse: args.organizationHouse,
+                      organizationLatitude: args.organizationLatitude,
+                      organizationLongitude: args.organizationLongitude,
+                    ));
               },
             ),
           ],
@@ -81,8 +83,11 @@ class _OrganizationsCardDetailsState extends State<OrganizationsCardDetails> {
                                       child: Align(
                                           alignment: Alignment.centerLeft,
                                           child: Text(
-                                            args.organizationStreet + " " + args.organizationHouse,
-                                            style: const TextStyle(fontSize: 18),
+                                            args.organizationStreet +
+                                                " " +
+                                                args.organizationHouse,
+                                            style:
+                                                const TextStyle(fontSize: 18),
                                           ))),
                                 ],
                               ),
@@ -107,7 +112,8 @@ class _OrganizationsCardDetailsState extends State<OrganizationsCardDetails> {
                                           alignment: Alignment.centerLeft,
                                           child: Text(
                                             args.organizationType,
-                                            style: const TextStyle(fontSize: 18),
+                                            style:
+                                                const TextStyle(fontSize: 18),
                                           ))),
                                 ],
                               ),
@@ -129,8 +135,7 @@ class _OrganizationsCardDetailsState extends State<OrganizationsCardDetails> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Flexible(
-                                  child: Text(
-                                      args.organizationLongDescr,
+                                  child: Text(args.organizationLongDescr,
                                       style: const TextStyle(
                                         fontSize: 18,
                                       ),
